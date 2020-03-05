@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Meng&#39;s website  | 森林转化成二叉树实现</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.65.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="森林转化成二叉树实现" />
+<meta property="og:description" content="#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include&lt;malloc.h&gt;	#define MAX 20 /* 图的最多顶点数*/#define INF 65535 /*定义大于所有权值的一个数*/typedef enum {DGN,UDGN} GraphKind; /*DGN包括有向图和有向网，UDGN包括无向图和无向网*/ typedef char VertexType; /* 图的顶点类型 */ typedef int AdjType; /* 图的边（或弧）的类型，如果是网，则权值非负 */ typedef char zifu;	typedef int zheng; typedef struct list{ VertexType date; struct list *next; }lqlist; typedef struct Queuelist{ zheng date;	/*队列的数据类型*/ struct Queuelist *next;	}QNode, *Queue; typedef struct queuelist{ Queue front; Queue rear; }S,*PQueue; struct {	VertexType vex; AdjType lowcost; }closeedge[MAX]; typedef struct {	VertexType vexs[MAX&#43;1]; /* 表示的顶点的一维向量 */ AdjType edges[MAX&#43;1][MAX&#43;1]; /* 表示图的边（或弧）的邻接矩阵，对于无权图用1或0表示顶点是否相邻，对于带权图，则为权值类型 */ int n,e; /* n表示当前顶点数 e表示当前的边数（弧数） */ }MGraph; /*为了避免元素的位序与C语言数组的表示之间的错位，不使用C语言中数组的零元素*/ void InitQueue(PQueue p){ p-&gt;front=p-&gt;rear=(Queue)malloc(sizeof(QNode)); p-&gt;front-&gt;next=NULL; } void InsertQueue(PQueue p,zheng i){ Queue q; q=(Queue)malloc(sizeof(QNode)); q-&gt;date=i; q-&gt;next=NULL; if(p-&gt;rear==NULL){ p-&gt;front=q; p-&gt;rear=q; } else{ p-&gt;rear-&gt;next=q; p-&gt;rear=q; } } int DeleteQueue(PQueue p){ QNode *q; q=p-&gt;front; if(p-&gt;front==p-&gt;rear){ p-&gt;front=NULL; p-&gt;rear=NULL; } else{ p-&gt;front=p-&gt;front-&gt;next; free(q); } return p-&gt;front-&gt;date; } int panduan(PQueue p){ if(p-&gt;front==p-&gt;rear){ return 1; } else{ return 0; } } void CreateGN(MGraph* G,GraphKind gk) /*构造图*/ {	int i,j,k; AdjType w; printf(&#34;\n\t\t请输入图的顶点数和边数(格式为：顶点数，边数)\n\t\t&#34;); scanf(&#34;%d,%d&#34;,&amp;(G-&gt;n),&amp;(G-&gt;e));getchar(); /*输入图的顶点数和边数*/ for(i=1;i&lt;=G-&gt;n;i&#43;&#43;) for(j=1;j&lt;=G-&gt;n;j&#43;&#43;) G-&gt;edges[i][j]=INF; /*邻接矩阵的初始化,用INF表示边或弧的不存在*/ printf(&#34;\t\t请输入各顶点的值（该值对应的序号为它输入时的次序）：\n\t\t&#34;); for(i=1;i&lt;=G-&gt;n;i&#43;&#43;) {	scanf(&#34;%c&#34;,&amp;(G-&gt;vexs[i]));getchar();printf(&#34;\t\t&#34;); } /*构造顶点向量*/ printf(&#34;请输入边信息，如果不是网，则用1表示,否则输入权值\n&#34;); printf(&#34;\t\t如果是网，则输入权值!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.mengcfunk.com/study/datastructure/mgraph/" />
+<meta property="article:published_time" content="2020-03-05T13:48:55+08:00" />
+<meta property="article:modified_time" content="2020-03-05T13:48:55+08:00" />
+<meta itemprop="name" content="森林转化成二叉树实现">
+<meta itemprop="description" content="#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include&lt;malloc.h&gt;	#define MAX 20 /* 图的最多顶点数*/#define INF 65535 /*定义大于所有权值的一个数*/typedef enum {DGN,UDGN} GraphKind; /*DGN包括有向图和有向网，UDGN包括无向图和无向网*/ typedef char VertexType; /* 图的顶点类型 */ typedef int AdjType; /* 图的边（或弧）的类型，如果是网，则权值非负 */ typedef char zifu;	typedef int zheng; typedef struct list{ VertexType date; struct list *next; }lqlist; typedef struct Queuelist{ zheng date;	/*队列的数据类型*/ struct Queuelist *next;	}QNode, *Queue; typedef struct queuelist{ Queue front; Queue rear; }S,*PQueue; struct {	VertexType vex; AdjType lowcost; }closeedge[MAX]; typedef struct {	VertexType vexs[MAX&#43;1]; /* 表示的顶点的一维向量 */ AdjType edges[MAX&#43;1][MAX&#43;1]; /* 表示图的边（或弧）的邻接矩阵，对于无权图用1或0表示顶点是否相邻，对于带权图，则为权值类型 */ int n,e; /* n表示当前顶点数 e表示当前的边数（弧数） */ }MGraph; /*为了避免元素的位序与C语言数组的表示之间的错位，不使用C语言中数组的零元素*/ void InitQueue(PQueue p){ p-&gt;front=p-&gt;rear=(Queue)malloc(sizeof(QNode)); p-&gt;front-&gt;next=NULL; } void InsertQueue(PQueue p,zheng i){ Queue q; q=(Queue)malloc(sizeof(QNode)); q-&gt;date=i; q-&gt;next=NULL; if(p-&gt;rear==NULL){ p-&gt;front=q; p-&gt;rear=q; } else{ p-&gt;rear-&gt;next=q; p-&gt;rear=q; } } int DeleteQueue(PQueue p){ QNode *q; q=p-&gt;front; if(p-&gt;front==p-&gt;rear){ p-&gt;front=NULL; p-&gt;rear=NULL; } else{ p-&gt;front=p-&gt;front-&gt;next; free(q); } return p-&gt;front-&gt;date; } int panduan(PQueue p){ if(p-&gt;front==p-&gt;rear){ return 1; } else{ return 0; } } void CreateGN(MGraph* G,GraphKind gk) /*构造图*/ {	int i,j,k; AdjType w; printf(&#34;\n\t\t请输入图的顶点数和边数(格式为：顶点数，边数)\n\t\t&#34;); scanf(&#34;%d,%d&#34;,&amp;(G-&gt;n),&amp;(G-&gt;e));getchar(); /*输入图的顶点数和边数*/ for(i=1;i&lt;=G-&gt;n;i&#43;&#43;) for(j=1;j&lt;=G-&gt;n;j&#43;&#43;) G-&gt;edges[i][j]=INF; /*邻接矩阵的初始化,用INF表示边或弧的不存在*/ printf(&#34;\t\t请输入各顶点的值（该值对应的序号为它输入时的次序）：\n\t\t&#34;); for(i=1;i&lt;=G-&gt;n;i&#43;&#43;) {	scanf(&#34;%c&#34;,&amp;(G-&gt;vexs[i]));getchar();printf(&#34;\t\t&#34;); } /*构造顶点向量*/ printf(&#34;请输入边信息，如果不是网，则用1表示,否则输入权值\n&#34;); printf(&#34;\t\t如果是网，则输入权值!">
+<meta itemprop="datePublished" content="2020-03-05T13:48:55&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-05T13:48:55&#43;08:00" />
+<meta itemprop="wordCount" content="612">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="森林转化成二叉树实现"/>
+<meta name="twitter:description" content="#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include&lt;malloc.h&gt;	#define MAX 20 /* 图的最多顶点数*/#define INF 65535 /*定义大于所有权值的一个数*/typedef enum {DGN,UDGN} GraphKind; /*DGN包括有向图和有向网，UDGN包括无向图和无向网*/ typedef char VertexType; /* 图的顶点类型 */ typedef int AdjType; /* 图的边（或弧）的类型，如果是网，则权值非负 */ typedef char zifu;	typedef int zheng; typedef struct list{ VertexType date; struct list *next; }lqlist; typedef struct Queuelist{ zheng date;	/*队列的数据类型*/ struct Queuelist *next;	}QNode, *Queue; typedef struct queuelist{ Queue front; Queue rear; }S,*PQueue; struct {	VertexType vex; AdjType lowcost; }closeedge[MAX]; typedef struct {	VertexType vexs[MAX&#43;1]; /* 表示的顶点的一维向量 */ AdjType edges[MAX&#43;1][MAX&#43;1]; /* 表示图的边（或弧）的邻接矩阵，对于无权图用1或0表示顶点是否相邻，对于带权图，则为权值类型 */ int n,e; /* n表示当前顶点数 e表示当前的边数（弧数） */ }MGraph; /*为了避免元素的位序与C语言数组的表示之间的错位，不使用C语言中数组的零元素*/ void InitQueue(PQueue p){ p-&gt;front=p-&gt;rear=(Queue)malloc(sizeof(QNode)); p-&gt;front-&gt;next=NULL; } void InsertQueue(PQueue p,zheng i){ Queue q; q=(Queue)malloc(sizeof(QNode)); q-&gt;date=i; q-&gt;next=NULL; if(p-&gt;rear==NULL){ p-&gt;front=q; p-&gt;rear=q; } else{ p-&gt;rear-&gt;next=q; p-&gt;rear=q; } } int DeleteQueue(PQueue p){ QNode *q; q=p-&gt;front; if(p-&gt;front==p-&gt;rear){ p-&gt;front=NULL; p-&gt;rear=NULL; } else{ p-&gt;front=p-&gt;front-&gt;next; free(q); } return p-&gt;front-&gt;date; } int panduan(PQueue p){ if(p-&gt;front==p-&gt;rear){ return 1; } else{ return 0; } } void CreateGN(MGraph* G,GraphKind gk) /*构造图*/ {	int i,j,k; AdjType w; printf(&#34;\n\t\t请输入图的顶点数和边数(格式为：顶点数，边数)\n\t\t&#34;); scanf(&#34;%d,%d&#34;,&amp;(G-&gt;n),&amp;(G-&gt;e));getchar(); /*输入图的顶点数和边数*/ for(i=1;i&lt;=G-&gt;n;i&#43;&#43;) for(j=1;j&lt;=G-&gt;n;j&#43;&#43;) G-&gt;edges[i][j]=INF; /*邻接矩阵的初始化,用INF表示边或弧的不存在*/ printf(&#34;\t\t请输入各顶点的值（该值对应的序号为它输入时的次序）：\n\t\t&#34;); for(i=1;i&lt;=G-&gt;n;i&#43;&#43;) {	scanf(&#34;%c&#34;,&amp;(G-&gt;vexs[i]));getchar();printf(&#34;\t\t&#34;); } /*构造顶点向量*/ printf(&#34;请输入边信息，如果不是网，则用1表示,否则输入权值\n&#34;); printf(&#34;\t\t如果是网，则输入权值!"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://www.mengcfunk.com" class="f3 fw2 hover-white no-underline white-90 dib">
+      Meng&#39;s website
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/home/" title="Homes page">
+              Homes
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/resume/" title="Resumes page">
+              Resumes
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/study/" title="Studies page">
+              Studies
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+<a href="https://github.com/theweakgod" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        STUDIES
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://www.mengcfunk.com/study/datastructure/mgraph/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://www.mengcfunk.com/study/datastructure/mgraph/&amp;text=%e6%a3%ae%e6%9e%97%e8%bd%ac%e5%8c%96%e6%88%90%e4%ba%8c%e5%8f%89%e6%a0%91%e5%ae%9e%e7%8e%b0" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.mengcfunk.com/study/datastructure/mgraph/&amp;title=%e6%a3%ae%e6%9e%97%e8%bd%ac%e5%8c%96%e6%88%90%e4%ba%8c%e5%8f%89%e6%a0%91%e5%ae%9e%e7%8e%b0" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+      <h1 class="f1 athelas mt3 mb1">森林转化成二叉树实现</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-03-05T13:48:55&#43;08:00">March 5, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;malloc.h&gt;	</span><span style="color:#75715e">
+</span><span style="color:#75715e">#define MAX 20                     </span><span style="color:#75715e">/* 图的最多顶点数*/</span><span style="color:#75715e">
+</span><span style="color:#75715e">#define INF 65535                  </span><span style="color:#75715e">/*定义大于所有权值的一个数*/</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> {DGN,UDGN} GraphKind; <span style="color:#75715e">/*DGN包括有向图和有向网，UDGN包括无向图和无向网*/</span>
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">char</span> VertexType;           <span style="color:#75715e">/* 图的顶点类型 */</span>
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">int</span> AdjType;            <span style="color:#75715e">/* 图的边（或弧）的类型，如果是网，则权值非负 */</span>
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">char</span> zifu;				
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">int</span> zheng;   
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> list{
+	VertexType date;
+	<span style="color:#66d9ef">struct</span> list <span style="color:#f92672">*</span>next;
+}lqlist;
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Queuelist{
+	zheng date;						<span style="color:#75715e">/*队列的数据类型*/</span>
+	<span style="color:#66d9ef">struct</span> Queuelist <span style="color:#f92672">*</span>next;			
+}QNode, <span style="color:#f92672">*</span>Queue;
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> queuelist{
+	Queue front;
+	Queue rear;
+}S,<span style="color:#f92672">*</span>PQueue;
+<span style="color:#66d9ef">struct</span>  
+{	VertexType  vex;
+	AdjType  lowcost;
+}closeedge[MAX];
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span>
+{	VertexType vexs[MAX<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>];      <span style="color:#75715e">/* 表示的顶点的一维向量 */</span>
+	AdjType edges[MAX<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][MAX<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]; 
+	<span style="color:#75715e">/* 表示图的边（或弧）的邻接矩阵，对于无权图用1或0表示顶点是否相邻，对于带权图，则为权值类型 */</span>
+	<span style="color:#66d9ef">int</span> n,e;                     <span style="color:#75715e">/* n表示当前顶点数  e表示当前的边数（弧数） */</span>
+}MGraph;
+              <span style="color:#75715e">/*为了避免元素的位序与C语言数组的表示之间的错位，不使用C语言中数组的零元素*/</span>
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">InitQueue</span>(PQueue p){
+	p<span style="color:#f92672">-&gt;</span>front<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>rear<span style="color:#f92672">=</span>(Queue)malloc(<span style="color:#66d9ef">sizeof</span>(QNode));
+	p<span style="color:#f92672">-&gt;</span>front<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">=</span>NULL;
+}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">InsertQueue</span>(PQueue p,zheng i){
+	Queue q;
+	q<span style="color:#f92672">=</span>(Queue)malloc(<span style="color:#66d9ef">sizeof</span>(QNode));
+	q<span style="color:#f92672">-&gt;</span>date<span style="color:#f92672">=</span>i;
+	q<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">=</span>NULL;
+	<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">-&gt;</span>rear<span style="color:#f92672">==</span>NULL){
+		p<span style="color:#f92672">-&gt;</span>front<span style="color:#f92672">=</span>q;
+		p<span style="color:#f92672">-&gt;</span>rear<span style="color:#f92672">=</span>q;
+	}
+	<span style="color:#66d9ef">else</span>{
+		p<span style="color:#f92672">-&gt;</span>rear<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">=</span>q;
+		p<span style="color:#f92672">-&gt;</span>rear<span style="color:#f92672">=</span>q;
+	}
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">DeleteQueue</span>(PQueue p){
+	QNode <span style="color:#f92672">*</span>q;
+	q<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>front;
+	<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">-&gt;</span>front<span style="color:#f92672">==</span>p<span style="color:#f92672">-&gt;</span>rear){
+		p<span style="color:#f92672">-&gt;</span>front<span style="color:#f92672">=</span>NULL;
+		p<span style="color:#f92672">-&gt;</span>rear<span style="color:#f92672">=</span>NULL;
+	}
+	<span style="color:#66d9ef">else</span>{
+		p<span style="color:#f92672">-&gt;</span>front<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>front<span style="color:#f92672">-&gt;</span>next;
+		free(q);
+	}
+	<span style="color:#66d9ef">return</span> p<span style="color:#f92672">-&gt;</span>front<span style="color:#f92672">-&gt;</span>date;
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">panduan</span>(PQueue p){
+	<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">-&gt;</span>front<span style="color:#f92672">==</span>p<span style="color:#f92672">-&gt;</span>rear){
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+	}
+	<span style="color:#66d9ef">else</span>{
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	}
+}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">CreateGN</span>(MGraph<span style="color:#f92672">*</span> G,GraphKind gk)                                           <span style="color:#75715e">/*构造图*/</span>
+{	<span style="color:#66d9ef">int</span> i,j,k;
+	AdjType w;
+
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">请输入图的顶点数和边数(格式为：顶点数，边数)</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">&#34;</span>);
+	scanf(<span style="color:#e6db74">&#34;%d,%d&#34;</span>,<span style="color:#f92672">&amp;</span>(G<span style="color:#f92672">-&gt;</span>n),<span style="color:#f92672">&amp;</span>(G<span style="color:#f92672">-&gt;</span>e));getchar();                     <span style="color:#75715e">/*输入图的顶点数和边数*/</span> 
+	<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;i<span style="color:#f92672">++</span>)
+		<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;j<span style="color:#f92672">++</span>)
+			G<span style="color:#f92672">-&gt;</span>edges[i][j]<span style="color:#f92672">=</span>INF;                <span style="color:#75715e">/*邻接矩阵的初始化,用INF表示边或弧的不存在*/</span>
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">请输入各顶点的值（该值对应的序号为它输入时的次序）：</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">&#34;</span>);
+	<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;i<span style="color:#f92672">++</span>)
+	{	scanf(<span style="color:#e6db74">&#34;%c&#34;</span>,<span style="color:#f92672">&amp;</span>(G<span style="color:#f92672">-&gt;</span>vexs[i]));getchar();printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">&#34;</span>); }              <span style="color:#75715e">/*构造顶点向量*/</span>
+	printf(<span style="color:#e6db74">&#34;请输入边信息，如果不是网，则用1表示,否则输入权值</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">如果是网，则输入权值!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">输入格式为：端点1的序号，端点2的序号，1或权值</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">&#34;</span>);
+	<span style="color:#66d9ef">for</span>(k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;k<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>e;k<span style="color:#f92672">++</span>)
+	{	scanf(<span style="color:#e6db74">&#34;%d,%d,%d&#34;</span>,<span style="color:#f92672">&amp;</span>i,<span style="color:#f92672">&amp;</span>j,<span style="color:#f92672">&amp;</span>w); 
+	                            <span style="color:#75715e">/* i和j分别表示两个顶点在一维向量的位置，w表示边（或弧）的值，
+</span><span style="color:#75715e">	                                  如果两个顶点之间没有边，则权值w为一特定的预先给定的值*/</span>
+	    getchar();
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">&#34;</span>);
+		G<span style="color:#f92672">-&gt;</span>edges[i][j]<span style="color:#f92672">=</span>w;
+		<span style="color:#66d9ef">if</span> (gk<span style="color:#f92672">==</span><span style="color:#ae81ff">2</span>)
+			G<span style="color:#f92672">-&gt;</span>edges[j][i]<span style="color:#f92672">=</span>w;
+	}                                                                        <span style="color:#75715e">/*构造邻接矩阵*/</span>
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">输入的各个顶点为： &#34;</span>);
+	<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;i<span style="color:#f92672">++</span>)
+		printf(<span style="color:#e6db74">&#34;%c</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>,G<span style="color:#f92672">-&gt;</span>vexs[i]);
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">输入的邻接矩阵为： </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;i<span style="color:#f92672">++</span>)
+	{	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">&#34;</span>);
+		<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;j<span style="color:#f92672">++</span>)
+			printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>,G<span style="color:#f92672">-&gt;</span>edges[i][j]);
+	}
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">FirstAdjVertex</span>(MGraph<span style="color:#f92672">*</span> G,<span style="color:#66d9ef">int</span> i)
+<span style="color:#75715e">/*返回图(网)G的第i个顶点的第一个邻接顶点的值*/</span>
+{	<span style="color:#66d9ef">int</span> j;
+	<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;j<span style="color:#f92672">++</span>)
+		<span style="color:#66d9ef">if</span> (j<span style="color:#f92672">!=</span>i <span style="color:#f92672">&amp;&amp;</span> G<span style="color:#f92672">-&gt;</span>edges[i][j]<span style="color:#f92672">!=</span>INF) <span style="color:#66d9ef">break</span>;
+	<span style="color:#66d9ef">if</span> (j<span style="color:#f92672">==</span>G<span style="color:#f92672">-&gt;</span>n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">else</span>
+		<span style="color:#66d9ef">return</span> j;
+
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">NextAdjVertex</span>(MGraph<span style="color:#f92672">*</span> G,<span style="color:#66d9ef">int</span> i,<span style="color:#66d9ef">int</span> j)
+<span style="color:#75715e">/*已知图(网)G的第j个顶点是第i个顶点的邻接顶点，求第i个顶点的相对于第j个顶点的下一个邻接顶点*/</span>
+{
+	
+    <span style="color:#66d9ef">int</span> k;
+	<span style="color:#66d9ef">for</span>(k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;k<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;k<span style="color:#f92672">++</span>)
+	{
+		<span style="color:#66d9ef">if</span> (k<span style="color:#f92672">!=</span>i <span style="color:#f92672">&amp;&amp;</span> k<span style="color:#f92672">!=</span>j <span style="color:#f92672">&amp;&amp;</span> G<span style="color:#f92672">-&gt;</span>edges[i][k]<span style="color:#f92672">!=</span>INF) 
+			<span style="color:#66d9ef">break</span>;
+	}
+	<span style="color:#66d9ef">if</span> (k<span style="color:#f92672">==</span>G<span style="color:#f92672">-&gt;</span>n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>){
+			<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+		}
+		<span style="color:#66d9ef">else</span>{
+			<span style="color:#66d9ef">return</span> k;
+		}
+}
+
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">DFSM</span>(MGraph<span style="color:#f92672">*</span> G,<span style="color:#66d9ef">int</span> i,<span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> tag)       
+<span style="color:#75715e">/*采用数组表示法表示的无向图的从第i个顶点开始的深度优先搜索遍历*/</span>
+{	<span style="color:#66d9ef">int</span> j;
+	printf(<span style="color:#e6db74">&#34;%c</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>,G<span style="color:#f92672">-&gt;</span>vexs[i]);                                   <span style="color:#75715e">/*采用打印函数访问每个结点*/</span>
+	tag[i]<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+	<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;j<span style="color:#f92672">++</span>)
+	  	<span style="color:#66d9ef">if</span> ((<span style="color:#f92672">!</span>tag[j]) <span style="color:#f92672">&amp;&amp;</span> G<span style="color:#f92672">-&gt;</span>edges[i][j]<span style="color:#f92672">!=</span>INF)
+			DFSM(G,j,tag);                                                       <span style="color:#75715e">/*递归调用*/</span>
+}
+
+<span style="color:#66d9ef">void</span>  <span style="color:#a6e22e">BFSM</span>(MGraph<span style="color:#f92672">*</span> G,<span style="color:#66d9ef">int</span> i,<span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> tag)
+<span style="color:#75715e">/*采用数组表示法表示的无向图的从第i 个顶点开始的广度优先搜索遍历*/</span>
+{
+	S p;
+	<span style="color:#66d9ef">int</span> k,j;
+	<span style="color:#66d9ef">int</span> u;
+	InitQueue(<span style="color:#f92672">&amp;</span>p);
+	InsertQueue(<span style="color:#f92672">&amp;</span>p,i);
+	tag[i]<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+	u<span style="color:#f92672">=</span>i;
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">广度优先遍历搜索的结果是</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74">&#34;</span>);
+	<span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span>panduan(<span style="color:#f92672">&amp;</span>p)){
+		u<span style="color:#f92672">=</span>DeleteQueue(<span style="color:#f92672">&amp;</span>p); 
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">%c&#34;</span>,G<span style="color:#f92672">-&gt;</span>vexs[u]);
+		<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;j<span style="color:#f92672">++</span>){
+			<span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>tag[j]<span style="color:#f92672">&amp;&amp;</span>G<span style="color:#f92672">-&gt;</span>edges[u][j]<span style="color:#f92672">!=</span>INF){
+				tag[j]<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+				InsertQueue(<span style="color:#f92672">&amp;</span>p,j);
+			}
+		}
+	}
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Prim</span>(MGraph<span style="color:#f92672">*</span> G,  <span style="color:#66d9ef">int</span> i)
+{		<span style="color:#75715e">/*用Prim方法建立有n个顶点的邻接矩阵存储结构的网gm的最小生成树*/</span>
+        <span style="color:#75715e">/*从序号为1的顶点出发；建立的最小生成树存于数组closevertex中*/</span>
+    <span style="color:#66d9ef">int</span> mincost;
+	<span style="color:#66d9ef">int</span> j,k,m;
+	<span style="color:#66d9ef">int</span> vexnum;
+	vexnum<span style="color:#f92672">=</span>G<span style="color:#f92672">-&gt;</span>n;
+	<span style="color:#66d9ef">for</span> (j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;j<span style="color:#f92672">++</span>)                                                   <span style="color:#75715e">/*辅助数组初始化*/</span>
+		<span style="color:#66d9ef">if</span> (j<span style="color:#f92672">!=</span>i)
+		{	closeedge[j].vex<span style="color:#f92672">=</span>G<span style="color:#f92672">-&gt;</span>vexs[i];
+			closeedge[j].lowcost<span style="color:#f92672">=</span>G<span style="color:#f92672">-&gt;</span>edges[i][j];
+		}
+	closeedge[i].lowcost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;                            <span style="color:#75715e">/*从序号为i的顶点出发生成最小生成树*/</span>
+	vexnum<span style="color:#f92672">--</span>;
+	<span style="color:#66d9ef">while</span>(vexnum<span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span>)                                   <span style="color:#75715e">/*寻找当前最小权值的边的顶点*/</span>
+	{	mincost<span style="color:#f92672">=</span>INF;                                   <span style="color:#75715e">/*INF为一个大于所有权值的数*/</span>
+		k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;m<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+		<span style="color:#66d9ef">while</span> (k<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n)                                <span style="color:#75715e">/*求顶点集V-U与顶点集U之间的权值最小边*/</span>
+		{	<span style="color:#66d9ef">if</span> (closeedge[k].lowcost<span style="color:#f92672">&lt;</span>mincost <span style="color:#f92672">&amp;&amp;</span> closeedge[k].lowcost<span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span>)
+      		{	mincost<span style="color:#f92672">=</span> closeedge[k].lowcost;
+				m<span style="color:#f92672">=</span>k;
+			}        
+       		k<span style="color:#f92672">++</span>;
+		}
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">当前最小边的端点的值为：%c----%c</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,G<span style="color:#f92672">-&gt;</span>vexs[m],closeedge[m].vex);
+		closeedge[m].lowcost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+		vexnum<span style="color:#f92672">--</span>;
+		<span style="color:#66d9ef">for</span> (j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;j<span style="color:#f92672">++</span>)                    <span style="color:#75715e">/*修改其它顶点的边的权值和最小生成树顶点序号*/</span>
+			<span style="color:#66d9ef">if</span> (G<span style="color:#f92672">-&gt;</span>edges[m][j]<span style="color:#f92672">&lt;</span>closeedge[j].lowcost)
+			{	
+				closeedge[j].vex<span style="color:#f92672">=</span>G<span style="color:#f92672">-&gt;</span>vexs[m];
+				closeedge[j].lowcost<span style="color:#f92672">=</span>G<span style="color:#f92672">-&gt;</span>edges[m][j];
+			}
+	}
+	<span style="color:#75715e">//牛逼啊，兄嘚。
+</span><span style="color:#75715e"></span>}
+
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ShortestPath_DIJ</span>(MGraph<span style="color:#f92672">*</span> G, <span style="color:#66d9ef">int</span> i, <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>P, AdjType <span style="color:#f92672">*</span>D)
+{	<span style="color:#75715e">/*用Dijkstra算法求有向网G的第i个顶点vi到其余顶点v的最短路径*/</span>
+	<span style="color:#75715e">/* P[v]表示从源点到顶点v的最短路径上顶点v的前驱顶点*/</span>
+	<span style="color:#75715e">/* D[v]表示从源点到顶点v的最短路径的长度*/</span>
+	<span style="color:#75715e">/*常量INF为大于网中所有权值的值*/</span>
+	<span style="color:#66d9ef">int</span>   j, k,q,min,m,pre;
+	<span style="color:#66d9ef">int</span>   final[MAX];            <span style="color:#75715e">/*final[v]为TRUE当且仅当v∈S, ，即已经求得从vi到v的最短路径*/</span>
+	<span style="color:#66d9ef">for</span> (j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;j<span style="color:#f92672">++</span>)
+	{	
+		D[j]<span style="color:#f92672">=</span>G<span style="color:#f92672">-&gt;</span>edges[i][j];
+		final[j]<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;    
+	    <span style="color:#66d9ef">if</span> (D[j]<span style="color:#f92672">&lt;</span>INF)   P[j]<span style="color:#f92672">=</span>i;                                  <span style="color:#75715e">/*最短路径初始化*/</span>
+	    <span style="color:#66d9ef">else</span>  P[j]<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	}
+	D[i]<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; final[i]<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;                                         <span style="color:#75715e">/*初始化，vi顶点属于S集*/</span>
+	                           <span style="color:#75715e">/*开始主循环，每次求得vi到某个v 顶点的最短路径，并加v到集S*/</span>
+	<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; j<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n; j<span style="color:#f92672">++</span>)                                      <span style="color:#75715e">/*其余G.vexnum-1个顶点*/</span>
+	{
+		min<span style="color:#f92672">=</span>INF;                                        <span style="color:#75715e">/*min为当前所知离vi顶点的最近距离*/</span>
+		<span style="color:#66d9ef">for</span> (k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; k<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n; k<span style="color:#f92672">++</span>)
+			<span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>final[k] <span style="color:#f92672">&amp;&amp;</span> D[k]<span style="color:#f92672">&lt;</span>min)                    <span style="color:#75715e">/*w顶点在V－S中*/</span>
+			{min<span style="color:#f92672">=</span>D[k];  m<span style="color:#f92672">=</span>k;  }
+			final[m]<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;                                      <span style="color:#75715e">/*离vi顶点最近的vm加入S集合*/</span>
+			<span style="color:#66d9ef">for</span>(k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;k<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;k<span style="color:#f92672">++</span>)                             <span style="color:#75715e">/*更新当前最短路径*/</span>
+				<span style="color:#66d9ef">if</span> ((<span style="color:#f92672">!</span>final[k]) <span style="color:#f92672">&amp;&amp;</span> ((min<span style="color:#f92672">+</span>G<span style="color:#f92672">-&gt;</span>edges[m][k])<span style="color:#f92672">&lt;</span>D[k]))  <span style="color:#75715e">/* 修改D[k]和P[k],k∈V-S */</span>
+				{
+					D[k]<span style="color:#f92672">=</span>min<span style="color:#f92672">+</span>G<span style="color:#f92672">-&gt;</span>edges[m][k]; 
+					P[k]<span style="color:#f92672">=</span>m;                                   <span style="color:#75715e">/*顶点m是顶点k的前驱*/</span>
+				}
+	}
+	 printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">&#34;</span>);
+	 <span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>G<span style="color:#f92672">-&gt;</span>n;j<span style="color:#f92672">++</span>)
+	 {	printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">%d&#34;</span>,D[j],j);                           <span style="color:#75715e">/*打印结果*/</span>
+	    pre<span style="color:#f92672">=</span>P[j];
+	    <span style="color:#66d9ef">while</span>(pre<span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span>)                                      <span style="color:#75715e">/*继续寻找前驱顶点*/</span>
+	    {	printf(<span style="color:#e6db74">&#34;&lt;---%d&#34;</span>,pre);
+	     		pre<span style="color:#f92672">=</span>P[pre];
+	    }
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">&#34;</span>);
+	 }
+}
+
+main()
+{	  MGraph G;
+	  GraphKind gk;
+	  VertexType a;
+	  <span style="color:#66d9ef">char</span> choice;
+	  <span style="color:#66d9ef">int</span> i,j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,ch2,k;
+	  <span style="color:#66d9ef">int</span> visited[MAX];                 <span style="color:#75715e">/*定义数组存储访问标志*/</span>
+	  <span style="color:#66d9ef">int</span> P[MAX];                       <span style="color:#75715e">/*记录单源点的最短路径*/</span>
+	  AdjType D[MAX];                   <span style="color:#75715e">/*记录从源点到其余各顶点的最短路径的长度*/</span>
+	  <span style="color:#66d9ef">while</span>(j)
+      {
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">图的数组表示</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">**************************************************&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">*            1--------图 的  初  始 化           *&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">*            2--------求第一个邻接顶点           *&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">*            3--------求第二个邻接顶点           *&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">*            4--------图的深度优先遍历    　     *&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">*            5--------图的广度优先遍历       　  *&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">*            6--------Prim    算    法    　     *&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">*            7--------单源点的最短路径   　      *&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">*            0--------退            出           *&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">**************************************************&#34;</span>);
+      printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">请选择菜单号: 0-7...&#34;</span>);
+      scanf(<span style="color:#e6db74">&#34;%c&#34;</span>,<span style="color:#f92672">&amp;</span>choice);
+      getchar();
+		<span style="color:#66d9ef">if</span>(choice<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;1&#39;</span>)
+		{
+			printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">请输入图的类型（有向还是无向）</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+			printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">如果是有向图或有向网输入1，否则输入2</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">&#34;</span>);
+			scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>gk);getchar();		
+			CreateGN(<span style="color:#f92672">&amp;</span>G,gk);
+		}
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (choice<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;2&#39;</span>)
+		{	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">请输入顶点的编号:&#34;</span>);
+			scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>i);getchar();
+			
+			a<span style="color:#f92672">=</span>FirstAdjVertex(<span style="color:#f92672">&amp;</span>G,i);
+			<span style="color:#66d9ef">if</span> (a<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+				printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">没有邻接顶点&#34;</span>);
+			<span style="color:#66d9ef">else</span>
+			{	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">顶点%c的第一个邻接顶点是: &#34;</span>,G.vexs[i]);
+				printf(<span style="color:#e6db74">&#34;%c&#34;</span>,G.vexs[a]); }
+		}
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (choice<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;3&#39;</span>)
+		{	
+			printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">请输入顶点的编号:&#34;</span>);
+			scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>i);getchar();
+			printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">请输入顶点编号为：%d的第一个邻接顶点的编号:&#34;</span>,i);
+			scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>k);getchar();
+
+			a<span style="color:#f92672">=</span>NextAdjVertex(<span style="color:#f92672">&amp;</span>G,i,k);
+			<span style="color:#66d9ef">if</span> (a<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+				printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">没有第二个邻接顶点&#34;</span>);
+			<span style="color:#66d9ef">else</span>
+			{	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">顶点%c的第二个邻接顶点是: &#34;</span>,G.vexs[i]);
+				printf(<span style="color:#e6db74">&#34;%c&#34;</span>,G.vexs[a]); }
+
+		}
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (choice<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;4&#39;</span>)
+		{	<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>MAX;j<span style="color:#f92672">++</span>)
+				visited[j]<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+			printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">请输入深度优先遍历的第一个顶点的编号(1-%d)&#34;</span>,G.n);
+			scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>i);getchar();
+			printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">&#34;</span>);
+			DFSM(<span style="color:#f92672">&amp;</span>G,i,visited) ;
+			printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		}
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (choice<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;5&#39;</span>)
+		{
+			<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>MAX;j<span style="color:#f92672">++</span>)
+				visited[j]<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+			printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">请输入广度优先遍历搜索的起始顶点&#34;</span>);
+			scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>i);
+			getchar();
+			BFSM(<span style="color:#f92672">&amp;</span>G,i,visited);
+		}
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (choice<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;6&#39;</span>)
+		{	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">请输入出发顶点的编号：&#34;</span>);
+			scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>i);getchar();
+			Prim(<span style="color:#f92672">&amp;</span>G,i);
+		}
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (choice<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;7&#39;</span>)
+		{	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">请输入源点的编号：&#34;</span>);
+			scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>i);getchar();
+			ShortestPath_DIJ(<span style="color:#f92672">&amp;</span>G, i, P, D);
+		}
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (choice<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;0&#39;</span>)
+		{	j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+			printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">程序结束!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);}
+		<span style="color:#66d9ef">else</span> printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74">输入错误! 请重新输入!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+   }
+}
+
+
+</code></pre></div><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://www.mengcfunk.com" >
+    &copy;  Meng's website 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+<a href="https://github.com/theweakgod" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

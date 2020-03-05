@@ -13,37 +13,199 @@
     
     <item>
       <title>AVL平衡树</title>
-      <link>http://www.mengcfunk.com/study/datastructure2/</link>
+      <link>http://www.mengcfunk.com/study/datastructure/binarybalancedtree/</link>
       <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
       
-      <guid>http://www.mengcfunk.com/study/datastructure2/</guid>
+      <guid>http://www.mengcfunk.com/study/datastructure/binarybalancedtree/</guid>
       <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;#include&amp;lt;string.h&amp;gt;#define MAX 10 typedef struct BtreeNode{ char data[MAX]; int i; struct BtreeNode *Lchild,*Rchild; }BN; int bijiao(char a[MAX],char b[MAX]){	//新定义一个函数，有字符串长度的比较 	if(strlen(a)&amp;gt;strlen(b)) return 1; if(strlen(a)&amp;lt;strlen(b)) return -1; if(strlen(a)==strlen(b)){ int i; i=strcmp(a,b); return i; } } void biaoshi(BN *p){	//打印出这个二叉树的平衡因子 	if(p==NULL) return; else{ biaoshi(p-&amp;gt;Lchild); printf(&amp;#34;\t%d&amp;#34;,p-&amp;gt;i); biaoshi(p-&amp;gt;Rchild); } } int deep(BN *p){	//求该结点的深度 	if(p==NULL) return 0; else{ int i,j; i=deep(p-&amp;gt;Lchild); j=deep(p-&amp;gt;Rchild); if(i&amp;gt;j) return (i+1); else return (j+1); } } void pingheng(BN *p){	//使每个结点的元素p-&amp;gt;i赋当前结构体的值 	if(p==NULL){ return ; } else{ int i,j; pingheng(p-&amp;gt;Lchild); pingheng(p-&amp;gt;Rchild); i=deep(p-&amp;gt;Lchild); j=deep(p-&amp;gt;Rchild); p-&amp;gt;i=i-j; } } BN *xunzhao(BN *p,int *i,int *c){	//寻找离插入结点最近的危机结点 	if(p==NULL) return p; else{ BN *q; q=NULL; if(*c!</description>
     </item>
     
     <item>
-      <title>二叉树</title>
-      <link>http://www.mengcfunk.com/study/datastructure1/</link>
+      <title>二叉排序树</title>
+      <link>http://www.mengcfunk.com/study/datastructure/binarysortingtree/</link>
       <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
       
-      <guid>http://www.mengcfunk.com/study/datastructure1/</guid>
+      <guid>http://www.mengcfunk.com/study/datastructure/binarysortingtree/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;#include&amp;lt;string.h&amp;gt;#define MAX 10 typedef struct BtreeNode{ char	data[MAX]; int i; struct BtreeNode *lchild,*rchild; }BN; int bijiao(char a[MAX],char b[MAX]){ if(strlen(a)&amp;gt;strlen(b)) return 1; if(strlen(a)&amp;lt;strlen(b)) return -1; if(strlen(a)==strlen(b)){ int i; i=strcmp(a,b); return i; } } void InsertBtree(BN *p,char key[MAX]){ BN *q,*s,*l; q=s=p; int m; while(s!=NULL){ m=bijiao(s-&amp;gt;data,key); if(m&amp;gt;0) {q=s;s=s-&amp;gt;lchild;} else{ q=s;s=s-&amp;gt;rchild; } } l=(BN *)malloc(sizeof(BN)); l-&amp;gt;lchild=NULL; l-&amp;gt;rchild=NULL; strcpy(l-&amp;gt;data,key); if(m&amp;gt;0){ q-&amp;gt;lchild=l; } else{ q-&amp;gt;rchild=l; } } BN *InitBtree(){ char x[MAX]; int flag; BN *p,*head; head=NULL; scanf(&amp;#34;%s&amp;#34;,&amp;amp;x); flag=0; while(x[0]!</description>
+    </item>
+    
+    <item>
+      <title>二叉树</title>
+      <link>http://www.mengcfunk.com/study/datastructure/binarytree/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/binarytree/</guid>
       <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;stdlib.h&amp;gt;typedef char AdjType; typedef struct Btree{ AdjType date; struct Btree *lchild,*rchild; }btree; int count; int i; btree *Init(){ btree *p; char x; scanf(&amp;#34;%c&amp;#34;,&amp;amp;x);getchar(); if(x ==&amp;#39; &amp;#39;){ p=NULL;	} else{ p=(btree *)malloc(sizeof(btree)); p-&amp;gt;date=x; printf(&amp;#34;\n\t\t\t请输入一个非#的字符,当前访问到%c的左子女&amp;#34;,p-&amp;gt;date); p-&amp;gt;lchild=Init(); printf(&amp;#34;\n\t\t\t请输入一个非#的字符,当前访问到%c的右子女&amp;#34;,p-&amp;gt;date); p-&amp;gt;rchild=Init(); } return p; } void xianxu(btree *p){ if(p==NULL) return; printf(&amp;#34;%c&amp;#34;,p-&amp;gt;date); xianxu(p-&amp;gt;lchild); xianxu(p-&amp;gt;rchild); } void zhongxu(btree *p){ if(p==NULL) return; zhongxu(p-&amp;gt;lchild); printf(&amp;#34;%c&amp;#34;,p-&amp;gt;date); zhongxu(p-&amp;gt;rchild); } void houxu(btree *p){ if(p==NULL) return; houxu(p-&amp;gt;lchild); houxu(p-&amp;gt;rchild); printf(&amp;#34;%c&amp;#34;,p-&amp;gt;date); } int yezi(btree *p){ if(p!</description>
     </item>
     
     <item>
+      <title>大数乘法</title>
+      <link>http://www.mengcfunk.com/study/datastructure/largenumbermultiplication/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/largenumbermultiplication/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#define N 200 int main(){ char arr[N]; char ass[N]; int a[N]; int b[N]; int sum[2*N]; int mul[N][N]; int ii,j,k,ij,jj,ji; int mm,nn,tt,qqq,s,blog,gt; int ff; int flag=0; int x,y; scanf(&amp;#34;%s&amp;#34;,arr); scanf(&amp;#34;%s&amp;#34;,ass); qqq=0; s=0; for(j=0;j&amp;lt;N;j++){ if(arr[j]==0){ break; } } for(k=0;k&amp;lt;N;k++){ if(ass[k]==0){ break; } } for(ii=0;ii&amp;lt;N;ii=ii+1){ if(arr[ii]&amp;lt;=57&amp;amp;&amp;amp;arr[ii]&amp;gt;=48){ x=arr[ii]; a[ii]=x-48; } } for(ij=0;ij&amp;lt;N;ij=ij+1){ if(ass[ij]&amp;lt;=57&amp;amp;&amp;amp;ass[ij]&amp;gt;=48){ y=ass[ij]; b[ij]=y-48; } } for(jj=j-1;jj&amp;gt;=0;jj--){ for(ji=k-1;ji&amp;gt;=0;ji--){ mul[jj][ji]=a[jj]*b[ji]; } } for(tt=j+k-1;tt&amp;gt;=0;tt--){ sum[tt]=0; } for(tt=j+k-1;tt&amp;gt;=0;tt--){ for(mm=j-1;mm&amp;gt;=0;mm--){ for(nn=k-1;nn&amp;gt;=0;nn--){ blog=mm+nn; if(mul[mm][nn]&amp;gt;=0){ if(blog==tt){ sum[tt]=sum[tt]+mul[mm][nn]; } if(sum[tt+1]&amp;gt;9){ sum[tt]=sum[tt]+sum[tt+1]/10; sum[tt+1]=sum[tt+1]%10; } } } } } for(ff=0;ff&amp;lt;j+k-1;ff++){ if(sum[ff]&amp;gt;=0){ printf(&amp;#34;%d&amp;#34;,sum[ff]); } } return 0; } </description>
+    </item>
+    
+    <item>
+      <title>大数加法</title>
+      <link>http://www.mengcfunk.com/study/datastructure/huffmantree/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/huffmantree/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;#include&amp;lt;string.h&amp;gt;#define MAX 10 #define M	100 typedef struct HTNode{ char data[MAX]; int i; struct HTNode *Lchild,*Rchild; }Huffman; typedef struct ListNode{ int	data; struct ListNode *next; }LN; LN *head; void INit(){ LN *q,*p; int x; head=(LN *)malloc(sizeof(LN)); p=head; head-&amp;gt;next=NULL; scanf(&amp;#34;%d&amp;#34;,&amp;amp;x);getchar(); while(x!=0){ q=(LN *)malloc(sizeof(LN)); q-&amp;gt;next=NULL; q-&amp;gt;data=x; p-&amp;gt;next=q; p=q; scanf(&amp;#34;%d&amp;#34;,&amp;amp;x);getchar(); } } void Insert(int x){ LN *q,*s; q=head; while(q-&amp;gt;next!=NULL){ q=q-&amp;gt;next; } s=(LN *)malloc(sizeof(LN)); q-&amp;gt;next=s; s-&amp;gt;data=x; s-&amp;gt;next=NULL; } void Delete(LN *p,int i){ LN *q,*s; q=s=head; if(s-&amp;gt;next==NULL) return ; while(s-&amp;gt;data!</description>
+    </item>
+    
+    <item>
+      <title>大数加法</title>
+      <link>http://www.mengcfunk.com/study/datastructure/largenumberaddition/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/largenumberaddition/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#define N 1100 int max(int a,int b){ if(a&amp;lt;b){ return b; } else{ return a; } } int min(int a,int b){ if(a&amp;lt;b){ return a; } else{ return b; } } int main(){ char arr[N]; char ass[N]; int a[N]; int b[N]; int sum[N+1]; int s; int q; int x,y,d,f,o,j,k; int l,m,n; scanf(&amp;#34;%d&amp;#34;,&amp;amp;n) ; sum[0]=-199; for(int i=0 ; i&amp;lt;n ; i++ ) { int g=0; scanf(&amp;#34;%s&amp;#34;,&amp;amp;arr); scanf(&amp;#34;%s&amp;#34;,&amp;amp;ass); for(d=0;d&amp;lt;N;d++){ x=arr[d]; if(x==0){ break; } } for(f=0;f&amp;lt;N;f++){ y=ass[f]; if(y==0){ break; } } for(o=0;o&amp;lt;d;o++){ s=arr[o]; if(s&amp;lt;=57&amp;amp;&amp;amp;s&amp;gt;=48){ a[o]=arr[o]-48; } } for(j=0;j&amp;lt;f;j++){ q=ass[j]; if(q&amp;lt;=57&amp;amp;&amp;amp;q&amp;gt;=48){ b[j]=ass[j]-48; } } x=max(d,f); y=min(d,f); for(k=x;k&amp;gt;=0;k--){ if(k==0&amp;amp;&amp;amp;g==1){ sum[k]=1; } else{ if(k&amp;gt;x-y){ if(d&amp;lt;f){ sum[k]=a[y+k-1-x]+b[k-1]+g; } else{ sum[k]=a[k-1]+b[y+k-1-x]+g;	} g=0; if(sum[k]&amp;gt;=10){ g=1; sum[k]=sum[k]-10; } } else{ if(d&amp;gt;f){ sum[k]=a[k-1]+g; g=0; } else{ sum[k]=b[k-1]+g; g=0; } } } } for(l=0;l&amp;lt;=x;l++){ if(sum[0]==0){ sum[0]=-199;} if(sum[l]&amp;lt;10&amp;amp;&amp;amp;sum[l]&amp;gt;=0){ printf(&amp;#34;%d&amp;#34;,sum[l]);	} } printf(&amp;#34;\n&amp;#34;); } return 0; } </description>
+    </item>
+    
+    <item>
+      <title>大数加法</title>
+      <link>http://www.mengcfunk.com/study/datastructure/linearbinarytree/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/linearbinarytree/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#define N 1100 int max(int a,int b){ if(a&amp;lt;b){ return b; } else{ return a; } } int min(int a,int b){ if(a&amp;lt;b){ return a; } else{ return b; } } int main(){ char arr[N]; char ass[N]; int a[N]; int b[N]; int sum[N+1]; int s; int q; int x,y,d,f,o,j,k; int l,m,n; scanf(&amp;#34;%d&amp;#34;,&amp;amp;n) ; sum[0]=-199; for(int i=0 ; i&amp;lt;n ; i++ ) { int g=0; scanf(&amp;#34;%s&amp;#34;,&amp;amp;arr); scanf(&amp;#34;%s&amp;#34;,&amp;amp;ass); for(d=0;d&amp;lt;N;d++){ x=arr[d]; if(x==0){ break; } } for(f=0;f&amp;lt;N;f++){ y=ass[f]; if(y==0){ break; } } for(o=0;o&amp;lt;d;o++){ s=arr[o]; if(s&amp;lt;=57&amp;amp;&amp;amp;s&amp;gt;=48){ a[o]=arr[o]-48; } } for(j=0;j&amp;lt;f;j++){ q=ass[j]; if(q&amp;lt;=57&amp;amp;&amp;amp;q&amp;gt;=48){ b[j]=ass[j]-48; } } x=max(d,f); y=min(d,f); for(k=x;k&amp;gt;=0;k--){ if(k==0&amp;amp;&amp;amp;g==1){ sum[k]=1; } else{ if(k&amp;gt;x-y){ if(d&amp;lt;f){ sum[k]=a[y+k-1-x]+b[k-1]+g; } else{ sum[k]=a[k-1]+b[y+k-1-x]+g;	} g=0; if(sum[k]&amp;gt;=10){ g=1; sum[k]=sum[k]-10; } } else{ if(d&amp;gt;f){ sum[k]=a[k-1]+g; g=0; } else{ sum[k]=b[k-1]+g; g=0; } } } } for(l=0;l&amp;lt;=x;l++){ if(sum[0]==0){ sum[0]=-199;} if(sum[l]&amp;lt;10&amp;amp;&amp;amp;sum[l]&amp;gt;=0){ printf(&amp;#34;%d&amp;#34;,sum[l]);	} } printf(&amp;#34;\n&amp;#34;); } return 0; } </description>
+    </item>
+    
+    <item>
+      <title>大数加法</title>
+      <link>http://www.mengcfunk.com/study/datastructure/linkedlist/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/linkedlist/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;#include&amp;lt;string.h&amp;gt;#define MAX 10 #define M	100 typedef struct HTNode{ char data[MAX]; int i; struct HTNode *Lchild,*Rchild; }Huffman; typedef struct ListNode{ int	data; struct ListNode *next; }LN; LN *head; void INit(){ LN *q,*p; int x; head=(LN *)malloc(sizeof(LN)); p=head; head-&amp;gt;next=NULL; scanf(&amp;#34;%d&amp;#34;,&amp;amp;x);getchar(); while(x!=0){ q=(LN *)malloc(sizeof(LN)); q-&amp;gt;next=NULL; q-&amp;gt;data=x; p-&amp;gt;next=q; p=q; scanf(&amp;#34;%d&amp;#34;,&amp;amp;x);getchar(); } } void Insert(int x){ LN *q,*s; q=head; while(q-&amp;gt;next!=NULL){ q=q-&amp;gt;next; } s=(LN *)malloc(sizeof(LN)); q-&amp;gt;next=s; s-&amp;gt;data=x; s-&amp;gt;next=NULL; } void Delete(LN *p,int i){ LN *q,*s; q=s=head; if(s-&amp;gt;next==NULL) return ; while(s-&amp;gt;data!</description>
+    </item>
+    
+    <item>
+      <title>大数加法</title>
+      <link>http://www.mengcfunk.com/study/datastructure/queue/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/queue/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#define N 1100 int max(int a,int b){ if(a&amp;lt;b){ return b; } else{ return a; } } int min(int a,int b){ if(a&amp;lt;b){ return a; } else{ return b; } } int main(){ char arr[N]; char ass[N]; int a[N]; int b[N]; int sum[N+1]; int s; int q; int x,y,d,f,o,j,k; int l,m,n; scanf(&amp;#34;%d&amp;#34;,&amp;amp;n) ; sum[0]=-199; for(int i=0 ; i&amp;lt;n ; i++ ) { int g=0; scanf(&amp;#34;%s&amp;#34;,&amp;amp;arr); scanf(&amp;#34;%s&amp;#34;,&amp;amp;ass); for(d=0;d&amp;lt;N;d++){ x=arr[d]; if(x==0){ break; } } for(f=0;f&amp;lt;N;f++){ y=ass[f]; if(y==0){ break; } } for(o=0;o&amp;lt;d;o++){ s=arr[o]; if(s&amp;lt;=57&amp;amp;&amp;amp;s&amp;gt;=48){ a[o]=arr[o]-48; } } for(j=0;j&amp;lt;f;j++){ q=ass[j]; if(q&amp;lt;=57&amp;amp;&amp;amp;q&amp;gt;=48){ b[j]=ass[j]-48; } } x=max(d,f); y=min(d,f); for(k=x;k&amp;gt;=0;k--){ if(k==0&amp;amp;&amp;amp;g==1){ sum[k]=1; } else{ if(k&amp;gt;x-y){ if(d&amp;lt;f){ sum[k]=a[y+k-1-x]+b[k-1]+g; } else{ sum[k]=a[k-1]+b[y+k-1-x]+g;	} g=0; if(sum[k]&amp;gt;=10){ g=1; sum[k]=sum[k]-10; } } else{ if(d&amp;gt;f){ sum[k]=a[k-1]+g; g=0; } else{ sum[k]=b[k-1]+g; g=0; } } } } for(l=0;l&amp;lt;=x;l++){ if(sum[0]==0){ sum[0]=-199;} if(sum[l]&amp;lt;10&amp;amp;&amp;amp;sum[l]&amp;gt;=0){ printf(&amp;#34;%d&amp;#34;,sum[l]);	} } printf(&amp;#34;\n&amp;#34;); } return 0; } </description>
+    </item>
+    
+    <item>
+      <title>大数加法</title>
+      <link>http://www.mengcfunk.com/study/datastructure/treeandforest/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/treeandforest/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;#include&amp;lt;string.h&amp;gt;#define MAX 10 #define M	100 typedef struct HTNode{ char data[MAX]; int i; struct HTNode *Lchild,*Rchild; }Huffman; typedef struct ListNode{ int	data; struct ListNode *next; }LN; LN *head; void INit(){ LN *q,*p; int x; head=(LN *)malloc(sizeof(LN)); p=head; head-&amp;gt;next=NULL; scanf(&amp;#34;%d&amp;#34;,&amp;amp;x);getchar(); while(x!=0){ q=(LN *)malloc(sizeof(LN)); q-&amp;gt;next=NULL; q-&amp;gt;data=x; p-&amp;gt;next=q; p=q; scanf(&amp;#34;%d&amp;#34;,&amp;amp;x);getchar(); } } void Insert(int x){ LN *q,*s; q=head; while(q-&amp;gt;next!=NULL){ q=q-&amp;gt;next; } s=(LN *)malloc(sizeof(LN)); q-&amp;gt;next=s; s-&amp;gt;data=x; s-&amp;gt;next=NULL; } void Delete(LN *p,int i){ LN *q,*s; q=s=head; if(s-&amp;gt;next==NULL) return ; while(s-&amp;gt;data!</description>
+    </item>
+    
+    <item>
+      <title>孩子兄弟表示法</title>
+      <link>http://www.mengcfunk.com/study/datastructure/childbrother/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/childbrother/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;typedef struct CSNode{ char data; struct CSNode *firstchild,*nextsibling; }CSN; CSN *Init(){ CSN *p; char x; scanf(&amp;#34;%c&amp;#34;,&amp;amp;x);getchar(); if(x!=&amp;#39; &amp;#39;){ p=(CSN *)malloc(sizeof(CSN)); p-&amp;gt;data=x; printf(&amp;#34;要不要给%c结点创造子节点&amp;#34;,p-&amp;gt;data); p-&amp;gt;firstchild=Init(); printf(&amp;#34;要不要给%c结点创造兄弟&amp;#34;,p-&amp;gt;data); p-&amp;gt;nextsibling=Init(); } else{ p=NULL; } return p; } void xianxu(CSNode *p){ if(p==NULL) return ; else{ printf(&amp;#34;%c\t&amp;#34;,p-&amp;gt;data); if(p-&amp;gt;firstchild!=NULL) xianxu(p-&amp;gt;firstchild); if(p-&amp;gt;nextsibling!=NULL) xianxu(p-&amp;gt;nextsibling); } } void zhongxu(CSNode *p){ if(p==NULL) return ; else{ if(p-&amp;gt;firstchild!=NULL) zhongxu(p-&amp;gt;firstchild);	printf(&amp;#34;%c\t&amp;#34;,p-&amp;gt;data); if(p-&amp;gt;nextsibling!=NULL) zhongxu(p-&amp;gt;nextsibling); } } void main(){ CSN *p; p=Init(); xianxu(p); printf(&amp;#34;\n&amp;#34;); zhongxu(p); } </description>
+    </item>
+    
+    <item>
+      <title>孩子兄弟表示法</title>
+      <link>http://www.mengcfunk.com/study/datastructure/foresttraversalandrealization/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/foresttraversalandrealization/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;typedef struct CSNode{ char data; struct CSNode *firstchild,*nextsibling; }CSN; CSN *Init(){ CSN *p; char x; scanf(&amp;#34;%c&amp;#34;,&amp;amp;x);getchar(); if(x!=&amp;#39; &amp;#39;){ p=(CSN *)malloc(sizeof(CSN)); p-&amp;gt;data=x; printf(&amp;#34;要不要给%c结点创造子节点&amp;#34;,p-&amp;gt;data); p-&amp;gt;firstchild=Init(); printf(&amp;#34;要不要给%c结点创造兄弟&amp;#34;,p-&amp;gt;data); p-&amp;gt;nextsibling=Init(); } else{ p=NULL; } return p; } void xianxu(CSNode *p){ if(p==NULL) return ; else{ printf(&amp;#34;%c\t&amp;#34;,p-&amp;gt;data); if(p-&amp;gt;firstchild!=NULL) xianxu(p-&amp;gt;firstchild); if(p-&amp;gt;nextsibling!=NULL) xianxu(p-&amp;gt;nextsibling); } } void zhongxu(CSNode *p){ if(p==NULL) return ; else{ if(p-&amp;gt;firstchild!=NULL) zhongxu(p-&amp;gt;firstchild);	printf(&amp;#34;%c\t&amp;#34;,p-&amp;gt;data); if(p-&amp;gt;nextsibling!=NULL) zhongxu(p-&amp;gt;nextsibling); } } void main(){ CSN *p; p=Init(); xianxu(p); printf(&amp;#34;\n&amp;#34;); zhongxu(p); } </description>
+    </item>
+    
+    <item>
+      <title>孩子兄弟表示法</title>
+      <link>http://www.mengcfunk.com/study/datastructure/forestturnsintobinarytree/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/forestturnsintobinarytree/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;typedef struct CSNode{ char data; struct CSNode *firstchild,*nextsibling; }CSN; CSN *Init(){ CSN *p; char x; scanf(&amp;#34;%c&amp;#34;,&amp;amp;x);getchar(); if(x!=&amp;#39; &amp;#39;){ p=(CSN *)malloc(sizeof(CSN)); p-&amp;gt;data=x; printf(&amp;#34;要不要给%c结点创造子节点&amp;#34;,p-&amp;gt;data); p-&amp;gt;firstchild=Init(); printf(&amp;#34;要不要给%c结点创造兄弟&amp;#34;,p-&amp;gt;data); p-&amp;gt;nextsibling=Init(); } else{ p=NULL; } return p; } void xianxu(CSNode *p){ if(p==NULL) return ; else{ printf(&amp;#34;%c\t&amp;#34;,p-&amp;gt;data); if(p-&amp;gt;firstchild!=NULL) xianxu(p-&amp;gt;firstchild); if(p-&amp;gt;nextsibling!=NULL) xianxu(p-&amp;gt;nextsibling); } } void zhongxu(CSNode *p){ if(p==NULL) return ; else{ if(p-&amp;gt;firstchild!=NULL) zhongxu(p-&amp;gt;firstchild);	printf(&amp;#34;%c\t&amp;#34;,p-&amp;gt;data); if(p-&amp;gt;nextsibling!=NULL) zhongxu(p-&amp;gt;nextsibling); } } void main(){ CSN *p; p=Init(); xianxu(p); printf(&amp;#34;\n&amp;#34;); zhongxu(p); } </description>
+    </item>
+    
+    <item>
+      <title>孩子链表</title>
+      <link>http://www.mengcfunk.com/study/datastructure/childlinkedlist/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/childlinkedlist/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;#define MAX 100 typedef struct CTNode{ int child; struct CTNode *next; }CNode; typedef struct C{ char data; CNode *firstchild; }CTBox; typedef struct c{ CTBox	nodes[MAX]; int	n,r; }CTree; void Init(CTree *p){ char x; int i,j,m,h; CNode *s,*q; printf(&amp;#34;\n\t\t\t请按下列规则输入，分字符和数字，字符决定该结点的值，数字决定这个结点是否为该结点位置的孩子&amp;#34;); printf(&amp;#34;\n\t\t\t数字为-1时跳到下一个结点,知道跳完所有结点才能结束&amp;#34;); printf(&amp;#34;\n\t\t\t请输入字符&amp;#34;); scanf(&amp;#34;%c&amp;#34;,&amp;amp;x);getchar(); i=0; h=-1; p-&amp;gt;r=i; p-&amp;gt;n=i; while(j!=-1||p-&amp;gt;r!=i+1){ p-&amp;gt;nodes[i].data=x; if(h!=p-&amp;gt;r){ h=p-&amp;gt;r; p-&amp;gt;nodes[p-&amp;gt;r].firstchild=(CNode *)malloc(sizeof(CNode)); s=p-&amp;gt;nodes[p-&amp;gt;r].firstchild; } printf(&amp;#34;\n\t\t\t请输入数字,决定是否成为%c的孩子&amp;#34;,p-&amp;gt;nodes[p-&amp;gt;r].data); scanf(&amp;#34;%d&amp;#34;,&amp;amp;j);getchar(); if(j!=-1){ q=(CNode *)malloc(sizeof(CNode)); s-&amp;gt;child=i+1; s-&amp;gt;next=q; q-&amp;gt;next=NULL; s=q; p-&amp;gt;n++; printf(&amp;#34;\n\t\t\t请输入该结点的值&amp;#34;); scanf(&amp;#34;%c&amp;#34;,&amp;amp;x);getchar(); i++; } else{ s-&amp;gt;next=NULL; p-&amp;gt;r++; } } } int flag=0; void xianxu(CTree *p,int root,int *tag){ if(p-&amp;gt;nodes[root].</description>
+    </item>
+    
+    <item>
+      <title>查找</title>
+      <link>http://www.mengcfunk.com/study/datastructure/search/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/search/</guid>
+      <description>#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;conio.h&amp;gt;#include &amp;lt;string.h&amp;gt;#include &amp;lt;malloc.h&amp;gt;#define Keytype int /*关键字类型定义*/#define MAX_LIST_LEN 100 /*定义线性表的最大长度*/typedef struct { /*定义元素类型 */ Keytype key; /*关键字定义*/ } ElemType; typedef struct { /*查找表顺序存储结构定义*/ ElemType elem[MAX_LIST_LEN+1]; /*elem[0]元素当作工作单元*/ int length; /* 查找表长度*/ }Seq_Table; Seq_Table seqtbl; typedef struct NODE{ /*查找表链式存储结构定义*/ ElemType elem; /*其中ElemType 定义同顺序存储结构*/ struct NODE *next; }LINK_NODE; #define ENDVALUE -1 typedef struct BINNODE{ /*二叉排序树定义*/ Keytype key; /*关键字值*/ struct BINNODE *lchild ,*rchild; /*左右指针*/ } BSTNode, *BSTree; /*显示主界面*/ void PrintMenu() {	printf(&amp;#34;\n\n\n\n\n&amp;#34;); printf(&amp;#34;\t\t\t-- 各 类 查 找 综 合 演 示 -- \n&amp;#34;); printf(&amp;#34;\n\t\t\t************************************&amp;#34;); printf(&amp;#34;\n\t\t\t* 1-------静 态 查 找 *&amp;#34;); printf(&amp;#34;\n\t\t\t* 2-------动 态 查 找 *&amp;#34;); printf(&amp;#34;\n\t\t\t* 0-------退 出 *&amp;#34;); printf(&amp;#34;\n\t\t\t************************************\n&amp;#34;); printf(&amp;#34;\t\t\t请选择功能号(0--2)：&amp;#34;); } /* 查找表初始化*/ void ElemInit() { int i=1; ElemType elem; printf(&amp;#34;\n请注意!</description>
+    </item>
+    
+    <item>
+      <title>查找</title>
+      <link>http://www.mengcfunk.com/study/datastructure/sort/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/sort/</guid>
+      <description>#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;conio.h&amp;gt;#include &amp;lt;string.h&amp;gt;#include &amp;lt;malloc.h&amp;gt;#define Keytype int /*关键字类型定义*/#define MAX_LIST_LEN 100 /*定义线性表的最大长度*/typedef struct { /*定义元素类型 */ Keytype key; /*关键字定义*/ } ElemType; typedef struct { /*查找表顺序存储结构定义*/ ElemType elem[MAX_LIST_LEN+1]; /*elem[0]元素当作工作单元*/ int length; /* 查找表长度*/ }Seq_Table; Seq_Table seqtbl; typedef struct NODE{ /*查找表链式存储结构定义*/ ElemType elem; /*其中ElemType 定义同顺序存储结构*/ struct NODE *next; }LINK_NODE; #define ENDVALUE -1 typedef struct BINNODE{ /*二叉排序树定义*/ Keytype key; /*关键字值*/ struct BINNODE *lchild ,*rchild; /*左右指针*/ } BSTNode, *BSTree; /*显示主界面*/ void PrintMenu() {	printf(&amp;#34;\n\n\n\n\n&amp;#34;); printf(&amp;#34;\t\t\t-- 各 类 查 找 综 合 演 示 -- \n&amp;#34;); printf(&amp;#34;\n\t\t\t************************************&amp;#34;); printf(&amp;#34;\n\t\t\t* 1-------静 态 查 找 *&amp;#34;); printf(&amp;#34;\n\t\t\t* 2-------动 态 查 找 *&amp;#34;); printf(&amp;#34;\n\t\t\t* 0-------退 出 *&amp;#34;); printf(&amp;#34;\n\t\t\t************************************\n&amp;#34;); printf(&amp;#34;\t\t\t请选择功能号(0--2)：&amp;#34;); } /* 查找表初始化*/ void ElemInit() { int i=1; ElemType elem; printf(&amp;#34;\n请注意!</description>
+    </item>
+    
+    <item>
+      <title>森林转化成二叉树实现</title>
+      <link>http://www.mengcfunk.com/study/datastructure/mgraph/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/mgraph/</guid>
+      <description>#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;	#define MAX 20 /* 图的最多顶点数*/#define INF 65535 /*定义大于所有权值的一个数*/typedef enum {DGN,UDGN} GraphKind; /*DGN包括有向图和有向网，UDGN包括无向图和无向网*/ typedef char VertexType; /* 图的顶点类型 */ typedef int AdjType; /* 图的边（或弧）的类型，如果是网，则权值非负 */ typedef char zifu;	typedef int zheng; typedef struct list{ VertexType date; struct list *next; }lqlist; typedef struct Queuelist{ zheng date;	/*队列的数据类型*/ struct Queuelist *next;	}QNode, *Queue; typedef struct queuelist{ Queue front; Queue rear; }S,*PQueue; struct {	VertexType vex; AdjType lowcost; }closeedge[MAX]; typedef struct {	VertexType vexs[MAX+1]; /* 表示的顶点的一维向量 */ AdjType edges[MAX+1][MAX+1]; /* 表示图的边（或弧）的邻接矩阵，对于无权图用1或0表示顶点是否相邻，对于带权图，则为权值类型 */ int n,e; /* n表示当前顶点数 e表示当前的边数（弧数） */ }MGraph; /*为了避免元素的位序与C语言数组的表示之间的错位，不使用C语言中数组的零元素*/ void InitQueue(PQueue p){ p-&amp;gt;front=p-&amp;gt;rear=(Queue)malloc(sizeof(QNode)); p-&amp;gt;front-&amp;gt;next=NULL; } void InsertQueue(PQueue p,zheng i){ Queue q; q=(Queue)malloc(sizeof(QNode)); q-&amp;gt;date=i; q-&amp;gt;next=NULL; if(p-&amp;gt;rear==NULL){ p-&amp;gt;front=q; p-&amp;gt;rear=q; } else{ p-&amp;gt;rear-&amp;gt;next=q; p-&amp;gt;rear=q; } } int DeleteQueue(PQueue p){ QNode *q; q=p-&amp;gt;front; if(p-&amp;gt;front==p-&amp;gt;rear){ p-&amp;gt;front=NULL; p-&amp;gt;rear=NULL; } else{ p-&amp;gt;front=p-&amp;gt;front-&amp;gt;next; free(q); } return p-&amp;gt;front-&amp;gt;date; } int panduan(PQueue p){ if(p-&amp;gt;front==p-&amp;gt;rear){ return 1; } else{ return 0; } } void CreateGN(MGraph* G,GraphKind gk) /*构造图*/ {	int i,j,k; AdjType w; printf(&amp;#34;\n\t\t请输入图的顶点数和边数(格式为：顶点数，边数)\n\t\t&amp;#34;); scanf(&amp;#34;%d,%d&amp;#34;,&amp;amp;(G-&amp;gt;n),&amp;amp;(G-&amp;gt;e));getchar(); /*输入图的顶点数和边数*/ for(i=1;i&amp;lt;=G-&amp;gt;n;i++) for(j=1;j&amp;lt;=G-&amp;gt;n;j++) G-&amp;gt;edges[i][j]=INF; /*邻接矩阵的初始化,用INF表示边或弧的不存在*/ printf(&amp;#34;\t\t请输入各顶点的值（该值对应的序号为它输入时的次序）：\n\t\t&amp;#34;); for(i=1;i&amp;lt;=G-&amp;gt;n;i++) {	scanf(&amp;#34;%c&amp;#34;,&amp;amp;(G-&amp;gt;vexs[i]));getchar();printf(&amp;#34;\t\t&amp;#34;); } /*构造顶点向量*/ printf(&amp;#34;请输入边信息，如果不是网，则用1表示,否则输入权值\n&amp;#34;); printf(&amp;#34;\t\t如果是网，则输入权值!</description>
+    </item>
+    
+    <item>
+      <title>线性栈</title>
+      <link>http://www.mengcfunk.com/study/datastructure/linearstack/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/linearstack/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;typedef int SElemType; typedef struct SqStack{ SElemType *base; SElemType *top; int stacksize; }SStack; void InitStack(SStack *p){ p-&amp;gt;base=p-&amp;gt;top=(SStack *)malloc(sizeof(SStack)); if(p-&amp;gt;base==NULL){ return; } else{ p-&amp;gt;base=NULL; p-&amp;gt;stacksize=0; } } void DestoryStack(SStack *p){ free(p-&amp;gt;base); free(p-&amp;gt;top); } void CLearStack(SStack *p){ while(p-&amp;gt;top!=p-&amp;gt;base){ p-&amp;gt;top=p-&amp;gt;top-1; p-&amp;gt;stacksize=p-&amp;gt;stacksize-1; } } int StackEmpty(SStack *p){ if(p-&amp;gt;base==p-&amp;gt;top){ return 1; } else{ return 0; } } int StackLength(SStack *p){ int i; SElemType *q; q=p-&amp;gt;top; i=0; while(q==p-&amp;gt;base){ q=q-1; i++; } return i; } int Get(SStack *p){ int i; if(p-&amp;gt;top==p-&amp;gt;base) return 0; else{ i=*p-&amp;gt;top; return i; } } void Push(SStack *p){ if(p-&amp;gt;top-p-&amp;gt;base&amp;gt;=p-&amp;gt;stacksize){ p-&amp;gt;base=(int *)realloc(p-&amp;gt;base,(p-&amp;gt;stacksize+10)*sizeof(int)); if } } </description>
+    </item>
+    
+    <item>
+      <title>银行排队实现</title>
+      <link>http://www.mengcfunk.com/study/datastructure/bank/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/bank/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;stdlib.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;typedef int AdjType; typedef struct QNode{ AdjType i; AdjType date; struct QNode *next; }Q; typedef struct Sqlist{ Q *front; Q *rear; }S; void Init(S* p){ p-&amp;gt;rear=p-&amp;gt;front=(Q *)malloc(sizeof( Q )); p-&amp;gt;rear-&amp;gt;next=NULL; printf(&amp;#34;\n\t\t\t银行计划初始化成功!&amp;#34;); } void insert(S *p,int i,int j){ Q *q; printf(&amp;#34;\n\t\t\t第%d位客户进入了银行他要用的时间是%d\t&amp;#34;,i,j); q=(Q *)malloc(sizeof(Q)); q-&amp;gt;date=j; p-&amp;gt;rear-&amp;gt;next=q;	p-&amp;gt;rear=q; q-&amp;gt;i=i; p-&amp;gt;rear-&amp;gt;next=NULL; } void Delete(S *p,int i){ Q *q; if(p-&amp;gt;front==p-&amp;gt;rear) return; q=p-&amp;gt;front-&amp;gt;next; if(q-&amp;gt;date==0&amp;amp;&amp;amp;i==1){ p-&amp;gt;front=p-&amp;gt;front-&amp;gt;next; printf(&amp;#34;\n\t\t\t第%d客户已经离开了银行\n&amp;#34;,q-&amp;gt;i); } } int fanhui(S *p){ int i; Q *q; q=p-&amp;gt;front; i=0; if(q==p-&amp;gt;rear){ return 0; } while(q!</description>
+    </item>
+    
+    <item>
+      <title>银行排队实现</title>
+      <link>http://www.mengcfunk.com/study/datastructure/binarytreetofrost/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/binarytreetofrost/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;stdlib.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;typedef int AdjType; typedef struct QNode{ AdjType i; AdjType date; struct QNode *next; }Q; typedef struct Sqlist{ Q *front; Q *rear; }S; void Init(S* p){ p-&amp;gt;rear=p-&amp;gt;front=(Q *)malloc(sizeof( Q )); p-&amp;gt;rear-&amp;gt;next=NULL; printf(&amp;#34;\n\t\t\t银行计划初始化成功!&amp;#34;); } void insert(S *p,int i,int j){ Q *q; printf(&amp;#34;\n\t\t\t第%d位客户进入了银行他要用的时间是%d\t&amp;#34;,i,j); q=(Q *)malloc(sizeof(Q)); q-&amp;gt;date=j; p-&amp;gt;rear-&amp;gt;next=q;	p-&amp;gt;rear=q; q-&amp;gt;i=i; p-&amp;gt;rear-&amp;gt;next=NULL; } void Delete(S *p,int i){ Q *q; if(p-&amp;gt;front==p-&amp;gt;rear) return; q=p-&amp;gt;front-&amp;gt;next; if(q-&amp;gt;date==0&amp;amp;&amp;amp;i==1){ p-&amp;gt;front=p-&amp;gt;front-&amp;gt;next; printf(&amp;#34;\n\t\t\t第%d客户已经离开了银行\n&amp;#34;,q-&amp;gt;i); } } int fanhui(S *p){ int i; Q *q; q=p-&amp;gt;front; i=0; if(q==p-&amp;gt;rear){ return 0; } while(q!</description>
+    </item>
+    
+    <item>
       <title>java小demo</title>
-      <link>http://www.mengcfunk.com/study/new/</link>
+      <link>http://www.mengcfunk.com/study/java/licenseplate/</link>
       <pubDate>Mon, 02 Mar 2020 17:13:11 +0800</pubDate>
       
-      <guid>http://www.mengcfunk.com/study/new/</guid>
+      <guid>http://www.mengcfunk.com/study/java/licenseplate/</guid>
       <description>import java.util.Random; import javax.swing.border.SoftBevelBorder; /** * 项目用到的工具方法的汇总类 * @author XZP * */ class set{ private static String[] a = { &amp;#34;京A&amp;#34;,&amp;#34;京C&amp;#34;,&amp;#34;京E&amp;#34;,&amp;#34;京F&amp;#34;,&amp;#34;京H&amp;#34;,&amp;#34;京G&amp;#34;,&amp;#34;京B&amp;#34;,&amp;#34;津A&amp;#34;,&amp;#34;津B&amp;#34;, &amp;#34;津C&amp;#34;, &amp;#34;津E&amp;#34;, &amp;#34;沪A&amp;#34;, &amp;#34;沪B&amp;#34;, &amp;#34;沪D&amp;#34;, &amp;#34;沪C&amp;#34;,&amp;#34;渝A&amp;#34;, &amp;#34;渝B&amp;#34;, &amp;#34;渝C&amp;#34;, &amp;#34;渝G&amp;#34;, &amp;#34;渝H&amp;#34;,&amp;#34;冀A&amp;#34;, &amp;#34;冀B&amp;#34;, &amp;#34;冀C&amp;#34;, &amp;#34;冀D&amp;#34;, &amp;#34;冀E&amp;#34;, &amp;#34;冀F&amp;#34;, &amp;#34;冀G&amp;#34;, &amp;#34;冀H&amp;#34;, &amp;#34;冀J&amp;#34;, &amp;#34;冀R&amp;#34;, &amp;#34;冀T&amp;#34;, &amp;#34;豫A&amp;#34;, &amp;#34;豫B&amp;#34;, &amp;#34;豫C&amp;#34;, &amp;#34;豫D&amp;#34;, &amp;#34;豫E&amp;#34;, &amp;#34;豫F&amp;#34;,&amp;#34;豫G&amp;#34;,&amp;#34;豫H&amp;#34;,&amp;#34;豫J&amp;#34;,&amp;#34;豫K&amp;#34;,&amp;#34;豫L&amp;#34;, &amp;#34;豫M&amp;#34;,&amp;#34;豫N&amp;#34;,&amp;#34;豫P&amp;#34;,&amp;#34;豫Q&amp;#34;,&amp;#34;豫R&amp;#34;,&amp;#34;豫S&amp;#34;,&amp;#34;豫U&amp;#34;,&amp;#34;云A&amp;#34;, &amp;#34;云C&amp;#34;, &amp;#34;云D&amp;#34;, &amp;#34;云E&amp;#34;, &amp;#34;云F&amp;#34;, &amp;#34;云G&amp;#34;,&amp;#34;云H&amp;#34;,&amp;#34;云J&amp;#34;,&amp;#34;云K&amp;#34;,&amp;#34;云L&amp;#34;,&amp;#34;云M&amp;#34;,&amp;#34;云N&amp;#34;,&amp;#34;云P&amp;#34;,&amp;#34;云Q&amp;#34;,&amp;#34;云R &amp;#34;,&amp;#34;云S&amp;#34;, &amp;#34;辽A&amp;#34;, &amp;#34;辽B&amp;#34;, &amp;#34;辽C&amp;#34;, &amp;#34;辽D&amp;#34;, &amp;#34;辽E&amp;#34;, &amp;#34;辽F&amp;#34;,&amp;#34;辽G&amp;#34;,&amp;#34;辽H&amp;#34;,&amp;#34;辽J&amp;#34;,&amp;#34;辽K&amp;#34;,&amp;#34;辽L&amp;#34;,&amp;#34;辽M&amp;#34;, &amp;#34;辽N&amp;#34;,&amp;#34;辽P&amp;#34;,&amp;#34;辽V&amp;#34;,&amp;#34;黑A&amp;#34;, &amp;#34;黑B&amp;#34;, &amp;#34;黑C&amp;#34;, &amp;#34;黑D&amp;#34;, &amp;#34;黑E&amp;#34;, &amp;#34;黑F&amp;#34;,&amp;#34;黑G&amp;#34;,&amp;#34;黑H&amp;#34;,&amp;#34;黑J&amp;#34;,&amp;#34;黑K&amp;#34;, &amp;#34;黑L&amp;#34;,&amp;#34;黑M&amp;#34;,&amp;#34;黑N&amp;#34;,&amp;#34;黑P&amp;#34;,&amp;#34;黑R&amp;#34;,&amp;#34;湘A&amp;#34;, &amp;#34;湘B&amp;#34;, &amp;#34;湘C&amp;#34;, &amp;#34;湘D&amp;#34;, &amp;#34;湘E&amp;#34;, &amp;#34;湘F&amp;#34;,&amp;#34;湘G&amp;#34;,&amp;#34;湘H&amp;#34;,&amp;#34;湘J&amp;#34;, &amp;#34;湘K&amp;#34;,&amp;#34;湘L&amp;#34;,&amp;#34;湘M&amp;#34;,&amp;#34;湘N&amp;#34;,&amp;#34;湘U&amp;#34;,&amp;#34;湘S&amp;#34;,&amp;#34;皖A&amp;#34;, &amp;#34;皖B&amp;#34;, &amp;#34;皖C&amp;#34;, &amp;#34;皖D&amp;#34;, &amp;#34;皖E&amp;#34;, &amp;#34;皖F&amp;#34;,&amp;#34;皖G&amp;#34;,&amp;#34;皖H&amp;#34;,&amp;#34;皖J&amp;#34;, &amp;#34;皖K&amp;#34;,&amp;#34;皖L&amp;#34;,&amp;#34;皖M&amp;#34;,&amp;#34;皖N&amp;#34;,&amp;#34;皖P&amp;#34;,&amp;#34;皖Q&amp;#34;,&amp;#34;皖R&amp;#34;,&amp;#34;皖S&amp;#34;,&amp;#34;鲁A&amp;#34;, &amp;#34;鲁B&amp;#34;, &amp;#34;鲁C&amp;#34;, &amp;#34;鲁D&amp;#34;, &amp;#34;鲁E&amp;#34;, &amp;#34;鲁F&amp;#34;,&amp;#34;鲁G&amp;#34;, &amp;#34;鲁H&amp;#34;,&amp;#34;鲁J&amp;#34;,&amp;#34;鲁K&amp;#34;,&amp;#34;鲁L&amp;#34;,&amp;#34;鲁M&amp;#34;,&amp;#34;鲁N&amp;#34;,&amp;#34;鲁P&amp;#34;,&amp;#34;鲁Q&amp;#34;,&amp;#34;鲁R&amp;#34;,&amp;#34;鲁S&amp;#34;,&amp;#34;鲁U&amp;#34;,&amp;#34;鲁V&amp;#34;,&amp;#34;鲁Y&amp;#34;,&amp;#34;新A&amp;#34;, &amp;#34;新B&amp;#34;, &amp;#34;新C&amp;#34;, &amp;#34;新D&amp;#34;, &amp;#34;新E&amp;#34;, &amp;#34;新F&amp;#34;,&amp;#34;新G&amp;#34;,&amp;#34;新H&amp;#34;,&amp;#34;新J&amp;#34;,&amp;#34;新K&amp;#34;,&amp;#34;新L&amp;#34;,&amp;#34;新M&amp;#34;,&amp;#34;新N&amp;#34;,&amp;#34;新P&amp;#34;,&amp;#34;新Q&amp;#34;,&amp;#34;新R&amp;#34;,&amp;#34;苏A&amp;#34;, &amp;#34;苏B&amp;#34;, &amp;#34;苏C&amp;#34;, &amp;#34;苏D&amp;#34;, &amp;#34;苏E&amp;#34;, &amp;#34;苏F&amp;#34;,&amp;#34;苏G&amp;#34;,&amp;#34;苏H&amp;#34;,&amp;#34;苏J&amp;#34;,&amp;#34;苏K&amp;#34;,&amp;#34;苏L&amp;#34;,&amp;#34;苏M&amp;#34;,&amp;#34;苏N&amp;#34;,&amp;#34;浙A&amp;#34;, &amp;#34;浙B&amp;#34;, &amp;#34;浙C&amp;#34;, &amp;#34;浙D&amp;#34;, &amp;#34;浙E&amp;#34;, &amp;#34;浙F&amp;#34;, &amp;#34;浙G&amp;#34;,&amp;#34;浙H&amp;#34;,&amp;#34;浙J&amp;#34;,&amp;#34;浙K &amp;#34;,&amp;#34;浙L&amp;#34;,&amp;#34;赣A&amp;#34;,&amp;#34;赣B&amp;#34;,&amp;#34;赣C&amp;#34;,&amp;#34;赣D&amp;#34;,&amp;#34;赣E&amp;#34;,&amp;#34;赣F&amp;#34;,&amp;#34;赣G&amp;#34;,&amp;#34;赣H&amp;#34;,&amp;#34;赣J&amp;#34;,&amp;#34;赣K&amp;#34;,&amp;#34;赣L&amp;#34;,&amp;#34;赣M&amp;#34;,&amp;#34;鄂A&amp;#34;, &amp;#34;鄂B&amp;#34;,&amp;#34;鄂C&amp;#34;,&amp;#34;鄂D&amp;#34;,&amp;#34;鄂E&amp;#34;,&amp;#34;鄂F&amp;#34;,&amp;#34;鄂G&amp;#34;,&amp;#34;鄂H&amp;#34;,&amp;#34;鄂J&amp;#34;,&amp;#34;鄂K&amp;#34; ,&amp;#34;鄂L&amp;#34;,&amp;#34;鄂M&amp;#34;,&amp;#34;鄂N&amp;#34;,&amp;#34;鄂P&amp;#34;,&amp;#34;鄂Q&amp;#34;,&amp;#34;鄂R&amp;#34;,&amp;#34;鄂S&amp;#34;,&amp;#34;桂A&amp;#34;,&amp;#34;桂B&amp;#34;, &amp;#34;桂C&amp;#34;,&amp;#34;桂D&amp;#34;,&amp;#34;桂E&amp;#34;,&amp;#34;桂F&amp;#34;,&amp;#34;桂G&amp;#34;,&amp;#34;桂H&amp;#34;,&amp;#34;桂J&amp;#34;,&amp;#34;桂K&amp;#34;,&amp;#34;桂L&amp;#34;,&amp;#34;桂M&amp;#34;,&amp;#34;桂N&amp;#34;,&amp;#34;桂P&amp;#34; ,&amp;#34;桂R&amp;#34;,&amp;#34;甘A&amp;#34;,&amp;#34;甘B&amp;#34;,&amp;#34;甘C&amp;#34;,&amp;#34;甘D&amp;#34;,&amp;#34;甘E&amp;#34;, &amp;#34;甘F&amp;#34;,&amp;#34;甘G&amp;#34;,&amp;#34;甘H&amp;#34;,&amp;#34;甘J&amp;#34;,&amp;#34;甘K&amp;#34;,&amp;#34;甘L&amp;#34;,&amp;#34;甘M&amp;#34; ,&amp;#34;甘N&amp;#34;,&amp;#34;甘P&amp;#34;,&amp;#34;晋A&amp;#34; ,&amp;#34;晋B&amp;#34;,&amp;#34;晋C&amp;#34;,&amp;#34;晋D&amp;#34;,&amp;#34;晋E&amp;#34;,&amp;#34;晋F&amp;#34;,&amp;#34;晋H&amp;#34;,&amp;#34;晋J&amp;#34;,&amp;#34;晋K&amp;#34;, &amp;#34;晋L&amp;#34;,&amp;#34;晋M&amp;#34;,&amp;#34;蒙A&amp;#34;,&amp;#34;蒙B&amp;#34;,&amp;#34;蒙C&amp;#34;,&amp;#34;蒙D&amp;#34;,&amp;#34;蒙E&amp;#34;,&amp;#34;蒙F&amp;#34;,&amp;#34;蒙G&amp;#34;,&amp;#34;蒙H&amp;#34;,&amp;#34;蒙J&amp;#34;,&amp;#34;蒙K&amp;#34;,&amp;#34;蒙L&amp;#34;,&amp;#34;蒙M&amp;#34;,&amp;#34;陕A&amp;#34;,&amp;#34;陕B&amp;#34;,&amp;#34;陕C&amp;#34;,&amp;#34;陕D&amp;#34;,&amp;#34;陕E&amp;#34;, &amp;#34;陕F&amp;#34;,&amp;#34;陕G&amp;#34;,&amp;#34;陕H&amp;#34;,&amp;#34;陕J&amp;#34;,&amp;#34;陕K&amp;#34;,&amp;#34;陕U&amp;#34;,&amp;#34;陕V&amp;#34;,&amp;#34;吉A&amp;#34;,&amp;#34;吉B&amp;#34;,&amp;#34;吉C&amp;#34;,&amp;#34;吉D&amp;#34;,&amp;#34;吉E&amp;#34;,&amp;#34;吉F&amp;#34;,&amp;#34;吉G&amp;#34;,&amp;#34;吉H&amp;#34;,&amp;#34;吉J&amp;#34;,&amp;#34;闽A&amp;#34;,&amp;#34;闽B&amp;#34;,&amp;#34;闽C&amp;#34;, &amp;#34;闽D&amp;#34;,&amp;#34;闽E&amp;#34;,&amp;#34;闽F&amp;#34; ,&amp;#34;闽G&amp;#34;,&amp;#34;闽H&amp;#34;,&amp;#34;闽J&amp;#34;,&amp;#34;闽K&amp;#34;,&amp;#34;贵A&amp;#34;,&amp;#34;贵B&amp;#34; ,&amp;#34;贵C&amp;#34;,&amp;#34;贵D&amp;#34;,&amp;#34;贵E&amp;#34; ,&amp;#34;贵F&amp;#34;,&amp;#34;贵G&amp;#34;,&amp;#34;贵H&amp;#34;,&amp;#34;贵J&amp;#34;,&amp;#34;粤A&amp;#34;,&amp;#34;粤B&amp;#34;,&amp;#34;粤C&amp;#34;, &amp;#34;粤D&amp;#34;,&amp;#34;粤E&amp;#34;,&amp;#34;粤F&amp;#34;,&amp;#34;粤G&amp;#34;,&amp;#34;粤H&amp;#34;,&amp;#34;粤J&amp;#34;,&amp;#34;粤K&amp;#34;,&amp;#34;粤L&amp;#34;,&amp;#34;粤M&amp;#34;,&amp;#34;粤N&amp;#34;,&amp;#34;粤P&amp;#34;,&amp;#34;粤Q&amp;#34;,&amp;#34;粤R&amp;#34;,&amp;#34;粤S&amp;#34;,&amp;#34;粤T&amp;#34;,&amp;#34;粤U&amp;#34;,&amp;#34;粤V&amp;#34;,&amp;#34;粤W&amp;#34;,&amp;#34;粤X&amp;#34;,&amp;#34;粤Y&amp;#34;, &amp;#34;粤Z&amp;#34;,&amp;#34;青A&amp;#34;,&amp;#34;青B&amp;#34;,&amp;#34;青C&amp;#34;,&amp;#34;青D&amp;#34;,&amp;#34;青E&amp;#34;,&amp;#34;青F&amp;#34;,&amp;#34;青G&amp;#34;,&amp;#34;青H&amp;#34;,&amp;#34;藏A&amp;#34;,&amp;#34;藏B&amp;#34;,&amp;#34;藏C&amp;#34;,&amp;#34;藏D&amp;#34;,&amp;#34;藏E&amp;#34;,&amp;#34;藏F&amp;#34;,&amp;#34;藏G&amp;#34;,&amp;#34;藏H&amp;#34; ,&amp;#34;藏J&amp;#34;,&amp;#34;川A&amp;#34;,&amp;#34;川B&amp;#34;, &amp;#34;川C&amp;#34;,&amp;#34;川D&amp;#34;,&amp;#34;川E&amp;#34;,&amp;#34;川F&amp;#34;,&amp;#34;川H&amp;#34;,&amp;#34;川J&amp;#34;,&amp;#34;川K&amp;#34;,&amp;#34;川L&amp;#34;,&amp;#34;川M&amp;#34;,&amp;#34;川Q&amp;#34;,&amp;#34;川R&amp;#34;,&amp;#34;川S&amp;#34;,&amp;#34;川T&amp;#34;,&amp;#34;川U&amp;#34;,&amp;#34;川V&amp;#34;,&amp;#34;川W&amp;#34;,&amp;#34;川X&amp;#34;,&amp;#34;川Y&amp;#34;,&amp;#34;川Z&amp;#34;,&amp;#34;宁A&amp;#34;, &amp;#34;宁B&amp;#34;,&amp;#34;宁C&amp;#34;,&amp;#34;宁D&amp;#34;,&amp;#34;琼A&amp;#34;,&amp;#34;琼B&amp;#34;,&amp;#34;琼C&amp;#34;,&amp;#34;琼D&amp;#34;,&amp;#34;琼E&amp;#34; }; private static String[] b = { &amp;#34;A&amp;#34;, &amp;#34;B&amp;#34;, &amp;#34;C&amp;#34;, &amp;#34;D&amp;#34;, &amp;#34;E&amp;#34;, &amp;#34;F&amp;#34;, &amp;#34;G&amp;#34;, &amp;#34;H&amp;#34;, &amp;#34;I&amp;#34;, &amp;#34;J&amp;#34;, &amp;#34;K&amp;#34;, &amp;#34;L&amp;#34;, &amp;#34;M&amp;#34;, &amp;#34;N&amp;#34;, &amp;#34;O&amp;#34;, &amp;#34;P&amp;#34;, &amp;#34;Q&amp;#34;, &amp;#34;R&amp;#34;, &amp;#34;S&amp;#34;, &amp;#34;T&amp;#34;, &amp;#34;U&amp;#34;, &amp;#34;V&amp;#34;, &amp;#34;W&amp;#34;, &amp;#34;X&amp;#34;, &amp;#34;Y&amp;#34;, &amp;#34;Z&amp;#34; }; /** * 随机生成车牌号 * @return */ public static String getPalte() { int count = 0; String sb = &amp;#34;&amp;#34;; // 随机获取后五位随机序号  while (count &amp;lt; 5) { Random random = new Random(); String str2 = b[random.</description>
     </item>
     
     <item>
       <title>学习记录</title>
-      <link>http://www.mengcfunk.com/study/stacks/</link>
+      <link>http://www.mengcfunk.com/study/java/demo1/</link>
       <pubDate>Mon, 02 Mar 2020 16:56:36 +0800</pubDate>
       
-      <guid>http://www.mengcfunk.com/study/stacks/</guid>
+      <guid>http://www.mengcfunk.com/study/java/demo1/</guid>
       <description>学习记录 import java.util.Scanner; //插入scanner库 public class test1{ public static void main(String[] args) { Scanner reader=new Scanner(System.in); String s=reader.next(); //输入字符串  zhuanhua ZH = new zhuanhua(s); //zhuanhua类的初始化,调用构造函数  ZH.change(); } } class zhuanhua{ int dot; int sum; char []MoneyThatIWillEarn=new char[100]; public zhuanhua(String s){ //构造函数,字符串初始化  for(int j=0;j&amp;lt;s.length();j++){ MoneyThatIWillEarn[j]=s.charAt(j); } sum=s.length(); //sum为字符串长度  dot=0; //dot表示小数点  } public void change(){ int flag; int cout; int cout1; int a; int b; for(int j=0;j&amp;lt;sum;j++){ if((MoneyThatIWillEarn[j]&amp;lt;=&amp;#39;9&amp;#39;&amp;amp;&amp;amp;MoneyThatIWillEarn[j]&amp;gt;&amp;#39;0&amp;#39;)||MoneyThatIWillEarn[j]==&amp;#39;.</description>
     </item>
     

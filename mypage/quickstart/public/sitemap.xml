@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://www.mengcfunk.com/study/datastructure2/</loc>
+    <loc>http://www.mengcfunk.com/study/datastructure/binarybalancedtree/</loc>
     <lastmod>2020-03-05T13:48:55+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -24,7 +24,133 @@
   </url>
   
   <url>
-    <loc>http://www.mengcfunk.com/study/datastructure1/</loc>
+    <loc>http://www.mengcfunk.com/study/datastructure/binarysortingtree/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/binarytree/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/largenumbermultiplication/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/huffmantree/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/largenumberaddition/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/linearbinarytree/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/linkedlist/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/queue/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/treeandforest/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/childbrother/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/foresttraversalandrealization/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/forestturnsintobinarytree/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/childlinkedlist/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/search/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/sort/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/mgraph/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/linearstack/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/bank/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure/binarytreetofrost/</loc>
     <lastmod>2020-03-05T13:48:55+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -45,14 +171,14 @@
   </url>
   
   <url>
-    <loc>http://www.mengcfunk.com/study/new/</loc>
+    <loc>http://www.mengcfunk.com/study/java/licenseplate/</loc>
     <lastmod>2020-03-02T17:13:11+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://www.mengcfunk.com/study/stacks/</loc>
+    <loc>http://www.mengcfunk.com/study/java/demo1/</loc>
     <lastmod>2020-03-02T16:56:36+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

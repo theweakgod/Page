@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Meng&#39;s website  | 查找</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.65.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="查找" />
+<meta property="og:description" content="#include &lt;stdio.h&gt;#include &lt;conio.h&gt;#include &lt;string.h&gt;#include &lt;malloc.h&gt;#define Keytype int /*关键字类型定义*/#define MAX_LIST_LEN 100 /*定义线性表的最大长度*/typedef struct { /*定义元素类型 */ Keytype key; /*关键字定义*/ } ElemType; typedef struct { /*查找表顺序存储结构定义*/ ElemType elem[MAX_LIST_LEN&#43;1]; /*elem[0]元素当作工作单元*/ int length; /* 查找表长度*/ }Seq_Table; Seq_Table seqtbl; typedef struct NODE{ /*查找表链式存储结构定义*/ ElemType elem; /*其中ElemType 定义同顺序存储结构*/ struct NODE *next; }LINK_NODE; #define ENDVALUE -1 typedef struct BINNODE{ /*二叉排序树定义*/ Keytype key; /*关键字值*/ struct BINNODE *lchild ,*rchild; /*左右指针*/ } BSTNode, *BSTree; /*显示主界面*/ void PrintMenu() {	printf(&#34;\n\n\n\n\n&#34;); printf(&#34;\t\t\t-- 各 类 查 找 综 合 演 示 -- \n&#34;); printf(&#34;\n\t\t\t************************************&#34;); printf(&#34;\n\t\t\t* 1-------静 态 查 找 *&#34;); printf(&#34;\n\t\t\t* 2-------动 态 查 找 *&#34;); printf(&#34;\n\t\t\t* 0-------退 出 *&#34;); printf(&#34;\n\t\t\t************************************\n&#34;); printf(&#34;\t\t\t请选择功能号(0--2)：&#34;); } /* 查找表初始化*/ void ElemInit() { int i=1; ElemType elem; printf(&#34;\n请注意!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.mengcfunk.com/study/datastructure/search/" />
+<meta property="article:published_time" content="2020-03-05T13:48:55+08:00" />
+<meta property="article:modified_time" content="2020-03-05T13:48:55+08:00" />
+<meta itemprop="name" content="查找">
+<meta itemprop="description" content="#include &lt;stdio.h&gt;#include &lt;conio.h&gt;#include &lt;string.h&gt;#include &lt;malloc.h&gt;#define Keytype int /*关键字类型定义*/#define MAX_LIST_LEN 100 /*定义线性表的最大长度*/typedef struct { /*定义元素类型 */ Keytype key; /*关键字定义*/ } ElemType; typedef struct { /*查找表顺序存储结构定义*/ ElemType elem[MAX_LIST_LEN&#43;1]; /*elem[0]元素当作工作单元*/ int length; /* 查找表长度*/ }Seq_Table; Seq_Table seqtbl; typedef struct NODE{ /*查找表链式存储结构定义*/ ElemType elem; /*其中ElemType 定义同顺序存储结构*/ struct NODE *next; }LINK_NODE; #define ENDVALUE -1 typedef struct BINNODE{ /*二叉排序树定义*/ Keytype key; /*关键字值*/ struct BINNODE *lchild ,*rchild; /*左右指针*/ } BSTNode, *BSTree; /*显示主界面*/ void PrintMenu() {	printf(&#34;\n\n\n\n\n&#34;); printf(&#34;\t\t\t-- 各 类 查 找 综 合 演 示 -- \n&#34;); printf(&#34;\n\t\t\t************************************&#34;); printf(&#34;\n\t\t\t* 1-------静 态 查 找 *&#34;); printf(&#34;\n\t\t\t* 2-------动 态 查 找 *&#34;); printf(&#34;\n\t\t\t* 0-------退 出 *&#34;); printf(&#34;\n\t\t\t************************************\n&#34;); printf(&#34;\t\t\t请选择功能号(0--2)：&#34;); } /* 查找表初始化*/ void ElemInit() { int i=1; ElemType elem; printf(&#34;\n请注意!">
+<meta itemprop="datePublished" content="2020-03-05T13:48:55&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-05T13:48:55&#43;08:00" />
+<meta itemprop="wordCount" content="888">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="查找"/>
+<meta name="twitter:description" content="#include &lt;stdio.h&gt;#include &lt;conio.h&gt;#include &lt;string.h&gt;#include &lt;malloc.h&gt;#define Keytype int /*关键字类型定义*/#define MAX_LIST_LEN 100 /*定义线性表的最大长度*/typedef struct { /*定义元素类型 */ Keytype key; /*关键字定义*/ } ElemType; typedef struct { /*查找表顺序存储结构定义*/ ElemType elem[MAX_LIST_LEN&#43;1]; /*elem[0]元素当作工作单元*/ int length; /* 查找表长度*/ }Seq_Table; Seq_Table seqtbl; typedef struct NODE{ /*查找表链式存储结构定义*/ ElemType elem; /*其中ElemType 定义同顺序存储结构*/ struct NODE *next; }LINK_NODE; #define ENDVALUE -1 typedef struct BINNODE{ /*二叉排序树定义*/ Keytype key; /*关键字值*/ struct BINNODE *lchild ,*rchild; /*左右指针*/ } BSTNode, *BSTree; /*显示主界面*/ void PrintMenu() {	printf(&#34;\n\n\n\n\n&#34;); printf(&#34;\t\t\t-- 各 类 查 找 综 合 演 示 -- \n&#34;); printf(&#34;\n\t\t\t************************************&#34;); printf(&#34;\n\t\t\t* 1-------静 态 查 找 *&#34;); printf(&#34;\n\t\t\t* 2-------动 态 查 找 *&#34;); printf(&#34;\n\t\t\t* 0-------退 出 *&#34;); printf(&#34;\n\t\t\t************************************\n&#34;); printf(&#34;\t\t\t请选择功能号(0--2)：&#34;); } /* 查找表初始化*/ void ElemInit() { int i=1; ElemType elem; printf(&#34;\n请注意!"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://www.mengcfunk.com" class="f3 fw2 hover-white no-underline white-90 dib">
+      Meng&#39;s website
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/home/" title="Homes page">
+              Homes
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/resume/" title="Resumes page">
+              Resumes
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/study/" title="Studies page">
+              Studies
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+<a href="https://github.com/theweakgod" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        STUDIES
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://www.mengcfunk.com/study/datastructure/search/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://www.mengcfunk.com/study/datastructure/search/&amp;text=%e6%9f%a5%e6%89%be" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.mengcfunk.com/study/datastructure/search/&amp;title=%e6%9f%a5%e6%89%be" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+      <h1 class="f1 athelas mt3 mb1">查找</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-03-05T13:48:55&#43;08:00">March 5, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;conio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;malloc.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#define Keytype int        </span><span style="color:#75715e">/*关键字类型定义*/</span><span style="color:#75715e">
+</span><span style="color:#75715e">#define MAX_LIST_LEN 100   </span><span style="color:#75715e">/*定义线性表的最大长度*/</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span>  <span style="color:#66d9ef">struct</span> {                    <span style="color:#75715e">/*定义元素类型 */</span>
+	Keytype key;                     <span style="color:#75715e">/*关键字定义*/</span>
+} ElemType;               
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {                     <span style="color:#75715e">/*查找表顺序存储结构定义*/</span>
+	ElemType elem[MAX_LIST_LEN<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>];   <span style="color:#75715e">/*elem[0]元素当作工作单元*/</span>
+	<span style="color:#66d9ef">int</span> length;                      <span style="color:#75715e">/* 查找表长度*/</span>
+}Seq_Table;
+Seq_Table seqtbl;
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span>  NODE{                       <span style="color:#75715e">/*查找表链式存储结构定义*/</span>
+	ElemType elem;                        <span style="color:#75715e">/*其中ElemType 定义同顺序存储结构*/</span>
+	<span style="color:#66d9ef">struct</span>  NODE <span style="color:#f92672">*</span>next;
+}LINK_NODE;
+<span style="color:#75715e">#define ENDVALUE  -1
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> BINNODE{                       <span style="color:#75715e">/*二叉排序树定义*/</span>
+	Keytype key;                              <span style="color:#75715e">/*关键字值*/</span>
+	<span style="color:#66d9ef">struct</span> BINNODE <span style="color:#f92672">*</span>lchild ,<span style="color:#f92672">*</span>rchild;          <span style="color:#75715e">/*左右指针*/</span> 
+} BSTNode, <span style="color:#f92672">*</span>BSTree;
+
+<span style="color:#75715e">/*显示主界面*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintMenu</span>()
+{	    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n\n\n\n</span><span style="color:#e6db74">&#34;</span>);
+	    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">    --  各 类 查 找  综 合 演 示  --  </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">************************************&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       1-------静 态 查 找        *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       2-------动 态 查 找        *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       0-------退       出        *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">************************************</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">请选择功能号(0--2)：&#34;</span>);
+}
+
+<span style="color:#75715e">/* 查找表初始化*/</span>
+ <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ElemInit</span>()
+{
+    <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+	ElemType elem;
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 请注意! 假定系统查找表的最大长度为 %d&#34;</span> ,MAX_LIST_LEN);
+        printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 请输入若干( &lt;%d )查找表初始元素的关键字值(整数),以%d结束.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,MAX_LIST_LEN,ENDVALUE);
+        seqtbl.length<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;    <span style="color:#75715e">/*初始化查找表长度*/</span>
+	<span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span>)
+	{
+	scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>elem.key);
+	<span style="color:#66d9ef">if</span> (elem.key<span style="color:#f92672">==</span>ENDVALUE) 
+	   <span style="color:#66d9ef">break</span>;
+	<span style="color:#66d9ef">else</span>
+	   seqtbl.elem[i<span style="color:#f92672">++</span>].key<span style="color:#f92672">=</span>elem.key;   <span style="color:#75715e">/*从第1号单元开始存放数据*/</span>
+        seqtbl.length<span style="color:#f92672">++</span>;     
+	}
+}
+
+<span style="color:#75715e">/* 输出查找表的所有元素*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">output</span>(Seq_Table seqtbl1)
+{
+        <span style="color:#66d9ef">int</span> k;
+	printf (<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 查找表的地址单元:  &#34;</span>);
+        <span style="color:#66d9ef">for</span>(k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;k<span style="color:#f92672">&lt;=</span>seqtbl1.length ;k<span style="color:#f92672">++</span>)
+		printf(<span style="color:#e6db74">&#34;%4d&#34;</span>,k);
+   	printf (<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 元素关键字序列为:  &#34;</span>);
+	<span style="color:#66d9ef">for</span>(k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;k<span style="color:#f92672">&lt;=</span>seqtbl1.length ;k<span style="color:#f92672">++</span>)
+		printf(<span style="color:#e6db74">&#34;%4d&#34;</span>,seqtbl1.elem[k]);
+}
+
+<span style="color:#75715e">/*数据输入界面*/</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">input</span>()
+{
+	<span style="color:#66d9ef">int</span> x;
+	<span style="color:#66d9ef">while</span>(<span style="color:#ae81ff">1</span>)
+	{
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 请输入你要查找元素的关键字值(整型):&#34;</span>);
+        scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>x);
+	getchar();
+	<span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>((x<span style="color:#f92672">&gt;=-</span><span style="color:#ae81ff">32768</span>) <span style="color:#f92672">&amp;&amp;</span> (x<span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">32767</span>))) 
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 关键字输入无效,请重新输入!&#34;</span>);
+	<span style="color:#66d9ef">else</span>
+		<span style="color:#66d9ef">break</span>;
+	}
+	<span style="color:#66d9ef">return</span> x;
+}
+
+ <span style="color:#75715e">/*显示静态查找主界面*/</span>
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintStaticMenu</span>()
+{
+	        printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n\n\n\n</span><span style="color:#e6db74">&#34;</span>);
+	        printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">     --   静 态 查 找 综 合 演 示   --     </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*****************************************&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       1------- 查找表初始化           *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       2------- 顺 序 查  找           *&#34;</span>);
+        printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       3------- 顺 序 查  找(设监视哨) *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       4------- 折 半 查  找           *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       0------- 返 回主界 面           *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*****************************************</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">          请选择功能号(0--4)：&#34;</span>);
+ }
+
+<span style="color:#75715e">/*顺序查找 未设置监视哨情形*/</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">SeqSearch</span>(Seq_Table  Seq_Tbl, Keytype  Sea_Key)
+  <span style="color:#75715e">/*Seq_Tbl为查找表，Sea_Key 为待查找的关键字.*/</span>
+{
+	<span style="color:#66d9ef">int</span>  pos, len;
+	pos<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; len<span style="color:#f92672">=</span>Seq_Tbl.length; 
+	<span style="color:#75715e">/*当没有到达查找表尾且没有找到时循环;*/</span>
+	<span style="color:#66d9ef">while</span> (pos<span style="color:#f92672">&lt;=</span>len  <span style="color:#f92672">&amp;&amp;</span>  Seq_Tbl.elem[pos].key<span style="color:#f92672">!=</span>Sea_Key)  pos<span style="color:#f92672">++</span>; 
+	<span style="color:#66d9ef">if</span>  (pos<span style="color:#f92672">&gt;</span>len )    <span style="color:#75715e">/*循环结束是因为没有找到此元素*/</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">else</span>         <span style="color:#75715e">/*找到此元素 */</span>
+		<span style="color:#66d9ef">return</span> pos;
+}
+
+<span style="color:#75715e">/*顺序查找 设置监视哨情形*/</span>
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">SeqSearchSetMonitor</span>(Seq_Table  Seq_Tbl, Keytype  Sea_Key)
+{
+	<span style="color:#66d9ef">int</span> i;
+	Seq_Tbl.elem[<span style="color:#ae81ff">0</span>].key<span style="color:#f92672">=</span>Sea_Key;
+	<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span>MAX_LIST_LEN;i<span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">&amp;&amp;</span>Seq_Tbl.elem[<span style="color:#ae81ff">0</span>].key<span style="color:#f92672">==-</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">--</span>){
+		<span style="color:#66d9ef">if</span>(Seq_Tbl.elem[<span style="color:#ae81ff">0</span>].key<span style="color:#f92672">==</span>Sea_Key){
+			<span style="color:#66d9ef">break</span>;
+		}
+	}
+	<span style="color:#66d9ef">return</span> i;
+}
+
+<span style="color:#75715e">/*冒泡排序*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">BubbleSort</span>( Seq_Table  <span style="color:#f92672">*</span>Seq_Tbl )  
+{	<span style="color:#66d9ef">int</span> i,j;
+	ElemType temp;
+	<span style="color:#66d9ef">for</span> ( i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> ; i<span style="color:#f92672">&lt;=</span>Seq_Tbl<span style="color:#f92672">-&gt;</span>length<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> ; i<span style="color:#f92672">++</span> )    <span style="color:#75715e">/* 外循环，i 表示趟数，总共需要len-1趟*/</span>
+	{	<span style="color:#66d9ef">for</span> ( j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> ; j<span style="color:#f92672">&lt;=</span>Seq_Tbl<span style="color:#f92672">-&gt;</span>length<span style="color:#f92672">-</span>i ;j<span style="color:#f92672">++</span> )  <span style="color:#75715e">/*内循环，每趟排序中所需比较的次数*/</span>
+		<span style="color:#66d9ef">if</span>  ( Seq_Tbl<span style="color:#f92672">-&gt;</span>elem[j].key<span style="color:#f92672">&gt;</span>Seq_Tbl<span style="color:#f92672">-&gt;</span>elem[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>].key)  <span style="color:#75715e">/*前面元素大于后面元素，则交换*/</span>
+        {	temp<span style="color:#f92672">=</span>Seq_Tbl<span style="color:#f92672">-&gt;</span>elem[j] ; Seq_Tbl<span style="color:#f92672">-&gt;</span>elem[j]<span style="color:#f92672">=</span>Seq_Tbl<span style="color:#f92672">-&gt;</span>elem[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]; Seq_Tbl<span style="color:#f92672">-&gt;</span>elem[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">=</span>temp;}
+	}
+}
+
+<span style="color:#75715e">/*折半查找*/</span>
+
+<span style="color:#66d9ef">int</span>  <span style="color:#a6e22e">BinarySearch</span>(Seq_Table  Seq_Tbl , Keytype  Sea_Key)
+<span style="color:#75715e">/*Seq_Tbl 为查找表，Sea_Key 为待查找的关键字*/</span>
+{
+	<span style="color:#66d9ef">int</span> mid, low, high;
+	low<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; high<span style="color:#f92672">=</span>Seq_Tbl.length;
+	<span style="color:#66d9ef">while</span> (low<span style="color:#f92672">&lt;=</span>high)
+	{	mid<span style="color:#f92672">=</span>(low<span style="color:#f92672">+</span>high)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+		<span style="color:#66d9ef">if</span>  (Seq_Tbl.elem[mid].key<span style="color:#f92672">&lt;</span>Sea_Key)   <span style="color:#75715e">/*若存在，则必在右半区*/</span>
+			low<span style="color:#f92672">=</span>mid<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;
+		<span style="color:#66d9ef">else</span>
+			<span style="color:#66d9ef">if</span> (Seq_Tbl.elem[mid].key<span style="color:#f92672">&gt;</span>Sea_Key)  <span style="color:#75715e">/*若存在，则必在左半区*/</span>
+				high<span style="color:#f92672">=</span>mid<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+			<span style="color:#66d9ef">else</span>                             <span style="color:#75715e">/*等于待查找的关键字，查找结束*/</span>
+			<span style="color:#66d9ef">break</span>;
+	}
+	<span style="color:#66d9ef">if</span>  (low<span style="color:#f92672">&gt;</span>high)                         <span style="color:#75715e">/*没有找到*/</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">else</span> 
+		<span style="color:#66d9ef">return</span> mid;
+}
+
+<span style="color:#75715e">/*静态查找主程序*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">StaticSearch</span>( ) 
+{
+	<span style="color:#66d9ef">char</span> static_func_choice;
+	PrintStaticMenu();
+	getchar();     <span style="color:#75715e">/*读主界面的回车符*/</span>
+	static_func_choice<span style="color:#f92672">=</span>getchar();
+	<span style="color:#66d9ef">while</span> (static_func_choice<span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;0&#39;</span>)
+	{
+		<span style="color:#66d9ef">switch</span> (static_func_choice)
+		{
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;1&#39;</span><span style="color:#f92672">:</span>
+				ElemInit();   
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;2&#39;</span><span style="color:#f92672">:</span>	<span style="color:#75715e">/*顺序查找*/</span>
+			{
+			   	<span style="color:#66d9ef">int</span> retval,seakey;
+				seakey<span style="color:#f92672">=</span>input();
+				retval<span style="color:#f92672">=</span>SeqSearch(seqtbl, seakey);
+				output(seqtbl);
+				printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 你要查找的关键字为: %d&#34;</span>,seakey);
+				<span style="color:#66d9ef">if</span> (retval<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>) 
+					printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 查找成功,关键字为 %d 的元素位于第 %d 个位置!&#34;</span>,seakey,retval);
+				<span style="color:#66d9ef">else</span>
+					printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 对不起,关键字为 %d 的元素不存在.&#34;</span>,seakey);
+				<span style="color:#66d9ef">break</span>;
+			}
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;3&#39;</span> <span style="color:#f92672">:</span>	<span style="color:#75715e">/*设置监视哨情形*/</span>
+				<span style="color:#66d9ef">int</span> retval,seakey;
+				seakey<span style="color:#f92672">=</span>input();
+				retval<span style="color:#f92672">=</span>SeqSearchSetMonitor(seqtbl, seakey);
+				output(seqtbl);
+				printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 你要查找的关键字为: %d&#34;</span>,seakey);
+				<span style="color:#66d9ef">if</span> (retval<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>) 
+					printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 查找成功,关键字为 %d 的元素位于第 %d 个位置!&#34;</span>,seakey,retval);
+				<span style="color:#66d9ef">else</span>
+					printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 对不起,关键字为 %d 的元素不存在.&#34;</span>,seakey);
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;4&#39;</span> <span style="color:#f92672">:</span>    <span style="color:#75715e">/*折半查找*/</span> 
+		    {
+			   	<span style="color:#66d9ef">int</span> retval,seakey;
+				seakey<span style="color:#f92672">=</span>input();
+				printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 请注意!折半查找要求是有序表,若元素顺序无序,则首先将排序!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+				BubbleSort(<span style="color:#f92672">&amp;</span>seqtbl);  <span style="color:#75715e">/*调用冒泡排序法使查找表成为有序表*/</span>
+				retval<span style="color:#f92672">=</span>BinarySearch(seqtbl, seakey);
+				output(seqtbl);
+				printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 你要查找的关键字为: %d&#34;</span>,seakey);
+				<span style="color:#66d9ef">if</span> (retval<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>) 
+					printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 查找成功,关键字为 %d 的元素位于第 %d 个位置!&#34;</span>,seakey,retval);
+				<span style="color:#66d9ef">else</span>
+					printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 对不起,关键字为 %d 的元素不存在.&#34;</span>,seakey);
+				<span style="color:#66d9ef">break</span>;
+			} 
+			<span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+			printf( <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 请输入正确的操作选项(0-4):&#34;</span>);
+		}
+	getchar();   
+	PrintStaticMenu();
+	static_func_choice<span style="color:#f92672">=</span>getchar();
+	}
+}
+
+<span style="color:#75715e">/*显示动态查找主界面*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintDynamicMenu</span>()
+{
+	        printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n\n\n\n</span><span style="color:#e6db74">&#34;</span>);
+	        printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">      --  动 态 查 找 综 合 演 示  -- </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">****************************************&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       1------- 二叉排序树初始化      *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       2------- 二叉排序树插入        *&#34;</span>);
+        printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       3------- 二叉排序树删除        *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       4------- 二叉排序树查找        *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       0-------   返回主界面          *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">****************************************</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">          请选择功能号(0--4)：&#34;</span>);
+ }
+
+<span style="color:#75715e">/*二叉排序树的结点插入*/</span>
+
+ <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">InsertBST</span>(BSTree  bstree, Keytype Ins_key)
+{
+	BSTree  s ,p,q;
+	q<span style="color:#f92672">=</span>s<span style="color:#f92672">=</span>bstree;                             <span style="color:#75715e">/* s指向二叉排序树的根结点*/</span>
+	<span style="color:#66d9ef">while</span> (s)                             <span style="color:#75715e">/*找到要插入的结点位置*/</span>
+	{	<span style="color:#66d9ef">if</span> (s<span style="color:#f92672">-&gt;</span>key<span style="color:#f92672">&gt;</span>Ins_key) 
+			{	q<span style="color:#f92672">=</span>s;s<span style="color:#f92672">=</span>s<span style="color:#f92672">-&gt;</span>lchild; }                   <span style="color:#75715e">/*在左子树查找*/</span>
+		 <span style="color:#66d9ef">else</span>
+			<span style="color:#66d9ef">if</span> (s<span style="color:#f92672">-&gt;</span>key<span style="color:#f92672">&lt;</span>Ins_key)              <span style="color:#75715e">/*在右子树查找*/</span>
+			{	q<span style="color:#f92672">=</span>s;s<span style="color:#f92672">=</span>s<span style="color:#f92672">-&gt;</span>rchild; }
+		<span style="color:#66d9ef">else</span>                           <span style="color:#75715e">/*存在关键字等于Ins_key的结点*/</span>
+			{	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">插入失败，树中已经存在此关键字的结点。</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+				<span style="color:#66d9ef">return</span> ;
+			}
+    }
+    p<span style="color:#f92672">=</span>(BSTree)malloc(<span style="color:#66d9ef">sizeof</span>(BSTNode));     <span style="color:#75715e">/*生成一个关键字为Ins_key的结点p*/</span>
+		p<span style="color:#f92672">-&gt;</span>key<span style="color:#f92672">=</span>Ins_key;
+		p<span style="color:#f92672">-&gt;</span>lchild<span style="color:#f92672">=</span>NULL;
+    p<span style="color:#f92672">-&gt;</span>rchild<span style="color:#f92672">=</span>NULL;
+	<span style="color:#66d9ef">if</span> (q<span style="color:#f92672">-&gt;</span>key<span style="color:#f92672">&gt;</span>Ins_key) 
+		q<span style="color:#f92672">-&gt;</span>lchild<span style="color:#f92672">=</span>p;                        <span style="color:#75715e">/*将结点p插入左子树*/</span>
+	<span style="color:#66d9ef">else</span>
+		q<span style="color:#f92672">-&gt;</span>rchild<span style="color:#f92672">=</span>p;                        <span style="color:#75715e">/*将结点p插入右子树*/</span>
+}
+<span style="color:#75715e">/*二叉排序树的更新建立*/</span>
+
+BSTree  <span style="color:#a6e22e">CreateBST</span>()               <span style="color:#75715e">/*返回二叉排序树的头指针*/</span>
+{	Keytype Ins_key; 
+	BSTree  p,head<span style="color:#f92672">=</span>NULL;
+	<span style="color:#66d9ef">int</span> nodeseq<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;  <span style="color:#75715e">/*结点序号*/</span>
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 请输入若干元素结点的关键字值,以 %d 结束!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,ENDVALUE);
+	scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>Ins_key) ;                 <span style="color:#75715e">/*假定关键字类型为整型*/</span>
+	<span style="color:#66d9ef">while</span> (Ins_key<span style="color:#f92672">!=</span>ENDVALUE)
+	{
+		<span style="color:#66d9ef">if</span> (nodeseq<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e">/*第1个结点单独处理*/</span>
+		{	p<span style="color:#f92672">=</span>(BSTree)malloc(<span style="color:#66d9ef">sizeof</span>(BSTNode));     <span style="color:#75715e">/*生成一个关键字为Ins_key的结点p*/</span>
+			p<span style="color:#f92672">-&gt;</span>key<span style="color:#f92672">=</span>Ins_key;
+			p<span style="color:#f92672">-&gt;</span>lchild<span style="color:#f92672">=</span>NULL;
+			p<span style="color:#f92672">-&gt;</span>rchild<span style="color:#f92672">=</span>NULL;
+			head<span style="color:#f92672">=</span>p;
+			nodeseq<span style="color:#f92672">++</span>;
+		}
+		<span style="color:#66d9ef">else</span>
+ 			InsertBST(head,Ins_key);  	<span style="color:#75715e">/*调用插入函数*/</span>
+		scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>Ins_key);
+   }
+   getchar();
+   <span style="color:#66d9ef">return</span> head;
+}
+
+<span style="color:#75715e">/*中序二叉排序树的中序遍历输出*/</span>
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">OutPutBintree</span>( BSTree  p)
+{
+	<span style="color:#66d9ef">if</span> (p<span style="color:#f92672">!=</span>NULL)
+	{ 
+		OutPutBintree(p<span style="color:#f92672">-&gt;</span>lchild );
+		printf(<span style="color:#e6db74">&#34;%4d&#34;</span>,p<span style="color:#f92672">-&gt;</span>key);
+		OutPutBintree(p<span style="color:#f92672">-&gt;</span>rchild );
+	}
+}
+
+<span style="color:#75715e">/*二叉排序树中结点的删除*/</span>
+
+BSTree  <span style="color:#a6e22e">DelBSTNode</span>(BSTree  bstree, Keytype Del_key)
+{
+	BSTree  s ,p,q,f;           <span style="color:#75715e">/*s 指向要删除结点的父结点，p指向要删除的结点*/</span>
+	p<span style="color:#f92672">=</span>bstree; s<span style="color:#f92672">=</span>NULL;                   <span style="color:#75715e">/* p指向二叉排序树的根结点*/</span>
+	<span style="color:#66d9ef">while</span> (p)                             <span style="color:#75715e">/*查找要删除的结点*/</span>
+	{	<span style="color:#66d9ef">if</span> (p<span style="color:#f92672">-&gt;</span>key<span style="color:#f92672">==</span>Del_key)                <span style="color:#75715e">/*找到，则结束查找过程*/</span>
+			<span style="color:#66d9ef">break</span>;                   
+		<span style="color:#66d9ef">else</span>
+		{	s<span style="color:#f92672">=</span>p;                          <span style="color:#75715e">/*将其父结点保存在s中 */</span>  
+			<span style="color:#66d9ef">if</span> (p<span style="color:#f92672">-&gt;</span>key<span style="color:#f92672">&lt;</span>Del_key)           <span style="color:#75715e">/*往右子树继续查找*/</span>
+				p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>rchild;    
+			<span style="color:#66d9ef">else</span>                          <span style="color:#75715e">/*往左子树继续查找*/</span>
+				p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>lchild;    
+        }
+  }   
+  <span style="color:#66d9ef">if</span>(p)                             
+  {
+      <span style="color:#66d9ef">if</span> (p<span style="color:#f92672">-&gt;</span>lchild)  <span style="color:#75715e">/* p有左子树,查找左子树最右下方的结点 */</span>
+	  {		f<span style="color:#f92672">=</span>p; 
+			q<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>lchild ;
+			<span style="color:#66d9ef">while</span> (q<span style="color:#f92672">-&gt;</span>rchild)  <span style="color:#75715e">/*查找最右下方结点*/</span>
+			{	f<span style="color:#f92672">=</span>q; q<span style="color:#f92672">=</span>q<span style="color:#f92672">-&gt;</span>rchild ;}
+			<span style="color:#66d9ef">if</span> (f<span style="color:#f92672">==</span>p) <span style="color:#75715e">/*q即为最右下方结点*/</span>
+				f<span style="color:#f92672">-&gt;</span>lchild<span style="color:#f92672">=</span>q<span style="color:#f92672">-&gt;</span>lchild ;  <span style="color:#75715e">/**/</span> 
+			<span style="color:#66d9ef">else</span>
+				f<span style="color:#f92672">-&gt;</span>rchild <span style="color:#f92672">=</span>q<span style="color:#f92672">-&gt;</span>lchild ;  <span style="color:#75715e">/*将左子树链接到父结点的右子树*/</span>
+			p<span style="color:#f92672">-&gt;</span>key<span style="color:#f92672">=</span>q<span style="color:#f92672">-&gt;</span>key ;
+			free(q);
+	  }
+      <span style="color:#66d9ef">else</span>   <span style="color:#75715e">/*要删除的结点无左子树*/</span>
+	  {
+			<span style="color:#66d9ef">if</span> (s<span style="color:#f92672">==</span>NULL) <span style="color:#75715e">/*删除结点为根结点*/</span>
+				bstree<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>rchild ; 
+	  		<span style="color:#66d9ef">else</span>
+				<span style="color:#66d9ef">if</span> (s<span style="color:#f92672">-&gt;</span>lchild<span style="color:#f92672">==</span>p)  <span style="color:#75715e">/*删除结点为父结点的左孩子*/</span>
+					s<span style="color:#f92672">-&gt;</span>lchild<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>rchild;
+			<span style="color:#66d9ef">else</span>
+				s<span style="color:#f92672">-&gt;</span>rchild<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>rchild;  
+		       
+			free (p);
+	  }
+	}
+    <span style="color:#66d9ef">else</span>                               <span style="color:#75715e">/*没有找到要删除的结点*/</span>
+    {	printf( <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 关键字为期 %d 的结点不存在!&#34;</span>, Del_key); }
+	<span style="color:#66d9ef">return</span>  bstree;
+}
+
+<span style="color:#75715e">/*二叉排序树查找*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">SearchBST</span>(BSTree  bstree, Keytype Sea_Key)
+{
+	BSTree p,q;
+	p<span style="color:#f92672">=</span>q<span style="color:#f92672">=</span>bstree;
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">-&gt;</span>key<span style="color:#f92672">!=</span>Sea_Key){
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">%d&#34;</span>,p<span style="color:#f92672">-&gt;</span>key);
+		<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">-&gt;</span>key<span style="color:#f92672">&gt;</span>Sea_Key){
+			q<span style="color:#f92672">=</span>p;
+			p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>lchild;
+		}
+		<span style="color:#66d9ef">else</span>{
+			q<span style="color:#f92672">=</span>p;
+			p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>rchild;
+		}
+		<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">-&gt;</span>lchild<span style="color:#f92672">==</span>NULL<span style="color:#f92672">&amp;&amp;</span>p<span style="color:#f92672">-&gt;</span>rchild<span style="color:#f92672">==</span>NULL)
+			<span style="color:#66d9ef">break</span>;
+	}
+	<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">-&gt;</span>key<span style="color:#f92672">==</span>Sea_Key){
+		<span style="color:#66d9ef">if</span>(q<span style="color:#f92672">-&gt;</span>lchild<span style="color:#f92672">==</span>p)
+			printf(<span style="color:#e6db74">&#34;你要查找的元素%d是在%d的左边&#34;</span>,Sea_Key,q<span style="color:#f92672">-&gt;</span>key);
+		<span style="color:#66d9ef">else</span>
+			printf(<span style="color:#e6db74">&#34;你要查找的元素%d是在%d的右边&#34;</span>,Sea_Key,q<span style="color:#f92672">-&gt;</span>key);
+	}
+	<span style="color:#66d9ef">else</span>{
+		printf(<span style="color:#e6db74">&#34;没有该元素&#34;</span>);
+	}
+}
+
+
+
+
+<span style="color:#75715e">/*动态查找主程序*/</span>
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">DynamicSearch</span>( ) 
+{
+	Keytype Ins_key,Sea_Key;
+	BSTree p,root<span style="color:#f92672">=</span>NULL;
+	<span style="color:#66d9ef">char</span> dynamic_func_choice;
+	PrintDynamicMenu();
+	getchar();     <span style="color:#75715e">/*读主界面的回车符*/</span>
+	dynamic_func_choice<span style="color:#f92672">=</span>getchar();
+	<span style="color:#66d9ef">while</span> (dynamic_func_choice<span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;0&#39;</span>)
+	{
+		<span style="color:#66d9ef">switch</span> (dynamic_func_choice)
+		{
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;1&#39;</span><span style="color:#f92672">:</span>
+				root<span style="color:#f92672">=</span>NULL;
+				root<span style="color:#f92672">=</span>CreateBST(); 
+				printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74">当前二叉排序树的中序遍历为:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+				OutPutBintree(root);
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;2&#39;</span><span style="color:#f92672">:</span>
+				printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 请输入要插入元素的关键字:&#34;</span>);
+				scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>Ins_key);
+				printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74">插入之前的元素的关键字序列为:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+				OutPutBintree(root);
+				<span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>root)    <span style="color:#75715e">/*第1个结点*/</span>
+				{	p<span style="color:#f92672">=</span>(BSTree)malloc(<span style="color:#66d9ef">sizeof</span>(BSTNode));     <span style="color:#75715e">/*生成一个关键字为Ins_key的结点p*/</span>
+					p<span style="color:#f92672">-&gt;</span>key<span style="color:#f92672">=</span>Ins_key;
+					p<span style="color:#f92672">-&gt;</span>lchild<span style="color:#f92672">=</span>NULL;
+					p<span style="color:#f92672">-&gt;</span>rchild<span style="color:#f92672">=</span>NULL;
+					root<span style="color:#f92672">=</span>p;
+				}
+				<span style="color:#66d9ef">else</span>
+				{
+					InsertBST(root,Ins_key);	
+				}	
+				printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74">插入关键字 %d 之后的元素的关键字序列为:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,Ins_key);
+				OutPutBintree(root);
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;3&#39;</span> <span style="color:#f92672">:</span>
+ 			{	Keytype Del_key;
+				printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74">请输入要删除元素的关键字: &#34;</span>);
+				scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>Del_key);
+				printf(<span style="color:#e6db74">&#34; </span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74">删除之前元素关键字中序遍历序列为:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+				printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>);
+				OutPutBintree(root);
+				root<span style="color:#f92672">=</span>DelBSTNode(root, Del_key);
+				printf(<span style="color:#e6db74">&#34; </span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74">删除之后元素关键字中序遍历序列为:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+				printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span>);
+				OutPutBintree(root);
+  				<span style="color:#66d9ef">break</span>;
+			}
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;4&#39;</span> <span style="color:#f92672">:</span>
+			{
+				Keytype key;
+				scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>key);
+				SearchBST(root,key);
+				<span style="color:#66d9ef">break</span>;
+				
+				}
+			<span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+				printf( <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 请输入正确的操作选项(0-4):&#34;</span>);
+	}
+	getchar();   
+	PrintDynamicMenu();
+	dynamic_func_choice<span style="color:#f92672">=</span>getchar();
+}
+
+}
+<span style="color:#75715e">/*主函数*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>()
+{	<span style="color:#66d9ef">char</span> func_choice;
+    PrintMenu();
+	func_choice<span style="color:#f92672">=</span>getchar();
+	<span style="color:#66d9ef">while</span> (func_choice<span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;0&#39;</span>)
+	{
+		<span style="color:#66d9ef">switch</span> (func_choice)
+		{
+		<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;1&#39;</span> <span style="color:#f92672">:</span>
+			StaticSearch( ) ;
+			<span style="color:#66d9ef">break</span>;
+		<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;2&#39;</span> <span style="color:#f92672">:</span>
+			DynamicSearch();
+			<span style="color:#66d9ef">break</span>;
+		<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">:</span>
+			func_choice<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0&#39;</span>;   <span style="color:#66d9ef">break</span>;
+		<span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+			printf( <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 请输入正确的操作选项(0-4):&#34;</span>);
+		}
+    PrintMenu();
+	getchar();
+	func_choice<span style="color:#f92672">=</span>getchar();
+	}
+ }
+</code></pre></div><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://www.mengcfunk.com" >
+    &copy;  Meng's website 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+<a href="https://github.com/theweakgod" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
