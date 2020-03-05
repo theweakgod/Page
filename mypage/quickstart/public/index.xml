@@ -6,10 +6,163 @@
     <description>Recent content on Meng&#39;s website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Mar 2020 13:48:55 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 05 Mar 2020 14:56:52 +0800</lastBuildDate>
     
 	<atom:link href="http://www.mengcfunk.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>类的学习1</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei1/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei1/</guid>
+      <description>#include&amp;lt;iostream&amp;gt;using namespace std; class Account{ int id; double balance; double annualInterestRate; public: Account( ){ cin&amp;gt;&amp;gt;id; cin&amp;gt;&amp;gt;balance; cin&amp;gt;&amp;gt;annualInterestRate; } double getMonthlyInterestRate(){ return annualInterestRate/12; } void withdraw(){ int x; cin&amp;gt;&amp;gt;x; if(balance&amp;lt;x){ cout&amp;lt;&amp;lt;&amp;#34;Wake up, you don&amp;#39;t have that much money.&amp;#34;&amp;lt;&amp;lt;endl; }else{ balance=balance-x; cout&amp;lt;&amp;lt;&amp;#34;Successful withdrawal&amp;#34;&amp;lt;&amp;lt;endl; } } void deposit(){ int x; cin&amp;gt;&amp;gt;x; balance=balance+x; cout&amp;lt;&amp;lt;&amp;#34;Save money successfully&amp;#34;&amp;lt;&amp;lt;endl; } void display(){ cout&amp;lt;&amp;lt;&amp;#34;Your balance is &amp;#34;&amp;lt;&amp;lt;balance&amp;lt;&amp;lt;&amp;#34; dollar&amp;#34;&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;&amp;#34;Your monthly interest rate is &amp;#34;&amp;lt;&amp;lt;annualInterestRate&amp;lt;&amp;lt;endl; } }; void main(){ Account A1; A1.</description>
+    </item>
+    
+    <item>
+      <title>类的学习10</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei10/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei10/</guid>
+      <description>#include&amp;lt;iostream&amp;gt;using namespace std; class Fan{ int speed; double radius; char on[4]; char color[10]; public: Fan(){ cout&amp;lt;&amp;lt;&amp;#34;Please enter the speed, radius, switch status and color in sequence&amp;#34;; cin&amp;gt;&amp;gt;speed&amp;gt;&amp;gt;radius; cin&amp;gt;&amp;gt;on; cin&amp;gt;&amp;gt;color; } void speed_change(){ int x; cout&amp;lt;&amp;lt;&amp;#34;Please enter the speed you want to change&amp;#34;; cin&amp;gt;&amp;gt;x; speed=x; } void speed_display(){ cout&amp;lt;&amp;lt;&amp;#34;The speed of the fan is &amp;#34;&amp;lt;&amp;lt;speed&amp;lt;&amp;lt;endl; } void radius_display(){ cout&amp;lt;&amp;lt;&amp;#34;The radius of the fan is &amp;#34;&amp;lt;&amp;lt;radius&amp;lt;&amp;lt;endl; } void on_display(){ cout&amp;lt;&amp;lt;&amp;#34;The switch of the fan is &amp;#34;&amp;lt;&amp;lt;on&amp;lt;&amp;lt;endl; } void color_display(){ cout&amp;lt;&amp;lt;&amp;#34;The color of the fan is &amp;#34;&amp;lt;&amp;lt;color&amp;lt;&amp;lt;endl; } void radius_change(){ double x; cout&amp;lt;&amp;lt;&amp;#34;Please enter the radius you want to change&amp;#34;; cin&amp;gt;&amp;gt;x; radius=x; } void on_change(){ char x[4]; cout&amp;lt;&amp;lt;&amp;#34;Please enter the on you want to change&amp;#34;; cin&amp;gt;&amp;gt;x; strcpy(on,x); cout&amp;lt;&amp;lt;on&amp;lt;&amp;lt;endl; } void color_change(){ char x[10]; cout&amp;lt;&amp;lt;&amp;#34;Please enter the color you want to change&amp;#34;; cin&amp;gt;&amp;gt;x; strcpy(color,x); cout&amp;lt;&amp;lt;color&amp;lt;&amp;lt;endl; } void display(){ cout&amp;lt;&amp;lt;&amp;#34;radius: &amp;#34;&amp;lt;&amp;lt;radius&amp;lt;&amp;lt;&amp;#34; speed: &amp;#34;&amp;lt;&amp;lt;speed&amp;lt;&amp;lt;&amp;#34; switch: &amp;#34;&amp;lt;&amp;lt;on&amp;lt;&amp;lt;&amp;#34; color: &amp;#34;&amp;lt;&amp;lt;color&amp;lt;&amp;lt;endl; } }; void main(){ Fan F1; Fan F2; F1.</description>
+    </item>
+    
+    <item>
+      <title>类的学习11</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei11/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei11/</guid>
+      <description>#include &amp;lt;iostream&amp;gt; using namespace std; class B{ public: virtual void f1(double x) { cout&amp;lt;&amp;lt;&amp;#34;B::f1(double) &amp;#34;&amp;lt;&amp;lt;x&amp;lt;&amp;lt;endl; } void f2(double x) { cout&amp;lt;&amp;lt;&amp;#34;B::f2(double) &amp;#34;&amp;lt;&amp;lt;2*x&amp;lt;&amp;lt;endl; } void f3(double x) { cout&amp;lt;&amp;lt;&amp;#34;B::f3(double) &amp;#34;&amp;lt;&amp;lt;3*x&amp;lt;&amp;lt;endl; } }; class D:public B{ public: virtual void f1(double x) { cout&amp;lt;&amp;lt;&amp;#34;D::f1(double) &amp;#34;&amp;lt;&amp;lt;x&amp;lt;&amp;lt;endl; } void f2(int x) { cout&amp;lt;&amp;lt;&amp;#34;D::f1(int) &amp;#34;&amp;lt;&amp;lt;2*x&amp;lt;&amp;lt;endl; } void f3(double x) { cout&amp;lt;&amp;lt;&amp;#34;D::f3(double) &amp;#34;&amp;lt;&amp;lt;x&amp;lt;&amp;lt;endl; } }; int main() { D d; B *pb=&amp;amp;d; D *pd=&amp;amp;d; pb-&amp;gt;f1(1.23); pd-&amp;gt;f1(1.23); pb-&amp;gt;f2(1.23); pd-&amp;gt;f2(1.</description>
+    </item>
+    
+    <item>
+      <title>类的学习12</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei12/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei12/</guid>
+      <description>#include&amp;lt;iostream&amp;gt;#include&amp;lt;string&amp;gt;#include&amp;lt;math.h&amp;gt;using namespace std; class Person{ string name; string id; string phonenumber; public: Person(){ string name1,id1,phonenumber1; cout&amp;lt;&amp;lt;&amp;#34;please input his name:&amp;#34;; cin&amp;gt;&amp;gt;name1; cout&amp;lt;&amp;lt;&amp;#34;please input &amp;#34;&amp;lt;&amp;lt;name1&amp;lt;&amp;lt;&amp;#34;&amp;#39;s id:&amp;#34;; cin&amp;gt;&amp;gt;id1; cout&amp;lt;&amp;lt;&amp;#34;please input &amp;#34;&amp;lt;&amp;lt;name1&amp;lt;&amp;lt;&amp;#34;&amp;#39;s phonenumber:&amp;#34;; cin&amp;gt;&amp;gt;phonenumber1; name=name1; id=id1; phonenumber=phonenumber1; } string get_name(){ return name; } void get_MESSAGE(){ cout&amp;lt;&amp;lt;name&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;name&amp;lt;&amp;lt;&amp;#34;&amp;#39;s id is&amp;#34;&amp;lt;&amp;lt;id&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;name&amp;lt;&amp;lt;&amp;#34;&amp;#39;s phonenumber is &amp;#34;&amp;lt;&amp;lt;phonenumber&amp;lt;&amp;lt;endl; } }; class student:public Person{ const string grade; public: student(string s):Person(),grade(s){ } void display(){ get_MESSAGE(); cout&amp;lt;&amp;lt;get_name()&amp;lt;&amp;lt;&amp;#34;&amp;#39;s grade is &amp;#34;&amp;lt;&amp;lt;grade&amp;lt;&amp;lt;endl; } }; class MyDate{ int year,month,day; public: MyDate(){ cout&amp;lt;&amp;lt;&amp;#34;please input year month day&amp;#34;&amp;lt;&amp;lt;endl; cin&amp;gt;&amp;gt;year; cin&amp;gt;&amp;gt;month; cin&amp;gt;&amp;gt;day; } MyDate(int x,int y,int z){ year=x; month=y; day=z; } void date_display(){ cout&amp;lt;&amp;lt;year&amp;lt;&amp;lt;&amp;#34;-&amp;#34;; cout&amp;lt;&amp;lt;month&amp;lt;&amp;lt;&amp;#34;-&amp;#34;; cout&amp;lt;&amp;lt;day&amp;lt;&amp;lt;endl; } int diffYear(MyDate &amp;amp;p){ int i,j; if(p.</description>
+    </item>
+    
+    <item>
+      <title>类的学习12</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei13/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei13/</guid>
+      <description>#include&amp;lt;iostream&amp;gt;#include&amp;lt;string&amp;gt;#include&amp;lt;math.h&amp;gt;using namespace std; class Person{ string name; string id; string phonenumber; public: Person(){ string name1,id1,phonenumber1; cout&amp;lt;&amp;lt;&amp;#34;please input his name:&amp;#34;; cin&amp;gt;&amp;gt;name1; cout&amp;lt;&amp;lt;&amp;#34;please input &amp;#34;&amp;lt;&amp;lt;name1&amp;lt;&amp;lt;&amp;#34;&amp;#39;s id:&amp;#34;; cin&amp;gt;&amp;gt;id1; cout&amp;lt;&amp;lt;&amp;#34;please input &amp;#34;&amp;lt;&amp;lt;name1&amp;lt;&amp;lt;&amp;#34;&amp;#39;s phonenumber:&amp;#34;; cin&amp;gt;&amp;gt;phonenumber1; name=name1; id=id1; phonenumber=phonenumber1; } string get_name(){ return name; } void get_MESSAGE(){ cout&amp;lt;&amp;lt;name&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;name&amp;lt;&amp;lt;&amp;#34;&amp;#39;s id is&amp;#34;&amp;lt;&amp;lt;id&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;name&amp;lt;&amp;lt;&amp;#34;&amp;#39;s phonenumber is &amp;#34;&amp;lt;&amp;lt;phonenumber&amp;lt;&amp;lt;endl; } }; class student:public Person{ const string grade; public: student(string s):Person(),grade(s){ } void display(){ get_MESSAGE(); cout&amp;lt;&amp;lt;get_name()&amp;lt;&amp;lt;&amp;#34;&amp;#39;s grade is &amp;#34;&amp;lt;&amp;lt;grade&amp;lt;&amp;lt;endl; } }; class MyDate{ int year,month,day; public: MyDate(){ cout&amp;lt;&amp;lt;&amp;#34;please input year month day&amp;#34;&amp;lt;&amp;lt;endl; cin&amp;gt;&amp;gt;year; cin&amp;gt;&amp;gt;month; cin&amp;gt;&amp;gt;day; } MyDate(int x,int y,int z){ year=x; month=y; day=z; } void date_display(){ cout&amp;lt;&amp;lt;year&amp;lt;&amp;lt;&amp;#34;-&amp;#34;; cout&amp;lt;&amp;lt;month&amp;lt;&amp;lt;&amp;#34;-&amp;#34;; cout&amp;lt;&amp;lt;day&amp;lt;&amp;lt;endl; } int diffYear(MyDate &amp;amp;p){ int i,j; if(p.</description>
+    </item>
+    
+    <item>
+      <title>类的学习14</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei14/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei14/</guid>
+      <description>#include&amp;lt;iostream&amp;gt;using namespace std; class Student{ float score; public: static float total_score; static int count; void account(){ cin&amp;gt;&amp;gt;score; count=count+1; total_score=total_score+score; } static float sum(){ return total_score; } static float average(){ return total_score/count; } }; float Student::total_score=0; int Student::count=0; void main(){ Student St[5]; int i; for(i=0;i&amp;lt;5;i++){ St[i].account(); } cout&amp;lt;&amp;lt;St[4].average()&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;St[4].sum()&amp;lt;&amp;lt;endl; } </description>
+    </item>
+    
+    <item>
+      <title>类的学习2</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei2/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei2/</guid>
+      <description>#include&amp;lt;iostream&amp;gt;using namespace std; class area { protected: double height; double width; public: area(double h,double w) { height=h; width=w; } virtual double getarea()=0; }; class rectangle:public area{ public: rectangle(double h,double w):area(h,w){ } virtual double getarea(){ return height*width; } }; class isosceles:public area{ public: isosceles(double h,double w):area(h,w){ } virtual double getarea(){ return height*width/2; } }; void main(){ area *a1; rectangle r1(10.0,5.0); isosceles i1(4.0,6.0); a1=&amp;amp;r1; cout&amp;lt;&amp;lt;a1-&amp;gt;getarea()&amp;lt;&amp;lt;endl; a1=&amp;amp;i1; cout&amp;lt;&amp;lt;a1-&amp;gt;getarea()&amp;lt;&amp;lt;endl; } </description>
+    </item>
+    
+    <item>
+      <title>类的学习2</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei3/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei3/</guid>
+      <description>#include&amp;lt;iostream&amp;gt;using namespace std; #define PAI 3.1415926535 class circle{ double radius,lenth,area; public: circle(){ cin&amp;gt;&amp;gt;radius; lenth=radius*PAI; area=radius*radius*PAI; } circle(circle &amp;amp;c){ radius=c.radius; lenth=c.lenth; area=c.area; } void show(){ cout&amp;lt;&amp;lt;radius&amp;lt;&amp;lt;&amp;#34; &amp;#34;&amp;lt;&amp;lt;lenth&amp;lt;&amp;lt;&amp;#34; &amp;#34;&amp;lt;&amp;lt;area&amp;lt;&amp;lt;endl; } }; void main(){ circle C1; C1.show(); circle C2(C1); C2.show(); } </description>
+    </item>
+    
+    <item>
+      <title>类的学习4</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei4/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei4/</guid>
+      <description>#include&amp;lt;iostream&amp;gt; #include&amp;lt;string&amp;gt; using namespace std; class MyArray{ public: MyArray(int leng); ~MyArray(); void Input(); void Display(string); protected: int *alist; int length; }; MyArray::MyArray(int leng){ if(leng&amp;lt;=0) { cout&amp;lt;&amp;lt;&amp;#34;error length&amp;#34;; exit(1); } alist=new int [leng]; length=leng; if(alist==NULL) { cout&amp;lt;&amp;lt;&amp;#34;assign failure&amp;#34;; exit(1); } cout&amp;lt;&amp;lt;&amp;#34;MyArray 类对象已创建。&amp;#34;&amp;lt;&amp;lt;endl; } MyArray::~MyArray(){ delete[] alist; cout&amp;lt;&amp;lt;&amp;#34;MyArray 类对象被撤销。&amp;#34;&amp;lt;&amp;lt;endl; } void MyArray::Display(string str){ int i; int *p=alist; cout&amp;lt;&amp;lt;str&amp;lt;&amp;lt;length&amp;lt;&amp;lt;&amp;#34;个整数：&amp;#34;; for(i=0;i&amp;lt;length;i++,p++) cout&amp;lt;&amp;lt;*p&amp;lt;&amp;lt;&amp;#34; &amp;#34;; cout&amp;lt;&amp;lt;endl; } void MyArray::Input(){ cout&amp;lt;&amp;lt;&amp;#34;请从键盘输入&amp;#34;&amp;lt;&amp;lt;length&amp;lt;&amp;lt;&amp;#34;个整数：&amp;#34;; int i; int *p=alist; for(i=0;i&amp;lt;length;i++,p++) cin&amp;gt;&amp;gt;*p; } class SortArray:public MyArray{ public: SortArray(int i):MyArray(i){ Input(); } void sort(){ int i,j,tmp; for(i=0;i&amp;lt;length-1;i++){ tmp=*(alist+i); for(j=i+1;j&amp;lt;length;j++){ if(*(alist+i)&amp;gt;*(alist+j)){ tmp=*(alist+j); *(alist+j)=*(alist+i); *(alist+i)=tmp; } } } } void display(){ Display(&amp;#34;整数是&amp;#34;); } }; class ReArray:public MyArray{ public: ReArray(int i):MyArray(i){ Input(); } void daozhi(){ int i,tmp; for(i=0;i&amp;lt;length/2;i++){ tmp=*(alist+length-1-i); *(alist+length-i-1)=*(alist+i); *(alist+i)=tmp; } } void display(){ Display(&amp;#34;整数是&amp;#34;); } }; class Average:public MyArray{ double a; public: Average(int i):MyArray(i){ Input(); } void aver(){ int i; a=0; for(i=0;i&amp;lt;length;i++){ a=a+*(alist+i); } a=a/length; } void display(){ cout&amp;lt;&amp;lt;&amp;#34;平均值是&amp;#34;&amp;lt;&amp;lt;a&amp;lt;&amp;lt;endl; } }; int main(){ MyArray a(5); a.</description>
+    </item>
+    
+    <item>
+      <title>类的学习4</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei5/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei5/</guid>
+      <description>#include&amp;lt;iostream&amp;gt; #include&amp;lt;string&amp;gt; using namespace std; class MyArray{ public: MyArray(int leng); ~MyArray(); void Input(); void Display(string); protected: int *alist; int length; }; MyArray::MyArray(int leng){ if(leng&amp;lt;=0) { cout&amp;lt;&amp;lt;&amp;#34;error length&amp;#34;; exit(1); } alist=new int [leng]; length=leng; if(alist==NULL) { cout&amp;lt;&amp;lt;&amp;#34;assign failure&amp;#34;; exit(1); } cout&amp;lt;&amp;lt;&amp;#34;MyArray 类对象已创建。&amp;#34;&amp;lt;&amp;lt;endl; } MyArray::~MyArray(){ delete[] alist; cout&amp;lt;&amp;lt;&amp;#34;MyArray 类对象被撤销。&amp;#34;&amp;lt;&amp;lt;endl; } void MyArray::Display(string str){ int i; int *p=alist; cout&amp;lt;&amp;lt;str&amp;lt;&amp;lt;length&amp;lt;&amp;lt;&amp;#34;个整数：&amp;#34;; for(i=0;i&amp;lt;length;i++,p++) cout&amp;lt;&amp;lt;*p&amp;lt;&amp;lt;&amp;#34; &amp;#34;; cout&amp;lt;&amp;lt;endl; } void MyArray::Input(){ cout&amp;lt;&amp;lt;&amp;#34;请从键盘输入&amp;#34;&amp;lt;&amp;lt;length&amp;lt;&amp;lt;&amp;#34;个整数：&amp;#34;; int i; int *p=alist; for(i=0;i&amp;lt;length;i++,p++) cin&amp;gt;&amp;gt;*p; } class SortArray:public MyArray{ public: SortArray(int i):MyArray(i){ Input(); } void sort(){ int i,j,tmp; for(i=0;i&amp;lt;length-1;i++){ tmp=*(alist+i); for(j=i+1;j&amp;lt;length;j++){ if(*(alist+i)&amp;gt;*(alist+j)){ tmp=*(alist+j); *(alist+j)=*(alist+i); *(alist+i)=tmp; } } } } void display(){ Display(&amp;#34;整数是&amp;#34;); } }; class ReArray:public MyArray{ public: ReArray(int i):MyArray(i){ Input(); } void daozhi(){ int i,tmp; for(i=0;i&amp;lt;length/2;i++){ tmp=*(alist+length-1-i); *(alist+length-i-1)=*(alist+i); *(alist+i)=tmp; } } void display(){ Display(&amp;#34;整数是&amp;#34;); } }; class Average:public MyArray{ double a; public: Average(int i):MyArray(i){ Input(); } void aver(){ int i; a=0; for(i=0;i&amp;lt;length;i++){ a=a+*(alist+i); } a=a/length; } void display(){ cout&amp;lt;&amp;lt;&amp;#34;平均值是&amp;#34;&amp;lt;&amp;lt;a&amp;lt;&amp;lt;endl; } }; int main(){ MyArray a(5); a.</description>
+    </item>
+    
+    <item>
+      <title>类的学习6</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei6/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei6/</guid>
+      <description>#include&amp;lt;iostream&amp;gt;#include&amp;lt;math.h&amp;gt;using namespace std; class CPoint{ float x,y; public: CPoint(float x=0,float y=0){} void set(){ int i,j; cout&amp;lt;&amp;lt;&amp;#34;please input x,y&amp;#34;&amp;lt;&amp;lt;endl; cin&amp;gt;&amp;gt;i; cin&amp;gt;&amp;gt;j; x=i; y=j; } void setX(float i){ x=i; } void setY(float i){ y=i; } float getX(){ return x; } float getY(){ return y; } void display(){ cout&amp;lt;&amp;lt;&amp;#34;X is&amp;#34;&amp;lt;&amp;lt;x&amp;lt;&amp;lt;&amp;#34;. Y is&amp;#34;&amp;lt;&amp;lt;y&amp;lt;&amp;lt;endl; } }; class CLine{ CPoint Point1,Point2; float len,k; public: void set(){ cout&amp;lt;&amp;lt;&amp;#34;please input the first point&amp;#39;s position&amp;#34;&amp;lt;&amp;lt;endl; Point1.set(); cout&amp;lt;&amp;lt;&amp;#34;please input the second point&amp;#39;s position&amp;#34;&amp;lt;&amp;lt;endl; Point2.</description>
+    </item>
+    
+    <item>
+      <title>类的学习7</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei7/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei7/</guid>
+      <description>#include&amp;lt;iostream&amp;gt;#include&amp;lt;math.h&amp;gt;using namespace std; class CPoint{ mutable double x,y; public: void Print()const { cout&amp;lt;&amp;lt;&amp;#34;(&amp;#34;&amp;lt;&amp;lt;x&amp;lt;&amp;lt;&amp;#34;,&amp;#34;&amp;lt;&amp;lt;y&amp;lt;&amp;lt;&amp;#34;)&amp;#34;&amp;lt;&amp;lt;endl; } double GetX()const{ return x; } double GetY()const { return y; } void SetX()const { cin&amp;gt;&amp;gt;x; } void SetY()const { cin&amp;gt;&amp;gt;y; } CPoint(double i=0,double j=0){ x=i; y=j; } void display()const { cout&amp;lt;&amp;lt;&amp;#34;x is&amp;#34;&amp;lt;&amp;lt;x&amp;lt;&amp;lt;&amp;#34; y is&amp;#34;&amp;lt;&amp;lt;y&amp;lt;&amp;lt;endl; } }; class CRectangle{ CPoint p1,p2; public: CRectangle(const CPoint &amp;amp;t1,const CPoint &amp;amp;t2){ t1.SetX(); t1.SetY(); t2.SetX(); t2.SetY(); p1=t1; p2=t2; } void SetLPoint(const CPoint &amp;amp;t1){ t1.</description>
+    </item>
+    
+    <item>
+      <title>类的学习8</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei8/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei8/</guid>
+      <description>#include&amp;lt;iostream&amp;gt;using namespace std; class CStereoShape{ public: virtual double GetArea()=0; virtual double GetVolume()=0; }; class CCube:public CStereoShape{ double Long,Width,Height; public: CCube(double L,double W,double H){ Long=L; Width=W; Height=H; } void Set_Parameter(){ double L,W,H; cout&amp;lt;&amp;lt;&amp;#34;please input the long of cube:&amp;#34;; cin&amp;gt;&amp;gt;L; cout&amp;lt;&amp;lt;endl&amp;lt;&amp;lt;&amp;#34;please input the width of cube:&amp;#34;; cin&amp;gt;&amp;gt;W; cout&amp;lt;&amp;lt;&amp;#34;please input the height of cube:&amp;#34;; cin&amp;gt;&amp;gt;H; Long=L; Width=W; Height=H; } virtual double GetArea(){ return (2*Long*Width+2*Long*Height+2*Height*Width); } virtual double GetVolume(){ return Long*Width*Height; } }; class CSphere:public CStereoShape{ double circuls; public: CSphere(double r){ circuls=r; } void Set_Parameter(){ double L; cout&amp;lt;&amp;lt;&amp;#34;please input the r of CSphere:&amp;#34;; cin&amp;gt;&amp;gt;L; circuls=L; } virtual double GetArea(){ return (4*3.</description>
+    </item>
+    
+    <item>
+      <title>类的学习9</title>
+      <link>http://www.mengcfunk.com/study/c&#43;&#43;/lei9/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:52 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c&#43;&#43;/lei9/</guid>
+      <description>#include&amp;lt;iostream&amp;gt;using namespace std; class DATE{ int date,month,year; int year1,month1,date1,year2,month2,date2; public: DATE(){ cin&amp;gt;&amp;gt;year&amp;gt;&amp;gt;month&amp;gt;&amp;gt;date; } DATE(int x,int y,int z){ date=z;month=y;year=x; } void legal(){ int flag=0; if(month&amp;lt;=12&amp;amp;&amp;amp;month&amp;gt;=1){ switch (month){ case 1:case 3:case 5:case 7:case 8: case 10: case 12:if(date&amp;lt;=31&amp;amp;&amp;amp;date&amp;gt;=1)flag=1;break; case 4:case 6:case 9:case 11:if(date&amp;lt;=30&amp;amp;&amp;amp;date&amp;gt;=1)flag=1;break; case 2:if(year%4==0&amp;amp;&amp;amp;(year%100!=0||year%400==0)){ if(date&amp;lt;=29&amp;amp;&amp;amp;date&amp;gt;=1)flag=1; }else{ if(date&amp;lt;=28&amp;amp;&amp;amp;date&amp;gt;=1)flag=1; } } } if(flag==0){ cout&amp;lt;&amp;lt;&amp;#34;The position you entered is not valid.&amp;#34;&amp;lt;&amp;lt;endl; } else{ cout&amp;lt;&amp;lt;&amp;#34;The location you entered is legitimate&amp;#34;&amp;lt;&amp;lt;endl; } } void FZ(DATE &amp;amp;D1){ year2=D1.</description>
+    </item>
+    
+    <item>
+      <title>A*算法解决8数码问题</title>
+      <link>http://www.mengcfunk.com/study/c/eightcode/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:50 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c/eightcode/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;#include&amp;lt;stdlib.h&amp;gt;#define Lenth 3 char arr[Lenth*Lenth]; char end[Lenth*Lenth]; typedef struct EightNode{ char arr[Lenth*Lenth];	//8数码 	struct EightNode *parents;	//指针指向上个结点 	int site;	//位置 	int number;	//F(N) 	int ceng;	//当前层数 }EN; typedef struct QueueNode{ EN *smallEightNode; struct QueueNode *next; }QN; void swap(char *a1,char *b1){ char t; t=*a1; *a1=*b1; *b1=t; } int up(char *a,int *Fan){ if(*Fan&amp;lt;Lenth){ return 0; } else{ swap(a+*Fan,a-Lenth+*Fan); *Fan=*Fan-Lenth; } return 1; } int down(char *a,int *Fan){ if(*Fan&amp;gt;Lenth*Lenth-Lenth-1){ return 0; } else{ swap(a+*Fan,a+*Fan+Lenth); *Fan=*Fan+Lenth; } return 1; } int left(char *a,int *Fan){ if(*Fan%Lenth==0){ return 0; } else{ swap(a+*Fan,a+*Fan-1); *Fan=*Fan-1; } return 1; } int right(char *a,int *Fan){ if(*Fan%Lenth==Lenth-1){ return 0; } else{ swap(a+*Fan,a+*Fan+1); *Fan=*Fan+1; } return 1; } void equator(char *p1,char *p2){ int i; for(i=0;i&amp;lt;Lenth*Lenth;i++){ *(p1+i)=*(p2+i); } } int adept(char *a){ int i; int sum=0; for(i=0;i&amp;lt;Lenth*Lenth;i++){ if(*(a+i)==end[i]){ sum++; } } return sum; } QN *open; QN *close; int k; QN *Delete(){ QN *p,*q; p=close; q=close-&amp;gt;next; p-&amp;gt;next=q-&amp;gt;next; return q; } void CloseInsert(QN *L){ QN *p,*q; QN *s; s=(QN *)malloc(sizeof(QN)); s-&amp;gt;smallEightNode=(EN *)malloc(sizeof(EN)); equator(s-&amp;gt;smallEightNode-&amp;gt;arr,L-&amp;gt;smallEightNode-&amp;gt;arr); s-&amp;gt;smallEightNode-&amp;gt;ceng=L-&amp;gt;smallEightNode-&amp;gt;ceng; s-&amp;gt;smallEightNode-&amp;gt;site=L-&amp;gt;smallEightNode-&amp;gt;site; s-&amp;gt;smallEightNode-&amp;gt;number=L-&amp;gt;smallEightNode-&amp;gt;number; s-&amp;gt;smallEightNode-&amp;gt;parents=L-&amp;gt;smallEightNode-&amp;gt;parents; s-&amp;gt;next=NULL; p=close; q=close-&amp;gt;next; if(q==NULL){ p-&amp;gt;next=s; s-&amp;gt;next=q; return ; } for(;q!</description>
+    </item>
+    
+    <item>
+      <title>A*算法解决8数码问题</title>
+      <link>http://www.mengcfunk.com/study/c/eightcodelimit/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:50 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c/eightcodelimit/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;char arr[9]; char end[9]; char skip[9]; int Fan; typedef struct EightNode{ char arr[9]; struct EightNode *parents; struct EightNode *OL; struct EightNode *OR; struct EightNode *OU; struct EightNode *OD; int site; int number; }EN; void swap(char *a1,char *b1){ char t; t=*a1; *a1=*b1; *b1=t; } int up(char *a){ if(Fan&amp;lt;3){ return 0; } else{ swap(a+Fan,a-3+Fan); } return 1; } int down(char *a){ if(Fan&amp;gt;5){ return 0; } else{ swap(a+Fan,a+Fan+3); } return 1; } int left(char *a){ if(Fan%3==0){ return 0; } else{ swap(a+Fan,a+Fan-1); } return 1; } int right(char *a){ if(Fan%3==2){ return 0; } else{ swap(a+Fan,a+Fan+1); } return 1; } void equator(char *p1,char *p2){ int i; for(i=0;i&amp;lt;9;i++){ *(p1+i)=*(p2+i); } } EN *head; void Init(int site){ int i,j,k,t,tmp,po,flag; int z,judg; int a,b; EN *NNN; EN *q,*p,*monitor; a=b=0; if(arr[0]==end[0]&amp;amp;&amp;amp;arr[1]==end[1]&amp;amp;&amp;amp;arr[2]==end[2])a=1; z=1; tmp=1; printf(&amp;#34;请输入一个最大层数&amp;#34;); scanf(&amp;#34;%d&amp;#34;,&amp;amp;t);getchar(); head=(EN *)malloc(sizeof(EN)); head-&amp;gt;number=1; p=monitor=NNN=(EN *)malloc(sizeof(EN)); NNN-&amp;gt;OD=NNN-&amp;gt;OL=NNN-&amp;gt;OR=NNN-&amp;gt;OU=NNN-&amp;gt;parents=NULL; equator(NNN-&amp;gt;arr,skip); head-&amp;gt;site=site; p=head; head-&amp;gt;OU=head-&amp;gt;OD=head-&amp;gt;OL=head-&amp;gt;OR=NNN; head-&amp;gt;parents=NULL; equator(head-&amp;gt;arr,arr); while(1){ judg=0; printf(&amp;#34;\n&amp;#34;); flag=0; po=0; Fan=p-&amp;gt;site; if(a==1&amp;amp;&amp;amp;Fan&amp;lt;5){ p-&amp;gt;OU=NULL; } if(p-&amp;gt;OU==NNN&amp;amp;&amp;amp;flag==0){ q=(EN *)malloc(sizeof(EN)); equator(q-&amp;gt;arr,p-&amp;gt;arr); if(up(q-&amp;gt;arr)==0){ printf(&amp;#34;不被允许的操作，向上越界&amp;#34;); p-&amp;gt;OU=NULL; free(q); } else{ Fan=Fan-3; q-&amp;gt;site=Fan; printf(&amp;#34;成功向上移动&amp;#34;); q-&amp;gt;OD=q-&amp;gt;OL=q-&amp;gt;OR=q-&amp;gt;OU=q-&amp;gt;parents=NNN; q-&amp;gt;parents=p; q-&amp;gt;number=q-&amp;gt;parents-&amp;gt;number+1; p-&amp;gt;OU=q; p=q; judg=1; } flag=1; printf(&amp;#34;\n&amp;#34;); } if(p-&amp;gt;OD==NNN&amp;amp;&amp;amp;flag==0){ q=(EN *)malloc(sizeof(EN)); equator(q-&amp;gt;arr,p-&amp;gt;arr); if(down(q-&amp;gt;arr)==0){ printf(&amp;#34;不被允许的操作，向下越界&amp;#34;); p-&amp;gt;OD=NULL; free(q); } else{ Fan=Fan+3; q-&amp;gt;site=Fan; printf(&amp;#34;成功向下移动&amp;#34;); q-&amp;gt;OD=q-&amp;gt;OL=q-&amp;gt;OR=q-&amp;gt;OU=q-&amp;gt;parents=NNN; q-&amp;gt;parents=p; q-&amp;gt;number=q-&amp;gt;parents-&amp;gt;number+1; p-&amp;gt;OD=q; p=q; judg=2; } flag=1; } if(p-&amp;gt;OL==NNN&amp;amp;&amp;amp;flag==0){ q=(EN *)malloc(sizeof(EN)); equator(q-&amp;gt;arr,p-&amp;gt;arr); if(left(q-&amp;gt;arr)==0){ printf(&amp;#34;不被允许的操作，向左越界&amp;#34;); p-&amp;gt;OL=NULL; free(q); } else{ Fan=Fan-1; q-&amp;gt;site=Fan; printf(&amp;#34;成功向左移动&amp;#34;); q-&amp;gt;OD=q-&amp;gt;OL=q-&amp;gt;OR=q-&amp;gt;OU=q-&amp;gt;parents=NNN; q-&amp;gt;parents=p; q-&amp;gt;number=q-&amp;gt;parents-&amp;gt;number+1; p-&amp;gt;OL=q; p=q; judg=3; } flag=1; } if(p-&amp;gt;OR==NNN&amp;amp;&amp;amp;flag==0){ q=(EN *)malloc(sizeof(EN)); equator(q-&amp;gt;arr,p-&amp;gt;arr); if(right(q-&amp;gt;arr)==0){ printf(&amp;#34;不被允许的操作，向右越界&amp;#34;); p-&amp;gt;OR=NULL; free(q); } else{ Fan=Fan+1; q-&amp;gt;site=Fan; printf(&amp;#34;成功向右移动&amp;#34;); q-&amp;gt;OD=q-&amp;gt;OL=q-&amp;gt;OR=q-&amp;gt;OU=q-&amp;gt;parents=NNN; q-&amp;gt;parents=p; q-&amp;gt;number=q-&amp;gt;parents-&amp;gt;number+1; p-&amp;gt;OR=q; p=q; judg=4; } flag=1; } printf(&amp;#34;\n&amp;#34;); for(k=0;k&amp;lt;9;k++){	if(end[k]!</description>
+    </item>
+    
+    <item>
+      <title>N皇后问题</title>
+      <link>http://www.mengcfunk.com/study/c/nqueen/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:50 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c/nqueen/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;#define Lenth 8 typedef struct QueenNode{ char arr[Lenth*Lenth];	//定义棋盘 	int	jugde[Lenth*Lenth];	//判断棋盘是否可插入用 	struct QueenNode *parents; int i; struct QueenNode *next; }QN; typedef struct QueueNode{ QN *smallQueenNode; struct QueueNode *next; }AQN; typedef struct Queue{ AQN *front; AQN *base; }Q; Q *queue; void equator(QN *p,QN *q){	//使得两个结点的arr和judge相等 	int i; for(i=0;i&amp;lt;Lenth*Lenth;i++){ *(q-&amp;gt;arr+i)=*(p-&amp;gt;arr+i); *(q-&amp;gt;jugde+i)=*(p-&amp;gt;jugde+i); } } int Insert(QN *L,int target){ int i,lock1,lock2; int flag,number,floor,plant; flag=0; for(i=(L-&amp;gt;i)*Lenth;i&amp;lt;(L-&amp;gt;i+1)*Lenth;i++){ if(*(L-&amp;gt;jugde+i)==-1||*(L-&amp;gt;jugde+i)==1)continue; if(*(L-&amp;gt;jugde+i)==0&amp;amp;&amp;amp;(i%Lenth)==target){ *(L-&amp;gt;arr+i)=&amp;#39;#&amp;#39;;	//#为下在这个棋盘 	*(L-&amp;gt;jugde+i)=1; flag=1;	//flag为信号，表示棋盘插入成功 	break; } } if(flag==0)return 0; number=i%Lenth;	//number为i所在行的第几位 	floor=i/Lenth;	//floor为插入点所在第几列 	plant=i;	//plant记录i在数组中的位置 	lock1=lock2=0;	//防止斜线不可插入越界 	if(flag==1){ for(i=L-&amp;gt;i*Lenth;i&amp;lt;Lenth*Lenth;i++){ if(i==plant)continue; if(i%Lenth==number){	//横行不可插入 	*(L-&amp;gt;jugde+i)=-1; } if(i/Lenth==floor){	//竖行不可插入 	*(L-&amp;gt;jugde+i)=-1; } if(i==plant+(i/Lenth-floor)*(Lenth+1)){	//右斜线不可插入 	if(lock1==1)continue; if(i%Lenth==Lenth-1)lock1=1; *(L-&amp;gt;jugde+i)=-1; } if(i==plant+(i/Lenth-floor)*(Lenth-1)){	//左斜线不可插入 	if(lock2==1)continue; if(i%Lenth==0)lock2=1; *(L-&amp;gt;jugde+i)=-1; } } } return 1; } int display(QN *L,int i){	//通过递归显示数组 	int k; if(L-&amp;gt;parents==NULL){ return 0; } else{ i=display(L-&amp;gt;parents,i)+1; printf(&amp;#34;step:%d\n&amp;#34;,i); printf(&amp;#34;************************************\n&amp;#34;); printf(&amp;#34;\t1\t2\t3\t4\t5\t6\n&amp;#34;); for(k=0;k&amp;lt;Lenth*Lenth;k++){ printf(&amp;#34;\t%c&amp;#34;,*(L-&amp;gt;arr+k)); if(k%Lenth==Lenth-1)printf(&amp;#34;\n&amp;#34;); } printf(&amp;#34;************************************\n&amp;#34;); return i; } } QN *Delete(){	//从队列中删除第一个节点并且通过返回值返回 	QN *L; L=queue-&amp;gt;front-&amp;gt;next-&amp;gt;smallQueenNode; queue-&amp;gt;front=queue-&amp;gt;front-&amp;gt;next; return L; } void queueInsert(QN *L){	//往队列里插入一个结点 	AQN *T; T=(AQN *)malloc(sizeof(AQN)); T-&amp;gt;smallQueenNode=(QN *)malloc(sizeof(QN)); equator(L,T-&amp;gt;smallQueenNode); T-&amp;gt;smallQueenNode-&amp;gt;i=L-&amp;gt;i; T-&amp;gt;smallQueenNode-&amp;gt;parents=L-&amp;gt;parents; queue-&amp;gt;base-&amp;gt;next=T; queue-&amp;gt;base=queue-&amp;gt;base-&amp;gt;next; queue-&amp;gt;base-&amp;gt;next=NULL; } void fenpei(QN *L){ L=(QN *)malloc(sizeof(QN)); } void Init(){	int i,j,k; QN *reselution,*reselution2,*t; QN *head,*g,p[Lenth],*s; queue=(Q *)malloc(sizeof(Q)); head=(QN *)malloc(sizeof(QN)); reselution=(QN *)malloc(sizeof(QN)); queue-&amp;gt;front=queue-&amp;gt;base=(AQN *)malloc(sizeof(AQN)); queue-&amp;gt;front-&amp;gt;smallQueenNode=(QN *)malloc(sizeof(QN)); queue-&amp;gt;base-&amp;gt;smallQueenNode=(QN *)malloc(sizeof(QN)); g=(QN *)malloc(sizeof(QN)); s=(QN *)malloc(sizeof(QN)); queue-&amp;gt;front-&amp;gt;next=NULL; queue-&amp;gt;base-&amp;gt;next=NULL; reselution-&amp;gt;next=NULL; head-&amp;gt;i=0; head-&amp;gt;parents=NULL; for(i=0;i&amp;lt;Lenth*Lenth;i++){	//初始化棋盘，空的为* 	*(head-&amp;gt;arr+i)=&amp;#39;*&amp;#39;; *(head-&amp;gt;jugde+i)=0; } queueInsert(head); reselution2=reselution-&amp;gt;next; for(;queue-&amp;gt;front-&amp;gt;next!</description>
+    </item>
     
     <item>
       <title>AVL平衡树</title>
