@@ -136,6 +136,13 @@
   </url>
   
   <url>
+    <loc>http://www.mengcfunk.com/study/c/test/</loc>
+    <lastmod>2020-03-05T14:56:50+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://www.mengcfunk.com/study/datastructure/binarybalancedtree/</loc>
     <lastmod>2020-03-05T13:48:55+08:00</lastmod>
     <changefreq>monthly</changefreq>

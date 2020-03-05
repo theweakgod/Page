@@ -165,6 +165,15 @@
     </item>
     
     <item>
+      <title>test</title>
+      <link>http://www.mengcfunk.com/study/c/test/</link>
+      <pubDate>Thu, 05 Mar 2020 14:56:50 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/c/test/</guid>
+      <description>#include &amp;amp;lt;stdio.h&amp;gt; 　#include &amp;amp;lt;cstring&amp;gt; 　#include &amp;amp;lt;cstdio&amp;amp;gt; 　int main(int argc, char const *argv[])　{ int a = 1; String str = &amp;#34;abc&amp;#34;; scanf(&amp;#34;%d&amp;#34;, &amp;amp;a); cout &amp;amp;lt;&amp;amp;lt;&amp;#34;str:&amp;#34;&amp;amp;lt;&amp;amp;lt; str &amp;amp;lt;&amp;amp;lt; endl; return 0; } </description>
+    </item>
+    
+    <item>
       <title>AVL平衡树</title>
       <link>http://www.mengcfunk.com/study/datastructure/binarybalancedtree/</link>
       <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
