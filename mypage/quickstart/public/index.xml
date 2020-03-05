@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Meng&#39;s website</title>
+    <link>http://www.mengcfunk.com/</link>
+    <description>Recent content on Meng&#39;s website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Mar 2020 15:39:32 +0800</lastBuildDate>
+    
+	<atom:link href="http://www.mengcfunk.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1</title>
+      <link>http://www.mengcfunk.com/study/meng/1/</link>
+      <pubDate>Wed, 04 Mar 2020 15:39:32 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/meng/1/</guid>
+      <description>这里是我的地盘</description>
+    </item>
+    
+    <item>
+      <title>Everything is posible</title>
+      <link>http://www.mengcfunk.com/home/home/</link>
+      <pubDate>Tue, 03 Mar 2020 14:21:34 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/home/home/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java小demo</title>
+      <link>http://www.mengcfunk.com/study/new/</link>
+      <pubDate>Mon, 02 Mar 2020 17:13:11 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/new/</guid>
+      <description>import java.util.Random; import javax.swing.border.SoftBevelBorder; /** * 项目用到的工具方法的汇总类 * @author XZP * */ class set{ private static String[] a = { &amp;#34;京A&amp;#34;,&amp;#34;京C&amp;#34;,&amp;#34;京E&amp;#34;,&amp;#34;京F&amp;#34;,&amp;#34;京H&amp;#34;,&amp;#34;京G&amp;#34;,&amp;#34;京B&amp;#34;,&amp;#34;津A&amp;#34;,&amp;#34;津B&amp;#34;, &amp;#34;津C&amp;#34;, &amp;#34;津E&amp;#34;, &amp;#34;沪A&amp;#34;, &amp;#34;沪B&amp;#34;, &amp;#34;沪D&amp;#34;, &amp;#34;沪C&amp;#34;,&amp;#34;渝A&amp;#34;, &amp;#34;渝B&amp;#34;, &amp;#34;渝C&amp;#34;, &amp;#34;渝G&amp;#34;, &amp;#34;渝H&amp;#34;,&amp;#34;冀A&amp;#34;, &amp;#34;冀B&amp;#34;, &amp;#34;冀C&amp;#34;, &amp;#34;冀D&amp;#34;, &amp;#34;冀E&amp;#34;, &amp;#34;冀F&amp;#34;, &amp;#34;冀G&amp;#34;, &amp;#34;冀H&amp;#34;, &amp;#34;冀J&amp;#34;, &amp;#34;冀R&amp;#34;, &amp;#34;冀T&amp;#34;, &amp;#34;豫A&amp;#34;, &amp;#34;豫B&amp;#34;, &amp;#34;豫C&amp;#34;, &amp;#34;豫D&amp;#34;, &amp;#34;豫E&amp;#34;, &amp;#34;豫F&amp;#34;,&amp;#34;豫G&amp;#34;,&amp;#34;豫H&amp;#34;,&amp;#34;豫J&amp;#34;,&amp;#34;豫K&amp;#34;,&amp;#34;豫L&amp;#34;, &amp;#34;豫M&amp;#34;,&amp;#34;豫N&amp;#34;,&amp;#34;豫P&amp;#34;,&amp;#34;豫Q&amp;#34;,&amp;#34;豫R&amp;#34;,&amp;#34;豫S&amp;#34;,&amp;#34;豫U&amp;#34;,&amp;#34;云A&amp;#34;, &amp;#34;云C&amp;#34;, &amp;#34;云D&amp;#34;, &amp;#34;云E&amp;#34;, &amp;#34;云F&amp;#34;, &amp;#34;云G&amp;#34;,&amp;#34;云H&amp;#34;,&amp;#34;云J&amp;#34;,&amp;#34;云K&amp;#34;,&amp;#34;云L&amp;#34;,&amp;#34;云M&amp;#34;,&amp;#34;云N&amp;#34;,&amp;#34;云P&amp;#34;,&amp;#34;云Q&amp;#34;,&amp;#34;云R &amp;#34;,&amp;#34;云S&amp;#34;, &amp;#34;辽A&amp;#34;, &amp;#34;辽B&amp;#34;, &amp;#34;辽C&amp;#34;, &amp;#34;辽D&amp;#34;, &amp;#34;辽E&amp;#34;, &amp;#34;辽F&amp;#34;,&amp;#34;辽G&amp;#34;,&amp;#34;辽H&amp;#34;,&amp;#34;辽J&amp;#34;,&amp;#34;辽K&amp;#34;,&amp;#34;辽L&amp;#34;,&amp;#34;辽M&amp;#34;, &amp;#34;辽N&amp;#34;,&amp;#34;辽P&amp;#34;,&amp;#34;辽V&amp;#34;,&amp;#34;黑A&amp;#34;, &amp;#34;黑B&amp;#34;, &amp;#34;黑C&amp;#34;, &amp;#34;黑D&amp;#34;, &amp;#34;黑E&amp;#34;, &amp;#34;黑F&amp;#34;,&amp;#34;黑G&amp;#34;,&amp;#34;黑H&amp;#34;,&amp;#34;黑J&amp;#34;,&amp;#34;黑K&amp;#34;, &amp;#34;黑L&amp;#34;,&amp;#34;黑M&amp;#34;,&amp;#34;黑N&amp;#34;,&amp;#34;黑P&amp;#34;,&amp;#34;黑R&amp;#34;,&amp;#34;湘A&amp;#34;, &amp;#34;湘B&amp;#34;, &amp;#34;湘C&amp;#34;, &amp;#34;湘D&amp;#34;, &amp;#34;湘E&amp;#34;, &amp;#34;湘F&amp;#34;,&amp;#34;湘G&amp;#34;,&amp;#34;湘H&amp;#34;,&amp;#34;湘J&amp;#34;, &amp;#34;湘K&amp;#34;,&amp;#34;湘L&amp;#34;,&amp;#34;湘M&amp;#34;,&amp;#34;湘N&amp;#34;,&amp;#34;湘U&amp;#34;,&amp;#34;湘S&amp;#34;,&amp;#34;皖A&amp;#34;, &amp;#34;皖B&amp;#34;, &amp;#34;皖C&amp;#34;, &amp;#34;皖D&amp;#34;, &amp;#34;皖E&amp;#34;, &amp;#34;皖F&amp;#34;,&amp;#34;皖G&amp;#34;,&amp;#34;皖H&amp;#34;,&amp;#34;皖J&amp;#34;, &amp;#34;皖K&amp;#34;,&amp;#34;皖L&amp;#34;,&amp;#34;皖M&amp;#34;,&amp;#34;皖N&amp;#34;,&amp;#34;皖P&amp;#34;,&amp;#34;皖Q&amp;#34;,&amp;#34;皖R&amp;#34;,&amp;#34;皖S&amp;#34;,&amp;#34;鲁A&amp;#34;, &amp;#34;鲁B&amp;#34;, &amp;#34;鲁C&amp;#34;, &amp;#34;鲁D&amp;#34;, &amp;#34;鲁E&amp;#34;, &amp;#34;鲁F&amp;#34;,&amp;#34;鲁G&amp;#34;, &amp;#34;鲁H&amp;#34;,&amp;#34;鲁J&amp;#34;,&amp;#34;鲁K&amp;#34;,&amp;#34;鲁L&amp;#34;,&amp;#34;鲁M&amp;#34;,&amp;#34;鲁N&amp;#34;,&amp;#34;鲁P&amp;#34;,&amp;#34;鲁Q&amp;#34;,&amp;#34;鲁R&amp;#34;,&amp;#34;鲁S&amp;#34;,&amp;#34;鲁U&amp;#34;,&amp;#34;鲁V&amp;#34;,&amp;#34;鲁Y&amp;#34;,&amp;#34;新A&amp;#34;, &amp;#34;新B&amp;#34;, &amp;#34;新C&amp;#34;, &amp;#34;新D&amp;#34;, &amp;#34;新E&amp;#34;, &amp;#34;新F&amp;#34;,&amp;#34;新G&amp;#34;,&amp;#34;新H&amp;#34;,&amp;#34;新J&amp;#34;,&amp;#34;新K&amp;#34;,&amp;#34;新L&amp;#34;,&amp;#34;新M&amp;#34;,&amp;#34;新N&amp;#34;,&amp;#34;新P&amp;#34;,&amp;#34;新Q&amp;#34;,&amp;#34;新R&amp;#34;,&amp;#34;苏A&amp;#34;, &amp;#34;苏B&amp;#34;, &amp;#34;苏C&amp;#34;, &amp;#34;苏D&amp;#34;, &amp;#34;苏E&amp;#34;, &amp;#34;苏F&amp;#34;,&amp;#34;苏G&amp;#34;,&amp;#34;苏H&amp;#34;,&amp;#34;苏J&amp;#34;,&amp;#34;苏K&amp;#34;,&amp;#34;苏L&amp;#34;,&amp;#34;苏M&amp;#34;,&amp;#34;苏N&amp;#34;,&amp;#34;浙A&amp;#34;, &amp;#34;浙B&amp;#34;, &amp;#34;浙C&amp;#34;, &amp;#34;浙D&amp;#34;, &amp;#34;浙E&amp;#34;, &amp;#34;浙F&amp;#34;, &amp;#34;浙G&amp;#34;,&amp;#34;浙H&amp;#34;,&amp;#34;浙J&amp;#34;,&amp;#34;浙K &amp;#34;,&amp;#34;浙L&amp;#34;,&amp;#34;赣A&amp;#34;,&amp;#34;赣B&amp;#34;,&amp;#34;赣C&amp;#34;,&amp;#34;赣D&amp;#34;,&amp;#34;赣E&amp;#34;,&amp;#34;赣F&amp;#34;,&amp;#34;赣G&amp;#34;,&amp;#34;赣H&amp;#34;,&amp;#34;赣J&amp;#34;,&amp;#34;赣K&amp;#34;,&amp;#34;赣L&amp;#34;,&amp;#34;赣M&amp;#34;,&amp;#34;鄂A&amp;#34;, &amp;#34;鄂B&amp;#34;,&amp;#34;鄂C&amp;#34;,&amp;#34;鄂D&amp;#34;,&amp;#34;鄂E&amp;#34;,&amp;#34;鄂F&amp;#34;,&amp;#34;鄂G&amp;#34;,&amp;#34;鄂H&amp;#34;,&amp;#34;鄂J&amp;#34;,&amp;#34;鄂K&amp;#34; ,&amp;#34;鄂L&amp;#34;,&amp;#34;鄂M&amp;#34;,&amp;#34;鄂N&amp;#34;,&amp;#34;鄂P&amp;#34;,&amp;#34;鄂Q&amp;#34;,&amp;#34;鄂R&amp;#34;,&amp;#34;鄂S&amp;#34;,&amp;#34;桂A&amp;#34;,&amp;#34;桂B&amp;#34;, &amp;#34;桂C&amp;#34;,&amp;#34;桂D&amp;#34;,&amp;#34;桂E&amp;#34;,&amp;#34;桂F&amp;#34;,&amp;#34;桂G&amp;#34;,&amp;#34;桂H&amp;#34;,&amp;#34;桂J&amp;#34;,&amp;#34;桂K&amp;#34;,&amp;#34;桂L&amp;#34;,&amp;#34;桂M&amp;#34;,&amp;#34;桂N&amp;#34;,&amp;#34;桂P&amp;#34; ,&amp;#34;桂R&amp;#34;,&amp;#34;甘A&amp;#34;,&amp;#34;甘B&amp;#34;,&amp;#34;甘C&amp;#34;,&amp;#34;甘D&amp;#34;,&amp;#34;甘E&amp;#34;, &amp;#34;甘F&amp;#34;,&amp;#34;甘G&amp;#34;,&amp;#34;甘H&amp;#34;,&amp;#34;甘J&amp;#34;,&amp;#34;甘K&amp;#34;,&amp;#34;甘L&amp;#34;,&amp;#34;甘M&amp;#34; ,&amp;#34;甘N&amp;#34;,&amp;#34;甘P&amp;#34;,&amp;#34;晋A&amp;#34; ,&amp;#34;晋B&amp;#34;,&amp;#34;晋C&amp;#34;,&amp;#34;晋D&amp;#34;,&amp;#34;晋E&amp;#34;,&amp;#34;晋F&amp;#34;,&amp;#34;晋H&amp;#34;,&amp;#34;晋J&amp;#34;,&amp;#34;晋K&amp;#34;, &amp;#34;晋L&amp;#34;,&amp;#34;晋M&amp;#34;,&amp;#34;蒙A&amp;#34;,&amp;#34;蒙B&amp;#34;,&amp;#34;蒙C&amp;#34;,&amp;#34;蒙D&amp;#34;,&amp;#34;蒙E&amp;#34;,&amp;#34;蒙F&amp;#34;,&amp;#34;蒙G&amp;#34;,&amp;#34;蒙H&amp;#34;,&amp;#34;蒙J&amp;#34;,&amp;#34;蒙K&amp;#34;,&amp;#34;蒙L&amp;#34;,&amp;#34;蒙M&amp;#34;,&amp;#34;陕A&amp;#34;,&amp;#34;陕B&amp;#34;,&amp;#34;陕C&amp;#34;,&amp;#34;陕D&amp;#34;,&amp;#34;陕E&amp;#34;, &amp;#34;陕F&amp;#34;,&amp;#34;陕G&amp;#34;,&amp;#34;陕H&amp;#34;,&amp;#34;陕J&amp;#34;,&amp;#34;陕K&amp;#34;,&amp;#34;陕U&amp;#34;,&amp;#34;陕V&amp;#34;,&amp;#34;吉A&amp;#34;,&amp;#34;吉B&amp;#34;,&amp;#34;吉C&amp;#34;,&amp;#34;吉D&amp;#34;,&amp;#34;吉E&amp;#34;,&amp;#34;吉F&amp;#34;,&amp;#34;吉G&amp;#34;,&amp;#34;吉H&amp;#34;,&amp;#34;吉J&amp;#34;,&amp;#34;闽A&amp;#34;,&amp;#34;闽B&amp;#34;,&amp;#34;闽C&amp;#34;, &amp;#34;闽D&amp;#34;,&amp;#34;闽E&amp;#34;,&amp;#34;闽F&amp;#34; ,&amp;#34;闽G&amp;#34;,&amp;#34;闽H&amp;#34;,&amp;#34;闽J&amp;#34;,&amp;#34;闽K&amp;#34;,&amp;#34;贵A&amp;#34;,&amp;#34;贵B&amp;#34; ,&amp;#34;贵C&amp;#34;,&amp;#34;贵D&amp;#34;,&amp;#34;贵E&amp;#34; ,&amp;#34;贵F&amp;#34;,&amp;#34;贵G&amp;#34;,&amp;#34;贵H&amp;#34;,&amp;#34;贵J&amp;#34;,&amp;#34;粤A&amp;#34;,&amp;#34;粤B&amp;#34;,&amp;#34;粤C&amp;#34;, &amp;#34;粤D&amp;#34;,&amp;#34;粤E&amp;#34;,&amp;#34;粤F&amp;#34;,&amp;#34;粤G&amp;#34;,&amp;#34;粤H&amp;#34;,&amp;#34;粤J&amp;#34;,&amp;#34;粤K&amp;#34;,&amp;#34;粤L&amp;#34;,&amp;#34;粤M&amp;#34;,&amp;#34;粤N&amp;#34;,&amp;#34;粤P&amp;#34;,&amp;#34;粤Q&amp;#34;,&amp;#34;粤R&amp;#34;,&amp;#34;粤S&amp;#34;,&amp;#34;粤T&amp;#34;,&amp;#34;粤U&amp;#34;,&amp;#34;粤V&amp;#34;,&amp;#34;粤W&amp;#34;,&amp;#34;粤X&amp;#34;,&amp;#34;粤Y&amp;#34;, &amp;#34;粤Z&amp;#34;,&amp;#34;青A&amp;#34;,&amp;#34;青B&amp;#34;,&amp;#34;青C&amp;#34;,&amp;#34;青D&amp;#34;,&amp;#34;青E&amp;#34;,&amp;#34;青F&amp;#34;,&amp;#34;青G&amp;#34;,&amp;#34;青H&amp;#34;,&amp;#34;藏A&amp;#34;,&amp;#34;藏B&amp;#34;,&amp;#34;藏C&amp;#34;,&amp;#34;藏D&amp;#34;,&amp;#34;藏E&amp;#34;,&amp;#34;藏F&amp;#34;,&amp;#34;藏G&amp;#34;,&amp;#34;藏H&amp;#34; ,&amp;#34;藏J&amp;#34;,&amp;#34;川A&amp;#34;,&amp;#34;川B&amp;#34;, &amp;#34;川C&amp;#34;,&amp;#34;川D&amp;#34;,&amp;#34;川E&amp;#34;,&amp;#34;川F&amp;#34;,&amp;#34;川H&amp;#34;,&amp;#34;川J&amp;#34;,&amp;#34;川K&amp;#34;,&amp;#34;川L&amp;#34;,&amp;#34;川M&amp;#34;,&amp;#34;川Q&amp;#34;,&amp;#34;川R&amp;#34;,&amp;#34;川S&amp;#34;,&amp;#34;川T&amp;#34;,&amp;#34;川U&amp;#34;,&amp;#34;川V&amp;#34;,&amp;#34;川W&amp;#34;,&amp;#34;川X&amp;#34;,&amp;#34;川Y&amp;#34;,&amp;#34;川Z&amp;#34;,&amp;#34;宁A&amp;#34;, &amp;#34;宁B&amp;#34;,&amp;#34;宁C&amp;#34;,&amp;#34;宁D&amp;#34;,&amp;#34;琼A&amp;#34;,&amp;#34;琼B&amp;#34;,&amp;#34;琼C&amp;#34;,&amp;#34;琼D&amp;#34;,&amp;#34;琼E&amp;#34; }; private static String[] b = { &amp;#34;A&amp;#34;, &amp;#34;B&amp;#34;, &amp;#34;C&amp;#34;, &amp;#34;D&amp;#34;, &amp;#34;E&amp;#34;, &amp;#34;F&amp;#34;, &amp;#34;G&amp;#34;, &amp;#34;H&amp;#34;, &amp;#34;I&amp;#34;, &amp;#34;J&amp;#34;, &amp;#34;K&amp;#34;, &amp;#34;L&amp;#34;, &amp;#34;M&amp;#34;, &amp;#34;N&amp;#34;, &amp;#34;O&amp;#34;, &amp;#34;P&amp;#34;, &amp;#34;Q&amp;#34;, &amp;#34;R&amp;#34;, &amp;#34;S&amp;#34;, &amp;#34;T&amp;#34;, &amp;#34;U&amp;#34;, &amp;#34;V&amp;#34;, &amp;#34;W&amp;#34;, &amp;#34;X&amp;#34;, &amp;#34;Y&amp;#34;, &amp;#34;Z&amp;#34; }; /** * 随机生成车牌号 * @return */ public static String getPalte() { int count = 0; String sb = &amp;#34;&amp;#34;; // 随机获取后五位随机序号  while (count &amp;lt; 5) { Random random = new Random(); String str2 = b[random.</description>
+    </item>
+    
+    <item>
+      <title>学习记录</title>
+      <link>http://www.mengcfunk.com/study/stacks/</link>
+      <pubDate>Mon, 02 Mar 2020 16:56:36 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/stacks/</guid>
+      <description>学习记录 import java.util.Scanner; //插入scanner库 public class test1{ public static void main(String[] args) { Scanner reader=new Scanner(System.in); String s=reader.next(); //输入字符串  zhuanhua ZH = new zhuanhua(s); //zhuanhua类的初始化,调用构造函数  ZH.change(); } } class zhuanhua{ int dot; int sum; char []MoneyThatIWillEarn=new char[100]; public zhuanhua(String s){ //构造函数,字符串初始化  for(int j=0;j&amp;lt;s.length();j++){ MoneyThatIWillEarn[j]=s.charAt(j); } sum=s.length(); //sum为字符串长度  dot=0; //dot表示小数点  } public void change(){ int flag; int cout; int cout1; int a; int b; for(int j=0;j&amp;lt;sum;j++){ if((MoneyThatIWillEarn[j]&amp;lt;=&amp;#39;9&amp;#39;&amp;amp;&amp;amp;MoneyThatIWillEarn[j]&amp;gt;&amp;#39;0&amp;#39;)||MoneyThatIWillEarn[j]==&amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>简历</title>
+      <link>http://www.mengcfunk.com/resume/111/meng/</link>
+      <pubDate>Mon, 02 Mar 2020 15:56:47 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/resume/111/meng/</guid>
+      <description> 简历
+    姓名 : 孟祥为 现居地 : 湖南长沙     年龄 : 22 邮箱 :meng1031205858@163.com   性别 : 男 籍贯 : 湖南益阳   电话 :13330119021 简历网站:www.mengcfunk.com     </description>
+    </item>
+    
+  </channel>
+</rss>

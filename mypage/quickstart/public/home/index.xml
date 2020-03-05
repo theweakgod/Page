@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homes on Meng&#39;s website</title>
+    <link>http://www.mengcfunk.com/home/</link>
+    <description>Recent content in Homes on Meng&#39;s website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Mar 2020 14:21:34 +0800</lastBuildDate>
+    
+	<atom:link href="http://www.mengcfunk.com/home/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Everything is posible</title>
+      <link>http://www.mengcfunk.com/home/home/</link>
+      <pubDate>Tue, 03 Mar 2020 14:21:34 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/home/home/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

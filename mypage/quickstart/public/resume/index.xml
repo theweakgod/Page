@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resumes on Meng&#39;s website</title>
+    <link>http://www.mengcfunk.com/resume/</link>
+    <description>Recent content in Resumes on Meng&#39;s website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Mar 2020 15:56:47 +0800</lastBuildDate>
+    
+	<atom:link href="http://www.mengcfunk.com/resume/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>简历</title>
+      <link>http://www.mengcfunk.com/resume/111/meng/</link>
+      <pubDate>Mon, 02 Mar 2020 15:56:47 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/resume/111/meng/</guid>
+      <description> 简历
+    姓名 : 孟祥为 现居地 : 湖南长沙     年龄 : 22 邮箱 :meng1031205858@163.com   性别 : 男 籍贯 : 湖南益阳   电话 :13330119021 简历网站:www.mengcfunk.com     </description>
+    </item>
+    
+  </channel>
+</rss>
