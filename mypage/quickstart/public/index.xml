@@ -39,21 +39,21 @@
     </item>
     
     <item>
+      <title>哈弗曼树</title>
+      <link>http://www.mengcfunk.com/study/datastructure/huffmantree/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure/huffmantree/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;#include&amp;lt;string.h&amp;gt;#define MAX 10 #define M	100 typedef struct HTNode{ char data[MAX]; int i; struct HTNode *Lchild,*Rchild; }Huffman; typedef struct ListNode{ int	data; struct ListNode *next; }LN; LN *head; void INit(){ LN *q,*p; int x; head=(LN *)malloc(sizeof(LN)); p=head; head-&amp;gt;next=NULL; scanf(&amp;#34;%d&amp;#34;,&amp;amp;x);getchar(); while(x!=0){ q=(LN *)malloc(sizeof(LN)); q-&amp;gt;next=NULL; q-&amp;gt;data=x; p-&amp;gt;next=q; p=q; scanf(&amp;#34;%d&amp;#34;,&amp;amp;x);getchar(); } } void Insert(int x){ LN *q,*s; q=head; while(q-&amp;gt;next!=NULL){ q=q-&amp;gt;next; } s=(LN *)malloc(sizeof(LN)); q-&amp;gt;next=s; s-&amp;gt;data=x; s-&amp;gt;next=NULL; } void Delete(LN *p,int i){ LN *q,*s; q=s=head; if(s-&amp;gt;next==NULL) return ; while(s-&amp;gt;data!</description>
+    </item>
+    
+    <item>
       <title>大数乘法</title>
       <link>http://www.mengcfunk.com/study/datastructure/largenumbermultiplication/</link>
       <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
       
       <guid>http://www.mengcfunk.com/study/datastructure/largenumbermultiplication/</guid>
       <description>#include&amp;lt;stdio.h&amp;gt;#define N 200 int main(){ char arr[N]; char ass[N]; int a[N]; int b[N]; int sum[2*N]; int mul[N][N]; int ii,j,k,ij,jj,ji; int mm,nn,tt,qqq,s,blog,gt; int ff; int flag=0; int x,y; scanf(&amp;#34;%s&amp;#34;,arr); scanf(&amp;#34;%s&amp;#34;,ass); qqq=0; s=0; for(j=0;j&amp;lt;N;j++){ if(arr[j]==0){ break; } } for(k=0;k&amp;lt;N;k++){ if(ass[k]==0){ break; } } for(ii=0;ii&amp;lt;N;ii=ii+1){ if(arr[ii]&amp;lt;=57&amp;amp;&amp;amp;arr[ii]&amp;gt;=48){ x=arr[ii]; a[ii]=x-48; } } for(ij=0;ij&amp;lt;N;ij=ij+1){ if(ass[ij]&amp;lt;=57&amp;amp;&amp;amp;ass[ij]&amp;gt;=48){ y=ass[ij]; b[ij]=y-48; } } for(jj=j-1;jj&amp;gt;=0;jj--){ for(ji=k-1;ji&amp;gt;=0;ji--){ mul[jj][ji]=a[jj]*b[ji]; } } for(tt=j+k-1;tt&amp;gt;=0;tt--){ sum[tt]=0; } for(tt=j+k-1;tt&amp;gt;=0;tt--){ for(mm=j-1;mm&amp;gt;=0;mm--){ for(nn=k-1;nn&amp;gt;=0;nn--){ blog=mm+nn; if(mul[mm][nn]&amp;gt;=0){ if(blog==tt){ sum[tt]=sum[tt]+mul[mm][nn]; } if(sum[tt+1]&amp;gt;9){ sum[tt]=sum[tt]+sum[tt+1]/10; sum[tt+1]=sum[tt+1]%10; } } } } } for(ff=0;ff&amp;lt;j+k-1;ff++){ if(sum[ff]&amp;gt;=0){ printf(&amp;#34;%d&amp;#34;,sum[ff]); } } return 0; } </description>
-    </item>
-    
-    <item>
-      <title>大数加法</title>
-      <link>http://www.mengcfunk.com/study/datastructure/huffmantree/</link>
-      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
-      
-      <guid>http://www.mengcfunk.com/study/datastructure/huffmantree/</guid>
-      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;#include&amp;lt;string.h&amp;gt;#define MAX 10 #define M	100 typedef struct HTNode{ char data[MAX]; int i; struct HTNode *Lchild,*Rchild; }Huffman; typedef struct ListNode{ int	data; struct ListNode *next; }LN; LN *head; void INit(){ LN *q,*p; int x; head=(LN *)malloc(sizeof(LN)); p=head; head-&amp;gt;next=NULL; scanf(&amp;#34;%d&amp;#34;,&amp;amp;x);getchar(); while(x!=0){ q=(LN *)malloc(sizeof(LN)); q-&amp;gt;next=NULL; q-&amp;gt;data=x; p-&amp;gt;next=q; p=q; scanf(&amp;#34;%d&amp;#34;,&amp;amp;x);getchar(); } } void Insert(int x){ LN *q,*s; q=head; while(q-&amp;gt;next!=NULL){ q=q-&amp;gt;next; } s=(LN *)malloc(sizeof(LN)); q-&amp;gt;next=s; s-&amp;gt;data=x; s-&amp;gt;next=NULL; } void Delete(LN *p,int i){ LN *q,*s; q=s=head; if(s-&amp;gt;next==NULL) return ; while(s-&amp;gt;data!</description>
     </item>
     
     <item>
