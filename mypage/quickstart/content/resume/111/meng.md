@@ -25,18 +25,18 @@ draft: false
 
 ###### 获奖情况
 >2016-2017学年:
->&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得南昌大学优秀学生一等奖学金;
->&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;被评为优秀学生干部(担任班长);
->&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得南昌大学数学竞赛二等奖;
->&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得南昌大学物理竞赛一等奖;
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得南昌大学优秀学生一等奖学金;<br>
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;被评为优秀学生干部(担任班长);<br>
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得南昌大学数学竞赛二等奖;<br>
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得南昌大学物理竞赛一等奖;<br>
 >2017-2018学年:
->&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得南昌大学优秀学生二等奖学金;
->&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;被评为优秀学生干部(担任班长);
->&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得南昌大学数学竞赛二等奖;
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得南昌大学优秀学生二等奖学金;<br>
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;被评为优秀学生干部(担任班长);<br>
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得南昌大学数学竞赛二等奖;<br>
 >2018-2019学年:
->&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得省物理竞赛二等奖
->&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得英语四级证书
->&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;被评为社会活动积极分子;
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得省物理竞赛二等奖<br>
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得英语四级证书<br>
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;被评为社会活动积极分子;<br>
 
 ###### 求职意向
 >后端数据处理
