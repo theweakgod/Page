@@ -27,10 +27,10 @@ draft: false
 >2016-2017学年:
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得南昌大学优秀学生一等奖学金;
 
-
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;被评为优秀学生干部(担任班长);
 
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得南昌大学数学竞赛二等奖;
+
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;获得南昌大学物理竞赛一等奖;
 
 >2017-2018学年:
