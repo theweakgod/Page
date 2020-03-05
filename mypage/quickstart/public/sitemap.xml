@@ -3,22 +3,29 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://www.mengcfunk.com/study/meng/1/</loc>
-    <lastmod>2020-03-04T15:39:32+08:00</lastmod>
+    <loc>http://www.mengcfunk.com/study/datastructure2/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://www.mengcfunk.com/</loc>
-    <lastmod>2020-03-04T15:39:32+08:00</lastmod>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://www.mengcfunk.com/study/</loc>
-    <lastmod>2020-03-04T15:39:32+08:00</lastmod>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/datastructure1/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -6,18 +6,27 @@
     <description>Recent content in Studies on Meng&#39;s website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Mar 2020 15:39:32 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 05 Mar 2020 13:48:55 +0800</lastBuildDate>
     
 	<atom:link href="http://www.mengcfunk.com/study/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>1</title>
-      <link>http://www.mengcfunk.com/study/meng/1/</link>
-      <pubDate>Wed, 04 Mar 2020 15:39:32 +0800</pubDate>
+      <title>AVL平衡树</title>
+      <link>http://www.mengcfunk.com/study/datastructure2/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
       
-      <guid>http://www.mengcfunk.com/study/meng/1/</guid>
-      <description>这里是我的地盘</description>
+      <guid>http://www.mengcfunk.com/study/datastructure2/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;malloc.h&amp;gt;#include&amp;lt;string.h&amp;gt;#define MAX 10 typedef struct BtreeNode{ char data[MAX]; int i; struct BtreeNode *Lchild,*Rchild; }BN; int bijiao(char a[MAX],char b[MAX]){	//新定义一个函数，有字符串长度的比较 	if(strlen(a)&amp;gt;strlen(b)) return 1; if(strlen(a)&amp;lt;strlen(b)) return -1; if(strlen(a)==strlen(b)){ int i; i=strcmp(a,b); return i; } } void biaoshi(BN *p){	//打印出这个二叉树的平衡因子 	if(p==NULL) return; else{ biaoshi(p-&amp;gt;Lchild); printf(&amp;#34;\t%d&amp;#34;,p-&amp;gt;i); biaoshi(p-&amp;gt;Rchild); } } int deep(BN *p){	//求该结点的深度 	if(p==NULL) return 0; else{ int i,j; i=deep(p-&amp;gt;Lchild); j=deep(p-&amp;gt;Rchild); if(i&amp;gt;j) return (i+1); else return (j+1); } } void pingheng(BN *p){	//使每个结点的元素p-&amp;gt;i赋当前结构体的值 	if(p==NULL){ return ; } else{ int i,j; pingheng(p-&amp;gt;Lchild); pingheng(p-&amp;gt;Rchild); i=deep(p-&amp;gt;Lchild); j=deep(p-&amp;gt;Rchild); p-&amp;gt;i=i-j; } } BN *xunzhao(BN *p,int *i,int *c){	//寻找离插入结点最近的危机结点 	if(p==NULL) return p; else{ BN *q; q=NULL; if(*c!</description>
+    </item>
+    
+    <item>
+      <title>二叉树</title>
+      <link>http://www.mengcfunk.com/study/datastructure1/</link>
+      <pubDate>Thu, 05 Mar 2020 13:48:55 +0800</pubDate>
+      
+      <guid>http://www.mengcfunk.com/study/datastructure1/</guid>
+      <description>#include&amp;lt;stdio.h&amp;gt;#include&amp;lt;stdlib.h&amp;gt;typedef char AdjType; typedef struct Btree{ AdjType date; struct Btree *lchild,*rchild; }btree; int count; int i; btree *Init(){ btree *p; char x; scanf(&amp;#34;%c&amp;#34;,&amp;amp;x);getchar(); if(x ==&amp;#39; &amp;#39;){ p=NULL;	} else{ p=(btree *)malloc(sizeof(btree)); p-&amp;gt;date=x; printf(&amp;#34;\n\t\t\t请输入一个非#的字符,当前访问到%c的左子女&amp;#34;,p-&amp;gt;date); p-&amp;gt;lchild=Init(); printf(&amp;#34;\n\t\t\t请输入一个非#的字符,当前访问到%c的右子女&amp;#34;,p-&amp;gt;date); p-&amp;gt;rchild=Init(); } return p; } void xianxu(btree *p){ if(p==NULL) return; printf(&amp;#34;%c&amp;#34;,p-&amp;gt;date); xianxu(p-&amp;gt;lchild); xianxu(p-&amp;gt;rchild); } void zhongxu(btree *p){ if(p==NULL) return; zhongxu(p-&amp;gt;lchild); printf(&amp;#34;%c&amp;#34;,p-&amp;gt;date); zhongxu(p-&amp;gt;rchild); } void houxu(btree *p){ if(p==NULL) return; houxu(p-&amp;gt;lchild); houxu(p-&amp;gt;rchild); printf(&amp;#34;%c&amp;#34;,p-&amp;gt;date); } int yezi(btree *p){ if(p!</description>
     </item>
     
     <item>
