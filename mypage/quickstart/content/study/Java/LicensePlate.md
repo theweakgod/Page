@@ -1,5 +1,5 @@
 ---
-title: "java小demo"
+title: "车牌的随机生成(课程设计)"
 date: 2020-03-02T17:13:11+08:00
 draft: false
 ---
