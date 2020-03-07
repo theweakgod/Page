@@ -1,184 +1,75 @@
 ---
-title: "类的学习12"
+title: "类的学习13"
 date: 2020-03-05T14:56:52+08:00
 draft: false
 ---
 
 ```c++
 #include<iostream>
-#include<string>
-#include<math.h>
 using namespace std;
-class Person{
-	string name;
-	string id;
-	string phonenumber;
-public:
-	Person(){
-		string name1,id1,phonenumber1;
-		cout<<"please input his name:";
-		cin>>name1;
-		cout<<"please input "<<name1<<"'s id:";
-		cin>>id1;
-		cout<<"please input "<<name1<<"'s phonenumber:";
-		cin>>phonenumber1;
-		name=name1;
-		id=id1;
-		phonenumber=phonenumber1;
+int guibing(int month,int date){
+	int sum1=0;
+	switch (month){
+		case 1:sum1=365-date;break;
+		case 2:sum1=365-31-date;break;
+		case 3:sum1=365-59-date;break;
+		case 4:sum1=365-90-date;break;
+		case 5:sum1=365-120-date;break;
+		case 6:sum1=365-151-date;break;
+		case 7:sum1=365-181-date;break;
+		case 8:sum1=365-212-date;break;
+		case 9:sum1=365-243-date;break;
+		case 10:sum1=365-273-date;break;
+		case 11:sum1=365-304-date;break;
+		case 12:sum1=365-334-date;break;
 	}
-	string get_name(){
-		return name;
-	}
-	void get_MESSAGE(){
-		cout<<name<<endl;
-		cout<<name<<"'s id is"<<id<<endl;
-		cout<<name<<"'s phonenumber is "<<phonenumber<<endl;
-	}
-};
-class student:public Person{
-	const string grade;
-public:
-	student(string s):Person(),grade(s){
-	}
-	void display(){
-		get_MESSAGE();
-		cout<<get_name()<<"'s grade is "<<grade<<endl;
-	}
-}; 
-class MyDate{
-	int year,month,day;
-public:
-	MyDate(){
-		cout<<"please input year month day"<<endl;
-		cin>>year;
-		cin>>month;
-		cin>>day;
-	}
-	MyDate(int x,int y,int z){
-		year=x;
-		month=y;
-		day=z;
-	}
-	void date_display(){
-		cout<<year<<"-";
-		cout<<month<<"-";
-		cout<<day<<endl;
-	}
-	int diffYear(MyDate &p){
-		int i,j;
-		if(p.year-year==0){
-			if(p.month>month&&p.day>=day)
-			return (abs(p.month-month));
-			if(p.month<month&&day>=p.day)
-				return (abs(p.month-month));
-			return (abs(p.month-month)-1);
-		}
-		if(p.year-year>0){
-			i=p.year-year-1;
-			j=12-p.month+month;
-			if(p.day>=day)
-				return (i*12+j);
-			else
-			return (i*12+j-1);
-		}
-		else{							//偷个懒，直接else了。
-			i=year-p.year-1;
-			j=12-month+p.month;
-			if(day>=p.day)
-				return (i*12+j);
-			else
-				return (i*12+j-1);
-		}
-	}
-};
-class Employee:public Person{
-	string office;
-	double salary;
-	MyDate dateHired;
-public:
-	Employee():Person(){
-		cout<<"please input "<<get_name()<<"'s office:";
-		cin>>office;
-		cout<<"please input "<<get_name()<<"'s salary:";
-		cin>>salary;
-	}
-	string get_office(){
-		return office;
-	}
-	void Employee_display(){
-		get_MESSAGE();
-		cout<<get_name<<"'s office is"<<office<<endl;
-		cout<<get_name()<<"'s Hired date is ";
-		dateHired.date_display();
-		cout<<endl;
-	}
-	double get_salary(){
-		return salary;
-	}
-	int diffYear_Employee(MyDate &p){
-		return dateHired.diffYear(p);
-	}
-};
-class Faculty:public Employee{
-	const int rank;
-public:
-	Faculty(int s):Employee(),rank(s){
-	}
-	void display(){
-		Employee_display();
-	}
-};
-class Staff:public Employee{
-	string position;
-	double BasicWages;
-	const double Allowance;
-public:
-	Staff(double s):Employee(),Allowance(s){
-		cout<<"please input "<<get_name()<<"'s position";
-		cin>>position;
-		BasicWages=get_salary();
-	}
-	void display(){
-		cout<<get_name()<<"'s position is"<<position;
-		Employee_display();
-	}
-	void display_salary(){
-		int i;
-		MyDate B1(2010,1,1);
-		i=diffYear_Employee(B1);
-		cout<<get_name()<<"'s salary is"<<BasicWages+Allowance*i<<endl;
-	}
-};
+	return sum1;
+}
 void main(){
-	string s;
-	double j;
-	int i;
-	cout<<"please input this student's grade"<<endl;
-	cin>>s;
-	student st1(s);
-	st1.display();
-	Employee E1;
-	E1.Employee_display();
-	string m;
-	cout<<"please input this Faculty's position,this string belong in 'Professor AssociateProfessor AssistantProfessor'"<<endl;
-	cin>>m;
-	if(m=="Professor"){
-		Faculty asd(3);
-		asd.display();
+	int year1,year2,month1,month2,date1,date2,sum1,sum2;
+	int sum,a,b,flag;
+	int i=0;
+	flag=1;
+	sum1=sum2=0;
+	cout<<"请输入年月日";
+	cin>>year1>>month1>>date1;
+	cin>>year2>>month2>>date2;
+	a=year1/4;
+	b=year2/4;
+	if(year1%4==0){
+		if(month1<=2)
+			sum1++;
 	}
-	if(m=="AssociateProfessor"){
-		Faculty asd(2);
-		asd.display();
+	if(year2%4==0){
+		if(month2>3)
+			sum2++;
 	}
-	if(m=="AssistantProfessor"){
-		Faculty asd(1);
-		asd.display();										//这里只能在if语句内进行调用display函数，估计是编译器问题，我的编译器只能这么写
+	sum1+=guibing(month1,date1);
+	sum2+=365-guibing(month2,date2);		
+	if(b-a==0){
+		if(year2-year1==1){
+			sum=sum2+sum1;
+		}
+		else{
+			sum=(year2-year1-1)*365+sum1+sum2;
+		}
 	}
-	cout<<"please input this staff's Allowance"<<endl;
-	cin>>j;
-	Staff staff1(j);
-	staff1.display();
-	staff1.display_salary();
+	else{
+		if(year2%4-year1%4==1){
+			sum=sum1+sum2+(b-a)*1461;
+		}
+		else{
+			flag=year2%4-year1%4;
+			sum=(flag-1)*365+sum1+sum2+(b-a)*1461;
+		}
+	}
+	flag=0;
+	for(i=year1;i<=year2;i++){
+		if(i%100==0&&i%400!=0)
+			flag=flag+1;
+	}
+	sum=sum-flag;
+	cout<<"天数为:"<<sum<<endl;
 }
 
 ```

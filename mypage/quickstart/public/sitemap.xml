@@ -157,6 +157,13 @@
   </url>
   
   <url>
+    <loc>http://www.mengcfunk.com/study/binarytree/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://www.mengcfunk.com/study/datastructure/binarytree/</loc>
     <lastmod>2020-03-05T13:48:55+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -164,7 +171,28 @@
   </url>
   
   <url>
+    <loc>http://www.mengcfunk.com/study/binarytreetofrost/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://www.mengcfunk.com/study/datastructure/huffmantree/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/huffmantree/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/mgraph/</loc>
     <lastmod>2020-03-05T13:48:55+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -241,6 +269,13 @@
   </url>
   
   <url>
+    <loc>http://www.mengcfunk.com/study/sort/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://www.mengcfunk.com/study/datastructure/search/</loc>
     <lastmod>2020-03-05T13:48:55+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -255,7 +290,35 @@
   </url>
   
   <url>
+    <loc>http://www.mengcfunk.com/study/treeandforest/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/foresttraversalandrealization/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://www.mengcfunk.com/study/datastructure/mgraph/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/forestturnsintobinarytree/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/linearbinarytree/</loc>
     <lastmod>2020-03-05T13:48:55+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -283,6 +346,20 @@
   </url>
   
   <url>
+    <loc>http://www.mengcfunk.com/study/linkedlist/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/queue/</loc>
+    <lastmod>2020-03-05T13:48:55+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://www.mengcfunk.com/home/home/</loc>
     <lastmod>2020-03-03T14:21:34+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -297,6 +374,13 @@
   </url>
   
   <url>
+    <loc>http://www.mengcfunk.com/study/licenseplate/</loc>
+    <lastmod>2020-03-02T17:13:11+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://www.mengcfunk.com/study/java/licenseplate/</loc>
     <lastmod>2020-03-02T17:13:11+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -305,6 +389,13 @@
   
   <url>
     <loc>http://www.mengcfunk.com/study/java/demo1/</loc>
+    <lastmod>2020-03-02T16:56:36+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.mengcfunk.com/study/demo1/</loc>
     <lastmod>2020-03-02T16:56:36+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

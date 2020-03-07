@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Meng&#39;s website  | 排序</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.65.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="排序" />
+<meta property="og:description" content="#include &lt;stdio.h&gt;#include &lt;conio.h&gt;#include &lt;string.h&gt;#include &lt;malloc.h&gt;#define Keytype int typedef struct {	/* 定义元素类型 */ Keytype key;	/* 关键字定义 */ } ElemType; #define MAXELEMCOUNT 100	/*定义元素最多元素个数*/#define ENDVALUE -1	/*定义输入元素的结束值,假定关键字值不可能取-1 */ElemType elemarr[MAXELEMCOUNT]; int elemcount=0 ; /*实际元素个数*/ #define SHELL_ADD_COUNT 6 /*希尔排序的增量值个数*/int shell_add_arr[SHELL_ADD_COUNT],shell_add_len; /*增量数组与长度*/ /*显示主界面*/ void PrintMenu() { printf(&#34;\n\n\n\n\n&#34;); printf(&#34;\t\t\t-- 各 类 排 序 综 合 演 示 -- \n&#34;); printf(&#34;\n\t\t\t************************************&#34;); printf(&#34;\n\t\t\t* 1-------插 入 类 排 序 *&#34;); printf(&#34;\n\t\t\t* 2-------交 换 类 排 序 *&#34;); printf(&#34;\n\t\t\t* 3-------选 择 类 排 序 *&#34;); printf(&#34;\n\t\t\t* 4-------归 并 排 序 *&#34;); printf(&#34;\n\t\t\t* 0-------退 出 *&#34;); printf(&#34;\n\t\t\t************************************\n&#34;); printf(&#34;\t\t\t请选择功能号(0--4)：&#34;); } /* 待排序元素初始化*/ void ElemInit() { int i=1; ElemType elem; printf(&#34;\n\t请注意!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.mengcfunk.com/study/sort/" />
+<meta property="article:published_time" content="2020-03-05T13:48:55+08:00" />
+<meta property="article:modified_time" content="2020-03-05T13:48:55+08:00" />
+<meta itemprop="name" content="排序">
+<meta itemprop="description" content="#include &lt;stdio.h&gt;#include &lt;conio.h&gt;#include &lt;string.h&gt;#include &lt;malloc.h&gt;#define Keytype int typedef struct {	/* 定义元素类型 */ Keytype key;	/* 关键字定义 */ } ElemType; #define MAXELEMCOUNT 100	/*定义元素最多元素个数*/#define ENDVALUE -1	/*定义输入元素的结束值,假定关键字值不可能取-1 */ElemType elemarr[MAXELEMCOUNT]; int elemcount=0 ; /*实际元素个数*/ #define SHELL_ADD_COUNT 6 /*希尔排序的增量值个数*/int shell_add_arr[SHELL_ADD_COUNT],shell_add_len; /*增量数组与长度*/ /*显示主界面*/ void PrintMenu() { printf(&#34;\n\n\n\n\n&#34;); printf(&#34;\t\t\t-- 各 类 排 序 综 合 演 示 -- \n&#34;); printf(&#34;\n\t\t\t************************************&#34;); printf(&#34;\n\t\t\t* 1-------插 入 类 排 序 *&#34;); printf(&#34;\n\t\t\t* 2-------交 换 类 排 序 *&#34;); printf(&#34;\n\t\t\t* 3-------选 择 类 排 序 *&#34;); printf(&#34;\n\t\t\t* 4-------归 并 排 序 *&#34;); printf(&#34;\n\t\t\t* 0-------退 出 *&#34;); printf(&#34;\n\t\t\t************************************\n&#34;); printf(&#34;\t\t\t请选择功能号(0--4)：&#34;); } /* 待排序元素初始化*/ void ElemInit() { int i=1; ElemType elem; printf(&#34;\n\t请注意!">
+<meta itemprop="datePublished" content="2020-03-05T13:48:55&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-05T13:48:55&#43;08:00" />
+<meta itemprop="wordCount" content="1170">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="排序"/>
+<meta name="twitter:description" content="#include &lt;stdio.h&gt;#include &lt;conio.h&gt;#include &lt;string.h&gt;#include &lt;malloc.h&gt;#define Keytype int typedef struct {	/* 定义元素类型 */ Keytype key;	/* 关键字定义 */ } ElemType; #define MAXELEMCOUNT 100	/*定义元素最多元素个数*/#define ENDVALUE -1	/*定义输入元素的结束值,假定关键字值不可能取-1 */ElemType elemarr[MAXELEMCOUNT]; int elemcount=0 ; /*实际元素个数*/ #define SHELL_ADD_COUNT 6 /*希尔排序的增量值个数*/int shell_add_arr[SHELL_ADD_COUNT],shell_add_len; /*增量数组与长度*/ /*显示主界面*/ void PrintMenu() { printf(&#34;\n\n\n\n\n&#34;); printf(&#34;\t\t\t-- 各 类 排 序 综 合 演 示 -- \n&#34;); printf(&#34;\n\t\t\t************************************&#34;); printf(&#34;\n\t\t\t* 1-------插 入 类 排 序 *&#34;); printf(&#34;\n\t\t\t* 2-------交 换 类 排 序 *&#34;); printf(&#34;\n\t\t\t* 3-------选 择 类 排 序 *&#34;); printf(&#34;\n\t\t\t* 4-------归 并 排 序 *&#34;); printf(&#34;\n\t\t\t* 0-------退 出 *&#34;); printf(&#34;\n\t\t\t************************************\n&#34;); printf(&#34;\t\t\t请选择功能号(0--4)：&#34;); } /* 待排序元素初始化*/ void ElemInit() { int i=1; ElemType elem; printf(&#34;\n\t请注意!"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://www.mengcfunk.com" class="f3 fw2 hover-white no-underline white-90 dib">
+      Meng&#39;s website
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/home/" title="Homes page">
+              Homes
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/resume/" title="Resumes page">
+              Resumes
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/study/" title="Studies page">
+              Studies
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+<a href="https://github.com/theweakgod" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        STUDIES
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://www.mengcfunk.com/study/sort/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://www.mengcfunk.com/study/sort/&amp;text=%e6%8e%92%e5%ba%8f" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.mengcfunk.com/study/sort/&amp;title=%e6%8e%92%e5%ba%8f" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+      <h1 class="f1 athelas mt3 mb1">排序</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-03-05T13:48:55&#43;08:00">March 5, 2020</time>
+
+      
+      
+    </header>
+    <div style="width: 700px;" class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;conio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;malloc.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#define Keytype int
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span>  <span style="color:#66d9ef">struct</span> {								 <span style="color:#75715e">/* 定义元素类型 */</span>
+  Keytype key;									 <span style="color:#75715e">/* 关键字定义 */</span>
+} ElemType;                
+<span style="color:#75715e">#define MAXELEMCOUNT 100						 </span><span style="color:#75715e">/*定义元素最多元素个数*/</span><span style="color:#75715e">
+</span><span style="color:#75715e">#define ENDVALUE     -1							 </span><span style="color:#75715e">/*定义输入元素的结束值,假定关键字值不可能取-1 */</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>ElemType  elemarr[MAXELEMCOUNT];
+<span style="color:#66d9ef">int</span> elemcount<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>   ;                               <span style="color:#75715e">/*实际元素个数*/</span>
+<span style="color:#75715e">#define SHELL_ADD_COUNT 6                         </span><span style="color:#75715e">/*希尔排序的增量值个数*/</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> shell_add_arr[SHELL_ADD_COUNT],shell_add_len; <span style="color:#75715e">/*增量数组与长度*/</span>
+<span style="color:#75715e">/*显示主界面*/</span>
+ <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintMenu</span>()
+ {
+	    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n\n\n\n</span><span style="color:#e6db74">&#34;</span>);
+	    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">   --   各 类 排 序 综 合 演 示  --     </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">************************************&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       1-------插 入 类 排 序     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       2-------交 换 类 排 序     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       3-------选 择 类 排 序     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       4-------归  并  排  序     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       0-------退          出     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">************************************</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">          请选择功能号(0--4)：&#34;</span>);
+ }
+
+<span style="color:#75715e">/* 待排序元素初始化*/</span>
+ <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ElemInit</span>()
+{
+    <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+	ElemType elem;
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 请注意! 系统假定的元素个数最多为 %d&#34;</span> ,MAXELEMCOUNT);
+    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> 请输入若干待排序元素的关键字值(整数),以%d结束.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,ENDVALUE);
+	elemcount<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span>)
+	{
+	scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>elem.key);
+	<span style="color:#66d9ef">if</span> (elem.key<span style="color:#f92672">==</span>ENDVALUE) 
+	   <span style="color:#66d9ef">break</span>;
+	<span style="color:#66d9ef">else</span>
+	   elemarr[i<span style="color:#f92672">++</span>]<span style="color:#f92672">=</span>elem;   <span style="color:#75715e">/*从第1号单元开始存放数据*/</span>
+    elemcount<span style="color:#f92672">++</span>;            <span style="color:#75715e">/*数组长度*/</span>
+	}
+}
+
+
+
+<span style="color:#75715e">/* 输出第i趟排序后数组元素*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">output</span>(ElemType Elem_arr[], <span style="color:#66d9ef">int</span> len ,<span style="color:#66d9ef">int</span> i)
+<span style="color:#75715e">/* len 为数组长度,i为趟数,i为0表示初始关键字序列 */</span>
+{
+   <span style="color:#66d9ef">int</span> k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+   <span style="color:#66d9ef">if</span> (i<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span> )
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74"> 关键字初始序列为:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+   <span style="color:#66d9ef">else</span>
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t</span><span style="color:#e6db74"> 第 %d 趟排序结果为:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,i);
+   printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74">&#34;</span>);
+   <span style="color:#66d9ef">for</span> (k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;k<span style="color:#f92672">&lt;=</span>len ;k<span style="color:#f92672">++</span>)
+   {	printf (<span style="color:#e6db74">&#34; %4d &#34;</span>,Elem_arr[k]); }
+}
+
+
+ <span style="color:#75715e">/*显示插入类排序主界面*/</span>
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintInsertMenu</span>()
+ {
+	    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n\n\n\n</span><span style="color:#e6db74">&#34;</span>);
+	    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">--    插  入 类 排 序 综 合 演 示-- </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">************************************&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       1-------排序数据初始化     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       2------- 直接插入排序      *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       3------- 折半插入排序      *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       4------- 希 尔 排 序       *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       0-------  返回主界面       *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">************************************</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">请选择功能号(0--4)：&#34;</span>);
+ }
+<span style="color:#75715e">/*直接插入排序*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">DirectInsertSort</span> (ElemType Elem_Arr[ ],<span style="color:#66d9ef">int</span> len) <span style="color:#75715e">/* len为数组长度，即待排序的元素个数*/</span>
+{	<span style="color:#66d9ef">int</span> i, endp;
+	<span style="color:#66d9ef">for</span> (i<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> ; i<span style="color:#f92672">&lt;=</span>len ;i<span style="color:#f92672">++</span>)                   <span style="color:#75715e">/*从第2个元素开始进行插入排序*/</span>
+	{		
+		Elem_Arr[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">=</span>Elem_Arr[i];            <span style="color:#75715e">/*设置监视哨*/</span>
+		endp<span style="color:#f92672">=</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;      <span style="color:#75715e">/*从当前已排好序的最后一个元素开始确定待插入元素的位置*/</span>
+		<span style="color:#66d9ef">while</span> ( Elem_Arr[<span style="color:#ae81ff">0</span>].key <span style="color:#f92672">&lt;</span> Elem_Arr[endp].key )  <span style="color:#75715e">/*确定第i个元素待插入的位置*/</span>
+		{  Elem_Arr[endp<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">=</span>Elem_Arr[endp];   <span style="color:#75715e">/*将元素后移一个位置*/</span>
+		   endp<span style="color:#f92672">--</span>;
+		}   <span style="color:#75715e">/*循环结束后，待插入元素的位置为 endp+1所指示的位置*/</span>
+		Elem_Arr[endp<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">=</span>Elem_Arr[<span style="color:#ae81ff">0</span>];  <span style="color:#75715e">/*将第i个元素放入待插入位置*/</span>
+		output(Elem_Arr,len,i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);  <span style="color:#75715e">/* 输出第i趟排序后数组元素*/</span>
+	}
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">BinInsSort</span> (ElemType Elem_Arr[ ],<span style="color:#66d9ef">int</span> len) <span style="color:#75715e">/*折半插入排序*/</span>
+<span style="color:#75715e">/* len为数组长度，即待排序的元素个数，元素从Elem_Arr[1]中开始存放*/</span>
+{	
+	<span style="color:#66d9ef">int</span> i,j,k,m,x;
+	<span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>p,<span style="color:#f92672">*</span>q,<span style="color:#f92672">*</span>t;
+	i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+	k<span style="color:#f92672">=</span>len;
+	j<span style="color:#f92672">=</span>(i<span style="color:#f92672">+</span>k)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+	p<span style="color:#f92672">=</span>Elem_Arr<span style="color:#f92672">+</span>i,q<span style="color:#f92672">=</span>Elem_Arr<span style="color:#f92672">+</span>k;
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">请输入你要输入的数据&#34;</span>);
+	scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>x);
+	<span style="color:#66d9ef">if</span>(Elem_Arr[<span style="color:#ae81ff">1</span>].key<span style="color:#f92672">&gt;=</span>x){
+		<span style="color:#66d9ef">for</span>(m<span style="color:#f92672">=</span>len;m<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">1</span>;m<span style="color:#f92672">--</span>){
+				Elem_Arr[m<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">=</span>Elem_Arr[m];
+			}
+			Elem_Arr[<span style="color:#ae81ff">1</span>].key<span style="color:#f92672">=</span>x;
+			elemcount<span style="color:#f92672">++</span>;
+			output(Elem_Arr,elemcount,<span style="color:#ae81ff">0</span>);  
+			<span style="color:#66d9ef">return</span>;
+	}
+	<span style="color:#66d9ef">if</span>(Elem_Arr[len].key<span style="color:#f92672">&lt;=</span>x){
+		Elem_Arr[len<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>].key<span style="color:#f92672">=</span>x;
+		elemcount<span style="color:#f92672">++</span>;
+		output(Elem_Arr,elemcount,<span style="color:#ae81ff">0</span>);  
+		<span style="color:#66d9ef">return</span>;
+	}
+	<span style="color:#66d9ef">for</span>(<span style="color:#ae81ff">1</span>;p<span style="color:#f92672">!=</span>q;){
+		p<span style="color:#f92672">=</span>Elem_Arr<span style="color:#f92672">+</span>i,q<span style="color:#f92672">=</span>Elem_Arr<span style="color:#f92672">+</span>k,t<span style="color:#f92672">=</span>Elem_Arr<span style="color:#f92672">+</span>j;
+		<span style="color:#66d9ef">if</span>((<span style="color:#f92672">*</span>(t<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">&gt;</span>x)<span style="color:#f92672">&amp;&amp;</span>(<span style="color:#f92672">*</span>t<span style="color:#f92672">&lt;=</span>x)){
+			<span style="color:#66d9ef">for</span>(m<span style="color:#f92672">=</span>len;m<span style="color:#f92672">&gt;</span>j;m<span style="color:#f92672">--</span>){
+				Elem_Arr[m<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">=</span>Elem_Arr[m];
+			}
+			Elem_Arr[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>].key<span style="color:#f92672">=</span>x;
+			elemcount<span style="color:#f92672">++</span>;
+			output(Elem_Arr,elemcount,<span style="color:#ae81ff">0</span>);  
+			<span style="color:#66d9ef">return</span>;
+		}
+		<span style="color:#66d9ef">if</span>(x<span style="color:#f92672">&gt;*</span>t){
+			i<span style="color:#f92672">=</span>j;
+			j<span style="color:#f92672">=</span>(i<span style="color:#f92672">+</span>k)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+			<span style="color:#66d9ef">continue</span> ;
+		}
+		<span style="color:#66d9ef">if</span>(x<span style="color:#f92672">&lt;*</span>t){
+			k<span style="color:#f92672">=</span>j;
+			j<span style="color:#f92672">=</span>(i<span style="color:#f92672">+</span>k)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+			<span style="color:#66d9ef">continue</span> ;
+		}
+	
+		<span style="color:#66d9ef">if</span>(<span style="color:#f92672">*</span>t<span style="color:#f92672">==</span>x){
+			j<span style="color:#f92672">++</span>;
+		}
+
+	}
+}
+<span style="color:#75715e">/*希尔排序*/</span>
+<span style="color:#75715e">/*一趟希尔排序*/</span>
+<span style="color:#75715e">/*初始化希尔增量数组*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ShellAddArrInit</span>()
+{
+	<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,addvar;
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 请输入希尔排序数组的增量序列,以 %d 结束!&#34;</span>,ENDVALUE);
+	shell_add_len<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span>)
+    {	scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>addvar);
+		<span style="color:#66d9ef">if</span> (addvar<span style="color:#f92672">==</span>ENDVALUE) 
+			<span style="color:#66d9ef">break</span>;
+		<span style="color:#66d9ef">else</span>
+			shell_add_arr[i<span style="color:#f92672">++</span>]<span style="color:#f92672">=</span>addvar;
+		shell_add_len<span style="color:#f92672">++</span>;
+	}
+ }
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ShellInsSort</span> (ElemType Elem_Arr[ ],<span style="color:#66d9ef">int</span> len,<span style="color:#66d9ef">int</span> add) 
+<span style="color:#75715e">/* 对元素数组按增量add进行一趟希尔排序，len为数组长度，即待排序的元素个数，元素从*/</span>
+<span style="color:#75715e">/* Elem_Arr[1]中开始存放*/</span>
+{	<span style="color:#66d9ef">int</span> i,j;
+	<span style="color:#66d9ef">for</span> ( i<span style="color:#f92672">=</span>add<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> ; i<span style="color:#f92672">&lt;=</span>len ; i<span style="color:#f92672">++</span> )     <span style="color:#75715e">/* i的初值为第一个子序列的第二个元素的位置*/</span>
+	{	Elem_Arr[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">=</span>Elem_Arr[i];   <span style="color:#75715e">/*将当前元素存放在Elem_Arr[0]中*/</span>
+		<span style="color:#66d9ef">for</span> (j<span style="color:#f92672">=</span>i<span style="color:#f92672">-</span>add ; j<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> Elem_Arr[j].key<span style="color:#f92672">&gt;</span>Elem_Arr[<span style="color:#ae81ff">0</span>].key ; j<span style="color:#f92672">-=</span>add)
+		{	Elem_Arr[j<span style="color:#f92672">+</span>add]<span style="color:#f92672">=</span>Elem_Arr[j];  <span style="color:#75715e">/*跳跃式前移*/</span>
+		}   <span style="color:#75715e">/*经过此循后，j+add位置为元素Elem_Arr[i]待插入的位置*/</span>
+		Elem_Arr[j<span style="color:#f92672">+</span>add]<span style="color:#f92672">=</span>Elem_Arr[<span style="color:#ae81ff">0</span>];
+  }
+}
+<span style="color:#75715e">/* 所有元素进行希尔排序*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ShellAllSort</span> (ElemType Elem_Arr[ ],<span style="color:#66d9ef">int</span> len,<span style="color:#66d9ef">int</span> add[ ],<span style="color:#66d9ef">int</span> add_len) 
+<span style="color:#75715e">/*add_len 为增量数组的长度*/</span>
+{	<span style="color:#66d9ef">int</span> k;
+	<span style="color:#66d9ef">for</span> (k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;k<span style="color:#f92672">&lt;=</span>add_len;k<span style="color:#f92672">++</span>)
+	{	ShellInsSort(Elem_Arr,len,add[k]);
+		output(Elem_Arr, len ,k) ; <span style="color:#75715e">/*输出第k趟排序结果*/</span>
+	}
+}
+
+
+<span style="color:#75715e">/*插入类排序演示*/</span>
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">InsertSort</span>( ) 
+{
+	<span style="color:#66d9ef">char</span> ins_func_choice;
+	PrintInsertMenu();
+	getchar();     <span style="color:#75715e">/*读主界面的回车符*/</span>
+	ins_func_choice<span style="color:#f92672">=</span>getchar();
+	<span style="color:#66d9ef">while</span> (ins_func_choice<span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;0&#39;</span>)
+	{
+		<span style="color:#66d9ef">switch</span> (ins_func_choice)
+		{
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;1&#39;</span><span style="color:#f92672">:</span>
+				ElemInit();   
+				output(elemarr, elemcount ,<span style="color:#ae81ff">0</span>);   
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;2&#39;</span> <span style="color:#f92672">:</span>	<span style="color:#75715e">/*直接插入类排序*/</span>
+				DirectInsertSort(elemarr,elemcount);
+				 <span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;3&#39;</span> <span style="color:#f92672">:</span><span style="color:#75715e">/*折半插入类排序*/</span>
+				BinInsSort(elemarr,elemcount);
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;4&#39;</span> <span style="color:#f92672">:</span>	<span style="color:#75715e">/*希尔排序*/</span> 	
+				ShellAddArrInit();   <span style="color:#75715e">/*调用增量初始化函数对增量数组进行初始化*/</span>
+				getchar();
+				ShellAllSort (elemarr,elemcount, shell_add_arr, shell_add_len);
+  				<span style="color:#66d9ef">break</span>;
+	  
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">:</span>
+				ins_func_choice<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0&#39;</span>;   <span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+				printf( <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 请输入正确的操作选项(0-3):&#34;</span>);
+		}
+    getchar();   
+    PrintInsertMenu();
+	ins_func_choice<span style="color:#f92672">=</span>getchar();
+	}
+}
+<span style="color:#75715e">/*显示交换类排序主界面*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintSwapMenu</span>()
+ {
+	    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n\n\n\n</span><span style="color:#e6db74">&#34;</span>);
+	    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">--    交  换 类 排 序 综 合 演 示  --</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">************************************&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       1-------排序数据初始化     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       2-------冒  泡  排  序     *&#34;</span>);
+        printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       3-------冒泡排序(改进型)   *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       4-------快  速  排  序     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       0-------返 回 主 界 面     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">************************************</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">          请选择功能号(0--4)：&#34;</span>);
+ }
+
+
+<span style="color:#75715e">/*冒泡排序*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">BubbleSort</span>( ElemType Elem_Arr[ ], <span style="color:#66d9ef">int</span> len)  <span style="color:#75715e">/* len为数组长度 */</span>
+{	<span style="color:#66d9ef">int</span> i,j;
+	ElemType temp;
+	<span style="color:#66d9ef">for</span> ( i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> ; i<span style="color:#f92672">&lt;=</span>len<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> ; i<span style="color:#f92672">++</span> )    <span style="color:#75715e">/* 外循环，i 表示趟数，总共需要len-1趟*/</span>
+	{	<span style="color:#66d9ef">for</span> ( j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> ; j<span style="color:#f92672">&lt;=</span>len<span style="color:#f92672">-</span>i ;j<span style="color:#f92672">++</span> )  <span style="color:#75715e">/*内循环，每趟排序中所需比较的次数*/</span>
+		<span style="color:#66d9ef">if</span>  ( Elem_Arr[j].key<span style="color:#f92672">&gt;</span>Elem_Arr[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>].key)  <span style="color:#75715e">/*前面元素大于后面元素，则交换*/</span>
+        {	}
+		output(Elem_Arr, len ,i); 
+	}
+}
+
+<span style="color:#75715e">/*冒泡排序改进型*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">BubbleSortChg</span>( ElemType Elem_Arr[ ], <span style="color:#66d9ef">int</span> len)  <span style="color:#75715e">/* len为数组长度 */</span>
+{
+	<span style="color:#66d9ef">int</span> i;
+	<span style="color:#66d9ef">int</span> j;
+	Elem_Arr[<span style="color:#ae81ff">0</span>].key<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>;
+	<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;=</span>len;i<span style="color:#f92672">++</span>){
+		<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>len<span style="color:#f92672">-</span>i;j<span style="color:#f92672">++</span>){
+			<span style="color:#66d9ef">if</span>(Elem_Arr[j].key<span style="color:#f92672">&gt;</span>Elem_Arr[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>].key){
+			Elem_Arr[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">=</span>Elem_Arr[j] ; Elem_Arr[j]<span style="color:#f92672">=</span>Elem_Arr[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]; Elem_Arr[j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">=</span>Elem_Arr[<span style="color:#ae81ff">0</span>];
+			}
+		}
+		output(Elem_Arr,len,i);
+	}
+}
+
+
+<span style="color:#75715e">/*快速排序*/</span>
+<span style="color:#66d9ef">int</span> quickpasscount<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">QuickSortPass</span>(ElemType Elem_Arr[ ], <span style="color:#66d9ef">int</span> low, <span style="color:#66d9ef">int</span> high)
+<span style="color:#75715e">/*对元素数组Elem_Arr中从low 位置开始到 high部分的元素进行一趟快速排序。*/</span>
+<span style="color:#75715e">/*返回值为枢轴（基准点）位置。*/</span>
+{	<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>low,j<span style="color:#f92672">=</span>high;
+	ElemType base_var;
+	base_var<span style="color:#f92672">=</span>Elem_Arr[low];
+	<span style="color:#66d9ef">while</span> (i<span style="color:#f92672">&lt;</span>j)
+	{	<span style="color:#66d9ef">while</span> (Elem_Arr[j].key<span style="color:#f92672">&gt;=</span>base_var.key  <span style="color:#f92672">&amp;&amp;</span> j<span style="color:#f92672">&gt;</span>i) j<span style="color:#f92672">--</span>;
+		<span style="color:#75715e">/*从右向左扫描，确定关键字小于base_var.key的元素的位置。*/</span>
+		<span style="color:#66d9ef">if</span> (i<span style="color:#f92672">&lt;</span>j)  Elem_Arr[i<span style="color:#f92672">++</span>]<span style="color:#f92672">=</span>Elem_Arr[j];  <span style="color:#75715e">/*元素移动*/</span>
+			<span style="color:#66d9ef">while</span> (Elem_Arr[i].key<span style="color:#f92672">&lt;=</span>base_var.key  <span style="color:#f92672">&amp;&amp;</span> j<span style="color:#f92672">&gt;</span>i) i<span style="color:#f92672">++</span>;
+		<span style="color:#66d9ef">if</span> (i<span style="color:#f92672">&lt;</span>j)  Elem_Arr[j<span style="color:#f92672">--</span>]<span style="color:#f92672">=</span>Elem_Arr[i];  <span style="color:#75715e">/*元素移动*/</span>
+	}
+	Elem_Arr[i]<span style="color:#f92672">=</span>base_var ;
+	output(Elem_Arr,elemcount,quickpasscount<span style="color:#f92672">++</span>); 
+	<span style="color:#66d9ef">return</span> i;
+}
+<span style="color:#75715e">/*对所有元素进行快速排序*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">QuickSort</span>(ElemType Elem_Arr[ ], <span style="color:#66d9ef">int</span> low, <span style="color:#66d9ef">int</span> high)
+{	<span style="color:#66d9ef">int</span> base_point;
+	<span style="color:#66d9ef">if</span> (low<span style="color:#f92672">&lt;</span>high)
+	{	base_point<span style="color:#f92672">=</span>QuickSortPass(Elem_Arr,low,high);
+		QuickSort(Elem_Arr,low,base_point<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);  <span style="color:#75715e">/*对左子序列进行递归快速排序*/</span>
+		QuickSort(Elem_Arr,base_point<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,high); <span style="color:#75715e">/*对右子序列进行递归快速排序*/</span>
+	}
+}
+
+<span style="color:#75715e">/*交换类排序主程序*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">SwapSort</span>( ) 
+{
+	<span style="color:#66d9ef">char</span> swap_func_choice;
+	PrintSwapMenu();
+	getchar();     <span style="color:#75715e">/*读主界面的回车符*/</span>
+	swap_func_choice<span style="color:#f92672">=</span>getchar();
+	<span style="color:#66d9ef">while</span> (swap_func_choice<span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;0&#39;</span>)
+	{
+		 <span style="color:#66d9ef">switch</span> (swap_func_choice)
+		 {
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;1&#39;</span><span style="color:#f92672">:</span>
+				ElemInit();   
+				output(elemarr, elemcount ,<span style="color:#ae81ff">0</span>);   
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;2&#39;</span> <span style="color:#f92672">:</span>	<span style="color:#75715e">/*冒泡排序*/</span>
+			    BubbleSort(elemarr, elemcount) ; <span style="color:#75715e">/* len为数组长度 */</span>
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;3&#39;</span> <span style="color:#f92672">:</span>	<span style="color:#75715e">/*冒泡排序改进型*/</span>
+				BubbleSortChg(elemarr, elemcount);
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;4&#39;</span> <span style="color:#f92672">:</span><span style="color:#75715e">/*快速排序*/</span>    
+				<span style="color:#66d9ef">if</span> (quickpasscount<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">1</span>) quickpasscount<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+					QuickSort(elemarr,<span style="color:#ae81ff">1</span>, elemcount);
+				<span style="color:#66d9ef">break</span>;	  
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">:</span>
+				swap_func_choice<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0&#39;</span>;   <span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+				printf( <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 请输入正确的操作选项(0-4):&#34;</span>);
+		}
+    getchar();   
+    PrintSwapMenu();
+	swap_func_choice<span style="color:#f92672">=</span>getchar();
+	}
+}
+<span style="color:#75715e">/*显示选择类排序主界面*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintChooseMenu</span>()
+ {
+	    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n\n\n\n</span><span style="color:#e6db74">&#34;</span>);
+	    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">--    选  择 类 排 序 综 合 演 示-- </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">************************************&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       1-------排序数据初始化     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       2------- 简单选择排序      *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       3-------堆    排    序     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       0-------返 回 主 界 面     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">************************************</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">          请选择功能号(0--3)：&#34;</span>);
+ }
+
+<span style="color:#75715e">/*简单选择排序*/</span>
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">SingleSelectSort</span>(ElemType Elem_Arr[ ],<span style="color:#66d9ef">int</span> len)
+<span style="color:#75715e">/* 数组中元素从Elem_Arr[1]开始存放 */</span>
+{	
+	<span style="color:#66d9ef">int</span> i,j,k;
+	ElemType tump,flag;
+	<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;=</span>len<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">++</span>){
+		k<span style="color:#f92672">=</span>i;
+		tump.key<span style="color:#f92672">=</span>Elem_Arr[i].key;
+		<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>len;j<span style="color:#f92672">++</span>){
+			<span style="color:#66d9ef">if</span>(Elem_Arr[j].key<span style="color:#f92672">&lt;</span>tump.key){
+				k<span style="color:#f92672">=</span>j;
+				tump.key<span style="color:#f92672">=</span>Elem_Arr[j].key;
+			}
+		}
+		Elem_Arr[k].key<span style="color:#f92672">=</span>Elem_Arr[i].key;
+		Elem_Arr[i].key<span style="color:#f92672">=</span>tump.key;
+		output(elemarr, elemcount ,i);  
+	}
+}
+
+<span style="color:#75715e">/*堆排序 */</span>
+<span style="color:#75715e">/*筛选算法*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sift</span>(ElemType Elem_Arr[ ],<span style="color:#66d9ef">int</span> k,<span style="color:#66d9ef">int</span> l)
+<span style="color:#75715e">/* Elem_Arr[k..l]中除Elem_Arr[k]以外的所有元素的关键字满足大顶堆，本函数的功能是调整*/</span>
+<span style="color:#75715e">/* Elem_Arr[k]，使整个元素序列成为大顶堆。*/</span>
+{	<span style="color:#66d9ef">int</span> i; 
+	ElemType cur<span style="color:#f92672">=</span>Elem_Arr[k]; <span style="color:#75715e">/*保存根结点元素*/</span>
+	<span style="color:#66d9ef">for</span> (i<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>k ; i<span style="color:#f92672">&lt;=</span>l ; i<span style="color:#f92672">*=</span><span style="color:#ae81ff">2</span>)  <span style="color:#75715e">/*以第k个结点作为根结点*/</span>
+	{	<span style="color:#66d9ef">if</span> (i<span style="color:#f92672">&lt;</span>l <span style="color:#f92672">&amp;&amp;</span> Elem_Arr[i].key <span style="color:#f92672">&lt;</span> Elem_Arr[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>].key) 
+		<span style="color:#75715e">/*右子树存在，且右子树大于左子树，继续沿右子树“筛选”*/</span>
+		i<span style="color:#f92672">=</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;  <span style="color:#75715e">/* i为左右子树中关键字较大元素的位置*/</span>
+		<span style="color:#66d9ef">if</span> (cur.key<span style="color:#f92672">&gt;=</span>Elem_Arr[i].key)  
+			<span style="color:#66d9ef">break</span> ;          <span style="color:#75715e">/*已满足堆树定义，结束*/</span>
+		<span style="color:#66d9ef">else</span>
+		{	Elem_Arr[k]<span style="color:#f92672">=</span>Elem_Arr[i];
+			k<span style="color:#f92672">=</span>i;           <span style="color:#75715e">/* k为变量cur要放入的位置*/</span>
+		}
+   }
+   Elem_Arr[k]<span style="color:#f92672">=</span>cur;  <span style="color:#75715e">/*将元素Elem_Arr[k] 放入适当位置*/</span>
+}
+
+<span style="color:#75715e">/*堆排序算法*/</span>
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">HeapSort</span>(ElemType Elem_Arr[ ],<span style="color:#66d9ef">int</span> len)
+{	<span style="color:#66d9ef">int</span>  n, i ;
+	ElemType temp;
+	<span style="color:#66d9ef">for</span> (i<span style="color:#f92672">=</span>len<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> ; i<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">1</span>; i<span style="color:#f92672">--</span>)      <span style="color:#75715e">/*建堆，从第n/2个元素开始向上层进行调整*/</span>
+		sift(Elem_Arr,i,len);
+	n<span style="color:#f92672">=</span>len;
+	<span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span>n ; i<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">2</span> ; i<span style="color:#f92672">--</span>)           <span style="color:#75715e">/*调整堆，进行n-1次*/</span>
+	{	temp<span style="color:#f92672">=</span>Elem_Arr[<span style="color:#ae81ff">1</span>];            <span style="color:#75715e">/*将堆顶与堆底交换*/</span>
+		Elem_Arr[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">=</span>Elem_Arr[i];
+		Elem_Arr[i]<span style="color:#f92672">=</span>temp;
+		output(Elem_Arr,len,n<span style="color:#f92672">-</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>); 
+		sift(Elem_Arr,<span style="color:#ae81ff">1</span>,i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);       <span style="color:#75715e">/*将剩余的元素重新调整为堆*/</span>
+	}
+}
+<span style="color:#75715e">/*选择类排序主程序*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ChooseSort</span>( ) 
+{
+	<span style="color:#66d9ef">char</span> choose_func_choice;
+	PrintChooseMenu();
+	getchar();     <span style="color:#75715e">/*读主界面的回车符*/</span>
+	choose_func_choice<span style="color:#f92672">=</span>getchar();
+	<span style="color:#66d9ef">while</span> (choose_func_choice<span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;0&#39;</span>)
+	{
+		<span style="color:#66d9ef">switch</span> (choose_func_choice)
+		{
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;1&#39;</span><span style="color:#f92672">:</span>
+				ElemInit();   
+				output(elemarr, elemcount ,<span style="color:#ae81ff">0</span>);   
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;2&#39;</span> <span style="color:#f92672">:</span>	<span style="color:#75715e">/*简单选择排序*/</span>
+				SingleSelectSort(elemarr, elemcount);
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;3&#39;</span> <span style="color:#f92672">:</span><span style="color:#75715e">/*堆排序*/</span>
+			    HeapSort(elemarr,elemcount);
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">:</span>
+				choose_func_choice<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0&#39;</span>;   <span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+				printf( <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 请输入正确的操作选项(0-3):&#34;</span>);
+		}
+    getchar();   
+    PrintChooseMenu();
+	choose_func_choice<span style="color:#f92672">=</span>getchar();
+	}
+}
+
+
+<span style="color:#75715e">/*显示归并排序主界面*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintMergeMenu</span>()
+{
+	    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n\n\n\n</span><span style="color:#e6db74">&#34;</span>);
+	    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">--    归  并 排 序 综 合 演 示-- </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">************************************&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       1-------排序数据初始化     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       2-------归  并  排  序     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">*       0-------返 回 主 界 面     *&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\t\t\t</span><span style="color:#e6db74">************************************</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t\t</span><span style="color:#e6db74">请选择功能号(0--2)：&#34;</span>);
+ }
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Merge</span>(ElemType  Src[ ], <span style="color:#66d9ef">int</span> low, <span style="color:#66d9ef">int</span> mid ,<span style="color:#66d9ef">int</span> high )
+<span style="color:#75715e">/* 已知Src[low‥mid]和Src[mid+1‥high]为两个有序子序列，本算法将它们合并成为一个新的有序列，并存入Src[low‥high]中 */</span>
+{	<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>low, j<span style="color:#f92672">=</span>mid<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,pos<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,k;
+	 ElemType <span style="color:#f92672">*</span>base;
+	 base<span style="color:#f92672">=</span>(ElemType <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(ElemType)<span style="color:#f92672">*</span>(high<span style="color:#f92672">-</span>low<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)) ; <span style="color:#75715e">/*申请临时空间*/</span>
+	<span style="color:#66d9ef">while</span> (i<span style="color:#f92672">&lt;=</span>mid <span style="color:#f92672">&amp;&amp;</span> j<span style="color:#f92672">&lt;=</span>high )   <span style="color:#75715e">/* 当两个有序子表都没有结束时 */</span>
+		<span style="color:#f92672">*</span>(base<span style="color:#f92672">+</span>pos<span style="color:#f92672">++</span>)<span style="color:#f92672">=</span>(Src[i].key<span style="color:#f92672">&lt;=</span>Src[j].key )<span style="color:#f92672">?</span> Src[i<span style="color:#f92672">++</span>]<span style="color:#f92672">:</span>Src[j<span style="color:#f92672">++</span>] ;
+	<span style="color:#66d9ef">while</span> (i<span style="color:#f92672">&lt;=</span>mid)        <span style="color:#75715e">/*第1个有序子表未结束，将第1个有序子表剩余元素放入Dest中 */</span>
+		<span style="color:#f92672">*</span>(base<span style="color:#f92672">+</span>pos<span style="color:#f92672">++</span>)<span style="color:#f92672">=</span>Src[i<span style="color:#f92672">++</span>];
+	<span style="color:#66d9ef">while</span> (j<span style="color:#f92672">&lt;=</span>high)        <span style="color:#75715e">/*第2个有序子表未结束，将第2个有序子表剩余元素放入Dest中 */</span>
+		<span style="color:#f92672">*</span>(base<span style="color:#f92672">+</span>pos<span style="color:#f92672">++</span>)<span style="color:#f92672">=</span>Src[j<span style="color:#f92672">++</span>];
+	<span style="color:#66d9ef">for</span> (k<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,i<span style="color:#f92672">=</span>low;k<span style="color:#f92672">&lt;</span>pos;k<span style="color:#f92672">++</span>,i<span style="color:#f92672">++</span>)
+		Src[i]<span style="color:#f92672">=*</span>(base<span style="color:#f92672">+</span>k);
+	free(base);
+}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">MergeOnce</span>(ElemType  Src[ ] , <span style="color:#66d9ef">int</span> LENGTH, <span style="color:#66d9ef">int</span> len ) 
+<span style="color:#75715e">/*LENGTH 为整个待排元素序列的长度，len 为该趟归并排序的有序子表长度，经过此算法，
+</span><span style="color:#75715e">将存放在Src[ ]中?LENGTH / len?  个长度为len 的有序子表合并成为?LENGTH / 2len?个长度为2len（最后一个可能例外）的有序子表 ,存放在Src[ ]中*/</span>
+{	<span style="color:#66d9ef">int</span> i;
+	<span style="color:#66d9ef">for</span> (i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> ; i<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>len<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&lt;=</span>LENGTH ;i<span style="color:#f92672">=</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>len)
+		Merge(Src,i,i<span style="color:#f92672">+</span>len<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,i<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>len<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+	<span style="color:#66d9ef">if</span> (i<span style="color:#f92672">+</span>len<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&lt;</span>LENGTH)
+		Merge(Src,i,i<span style="color:#f92672">+</span>len<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,LENGTH);
+}
+
+<span style="color:#66d9ef">void</span>  <span style="color:#a6e22e">MergeSort</span>(ElemType  Src[ ] , <span style="color:#66d9ef">int</span> LENGTH)
+{	<span style="color:#66d9ef">int</span> i;
+	printf(<span style="color:#e6db74">&#34;lll&#34;</span>); 
+	<span style="color:#66d9ef">for</span> (i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; i<span style="color:#f92672">&lt;</span>LENGTH;i<span style="color:#f92672">*=</span><span style="color:#ae81ff">2</span>)
+	{	MergeOnce(Src , LENGTH, i);
+		output(Src,LENGTH,i);
+	}
+}
+<span style="color:#75715e">/*归并类排序主程序*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">MergeSortMain</span>( ) 
+{
+	<span style="color:#66d9ef">char</span> merge_func_choice;
+	PrintMergeMenu();
+	getchar();     <span style="color:#75715e">/*读主界面的回车符*/</span>
+	merge_func_choice<span style="color:#f92672">=</span>getchar();
+	<span style="color:#66d9ef">while</span> (merge_func_choice<span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;0&#39;</span>)
+	{
+		<span style="color:#66d9ef">switch</span> (merge_func_choice)
+		{
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;1&#39;</span><span style="color:#f92672">:</span>
+				ElemInit();   
+				output(elemarr, elemcount ,<span style="color:#ae81ff">0</span>);   
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;2&#39;</span> <span style="color:#f92672">:</span> <span style="color:#75715e">/*归并排序*/</span>
+				MergeSort(elemarr,elemcount);
+				<span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">:</span>
+				merge_func_choice<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0&#39;</span>;   <span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+				printf( <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 请输入正确的操作选项(0-2):&#34;</span>);
+	}
+    getchar();   
+    PrintMergeMenu();
+	merge_func_choice<span style="color:#f92672">=</span>getchar();
+	}
+}
+
+<span style="color:#75715e">/*主函数*/</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>()
+{
+	<span style="color:#66d9ef">char</span> func_choice;
+    PrintMenu();
+	func_choice<span style="color:#f92672">=</span>getchar();
+	putchar(func_choice);
+	<span style="color:#66d9ef">while</span> (func_choice<span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;0&#39;</span>)
+	{
+		<span style="color:#66d9ef">switch</span> (func_choice)
+		{
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;1&#39;</span> <span style="color:#f92672">:</span>
+				InsertSort(); <span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;2&#39;</span> <span style="color:#f92672">:</span>
+				SwapSort( ) ;   <span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;3&#39;</span> <span style="color:#f92672">:</span>
+				ChooseSort( ) ;  <span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;4&#39;</span> <span style="color:#f92672">:</span>
+				MergeSortMain( ) ; <span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">:</span>
+				func_choice<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0&#39;</span>;   <span style="color:#66d9ef">break</span>;
+			<span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+				printf( <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> 请输入正确的操作选项(0-4):&#34;</span>);
+		}
+    PrintMenu();
+	getchar();
+	func_choice<span style="color:#f92672">=</span>getchar();
+	}
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre></div><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://www.mengcfunk.com" >
+    &copy;  Meng's website 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+<a href="https://github.com/theweakgod" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
