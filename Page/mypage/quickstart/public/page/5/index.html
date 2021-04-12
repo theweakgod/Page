@@ -38,7 +38,7 @@
             <a href="/" title="mengcfunk&#39;s website">mengcfunk&#39;s website</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/login.html"> login </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="http://www.mengcfunk.com/login/login.html"> login </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
                             <i class="fas fa-search fa-fw"></i>
@@ -55,6 +55,12 @@
             </div>
         </div>
     </div>
+    <script>
+        function start() {
+            document.getElementById('signform').style.display=""
+        }
+    </script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 </header><header class="mobile" id="header-mobile">
     <div class="header-container">
         <div class="header-wrapper">
@@ -81,7 +87,7 @@
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         取消
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/login.html" title="">login</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                </div><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="http://www.mengcfunk.com/login/login.html"> login </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
             </a></div>
     </div>
@@ -102,6 +108,19 @@
         alt="/images/haizeiwang.jpg"
         title="/images/haizeiwang.jpg" /></a></div><h1 class="home-title">少吃零食多睡觉</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/theweakgod" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://weibo.com/u/6177028917" title="微博" target="_blank" rel="noopener noreffer me"><i class="fab fa-weibo fa-fw"></i></a><a href="mailto:1031205858@qq.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/eightcode/">A*算法解决8数码问题</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="http://www.mengcfunk.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>mxw</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2020-03-04">2020-03-04</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/c%E8%AF%AD%E8%A8%80/"><i class="far fa-folder fa-fw"></i>c语言</a>&nbsp;<a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="far fa-folder fa-fw"></i>人工智能</a></span></div><div class="content">在3×3的棋盘上，摆有八个棋子，每个棋子上标有1至8的某一数字。棋盘中留有一个空格，空格用0来表示。空格周围的棋子可以移到空格中。要求解的问题是：给出一种初始布局（初始状态）和目标布局，找到一种最少步骤的移动方法，实现从初始布局到目标布局的转变。
+  8数码要解决的问题   基本的棋子移动,不应当看做是空格(也就是图中的0)向四个方向移动,而不是看成其他4个棋子向空格移动,这样会增加难度.
+启发式搜索的关键在于对每步的动作进行评估和在close表中出现过,若出现过则回朔到上一步,对每次的步骤进行评估,按照评估的价值对open表进行排序(这里采用插入排序). 具体步骤如下:
+ （ 1 ）把初始节点 S0 放入 Open 表中， f(S0)=g(S0)+h(S0);
+（ 2 ）如果 Open 表为空，则问题无解，失败退出；
+• （ 3 ）把 Open 表的第一个节点取出放入 Closed 表，并记该节点为 n ；
+• （ 4 ）考察节点 n 是否为目标节点。若是，则找到了问题的解，成功退出；
+• （ 5 ）若节点 n 不可扩展，则转到第 (2) 步；
+• （ 6 ）扩展节点 n ，生成子节点 ni ( i =1,2, …… ) ，计算每一个子节点的估价值 f( ni ) ( i =1,2, …… ) ，并为每一个子节点设置指向父节点的指针，然后将这些子节点放入 Open 表中；</div><div class="post-footer">
+        <a href="/eightcode/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/">启发式搜索</a>,&nbsp;<a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/eightcodelimit/">回朔法解决8数码问题</a>
     </h1><div class="post-meta"><span class="post-author"><a href="http://www.mengcfunk.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>mxw</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2020-03-04">2020-03-04</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/c%E8%AF%AD%E8%A8%80/"><i class="far fa-folder fa-fw"></i>c语言</a>&nbsp;<a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="far fa-folder fa-fw"></i>人工智能</a></span></div><div class="content">回朔法求8数码问题
 在3×3的棋盘上，摆有八个棋子，每个棋子上标有1至8的某一数字。棋盘中留有一个空格，空格用0来表示。空格周围的棋子可以移到空格中。要求解的问题是：给出一种初始布局（初始状态）和目标布局，找到一种最少步骤的移动方法，实现从初始布局到目标布局的转变。

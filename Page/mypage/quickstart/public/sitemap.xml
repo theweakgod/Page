@@ -2,10 +2,14 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://www.mengcfunk.com/categories/</loc><lastmod>2021-01-10T18:05:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.mengcfunk.com/</loc><lastmod>2021-01-10T18:05:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.mengcfunk.com/posts/</loc><lastmod>2021-01-10T18:05:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.mengcfunk.com/tags/</loc><lastmod>2021-01-10T18:05:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.mengcfunk.com/categories/</loc><lastmod>2021-04-12T12:56:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.mengcfunk.com/</loc><lastmod>2021-04-12T12:56:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.mengcfunk.com/posts/</loc><lastmod>2021-04-12T12:56:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.mengcfunk.com/tags/python%E5%9F%BA%E7%A1%80/</loc><lastmod>2021-04-12T12:56:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.mengcfunk.com/categories/python%E5%9F%BA%E7%A1%80/</loc><lastmod>2021-04-12T12:56:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.mengcfunk.com/pythonbase/</loc><lastmod>2021-04-12T12:56:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.mengcfunk.com/tags/</loc><lastmod>2021-04-12T12:56:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.mengcfunk.com/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc><lastmod>2021-04-12T12:56:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.mengcfunk.com/categories/%E4%B9%A6%E9%9D%A2%E7%9F%A5%E8%AF%86/</loc><lastmod>2021-01-10T18:05:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.mengcfunk.com/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</loc><lastmod>2021-01-10T18:05:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.mengcfunk.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc><lastmod>2021-01-10T18:05:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

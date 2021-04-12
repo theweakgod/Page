@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>python基础学习 - mengcfunk&#39;s website</title><meta name="Description" content="This is My New Hugo Site"><meta property="og:title" content="python基础学习" />
+<meta property="og:description" content="懒人回归，开始写一下所学，怕忘记，好记性不如烂笔头。
+python被称为解释性语言，那么他是如何实现这种解释的呢？python解释之后是怎么运行的呢？他是怎么实现一些基本操作的？
+python的运行 python是怎么运行的呢
+执行一个 .py 文件会经历如下过程
+如图所示，python是有编译的，所有的python源文件都会在内存中被编译器翻译成由opcode组成字节码指令集, 而 import目录下会被保存成.pyc后缀名的文件，并缓存在执行目录，下次启动程序如果源代码没有修改过，则直接加载这个pyc文件，opcode可以说是一条字节码指令，这种字节码指令都是一个整体，无法分割。
+在python虚拟机中，解释器主要在一个很大的循环中，不停地读入 opcode, 并根据opcode执行对应的指令，当执行完所有指令虚拟机退出，程序也就结束了。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37  main_loop: for (;;) { ... switch (opcode) { /* BEWARE! It is essential that any operation that fails must goto error and that all operation that succeed call [FAST_]DISPATCH() !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.mengcfunk.com/pythonbase/" /><meta property="og:image" content="http://www.mengcfunk.com/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-12T12:56:36&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-12T12:56:50&#43;08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://www.mengcfunk.com/logo.png"/>
+
+<meta name="twitter:title" content="python基础学习"/>
+<meta name="twitter:description" content="懒人回归，开始写一下所学，怕忘记，好记性不如烂笔头。
+python被称为解释性语言，那么他是如何实现这种解释的呢？python解释之后是怎么运行的呢？他是怎么实现一些基本操作的？
+python的运行 python是怎么运行的呢
+执行一个 .py 文件会经历如下过程
+如图所示，python是有编译的，所有的python源文件都会在内存中被编译器翻译成由opcode组成字节码指令集, 而 import目录下会被保存成.pyc后缀名的文件，并缓存在执行目录，下次启动程序如果源代码没有修改过，则直接加载这个pyc文件，opcode可以说是一条字节码指令，这种字节码指令都是一个整体，无法分割。
+在python虚拟机中，解释器主要在一个很大的循环中，不停地读入 opcode, 并根据opcode执行对应的指令，当执行完所有指令虚拟机退出，程序也就结束了。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37  main_loop: for (;;) { ... switch (opcode) { /* BEWARE! It is essential that any operation that fails must goto error and that all operation that succeed call [FAST_]DISPATCH() !"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://www.mengcfunk.com/pythonbase/" /><link rel="prev" href="http://www.mengcfunk.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "python基础学习",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/www.mengcfunk.com\/pythonbase\/"
+        },"genre": "posts","keywords": "python基础","wordcount":  300 ,
+        "url": "http:\/\/www.mengcfunk.com\/pythonbase\/","datePublished": "2021-04-12T12:56:36+08:00","dateModified": "2021-04-12T12:56:50+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "mxw"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="mengcfunk&#39;s website">mengcfunk&#39;s website</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="http://www.mengcfunk.com/login/login.html"> login </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function start() {
+            document.getElementById('signform').style.display=""
+        }
+    </script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="mengcfunk&#39;s website">mengcfunk&#39;s website</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="http://www.mengcfunk.com/login/login.html"> login </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">python基础学习</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://www.mengcfunk.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>mxw</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/python%E5%9F%BA%E7%A1%80/"><i class="far fa-folder fa-fw"></i>python基础</a>&nbsp;<a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"><i class="far fa-folder fa-fw"></i>多线程</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-12">2021-04-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 300 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#python的运行">python的运行</a>
+              <ul>
+                <li><a href="#gil全局解释锁">GIL(全局解释锁)</a></li>
+                <li><a href="#什么是原子性操作">什么是原子性操作</a></li>
+              </ul>
+            </li>
+            <li><a href="#摘自">摘自：</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>懒人回归，开始写一下所学，怕忘记，好记性不如烂笔头。</p>
+<p>python被称为解释性语言，那么他是如何实现这种解释的呢？python解释之后是怎么运行的呢？他是怎么实现一些基本操作的？</p>
+<h4 id="python的运行">python的运行</h4>
+<p>python是怎么运行的呢</p>
+<p>执行一个 .py 文件会经历如下过程</p>
+<img src='/images/ceval.png'>
+<p>如图所示，python是有编译的，所有的python源文件都会在内存中被编译器翻译成由<code>opcode</code>组成字节码指令集, 而 <code>import</code>目录下会被保存成<code>.pyc</code>后缀名的文件，并缓存在执行目录，下次启动程序如果源代码没有修改过，则直接加载这个pyc文件，<code>opcode</code>可以说是一条字节码指令，这种字节码指令都是一个整体，无法分割。</p>
+<p>在python虚拟机中，解释器主要在一个很大的循环中，不停地读入 <code>opcode</code>, 并根据<code>opcode</code>执行对应的指令，当执行完所有指令虚拟机退出，程序也就结束了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="nl">main_loop</span><span class="p">:</span>
+    <span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span>
+        <span class="p">...</span>
+            
+        <span class="k">switch</span> <span class="p">(</span><span class="n">opcode</span><span class="p">)</span> <span class="p">{</span>
+ 
+        <span class="cm">/* BEWARE!
+</span><span class="cm">           It is essential that any operation that fails must goto error
+</span><span class="cm">           and that all operation that succeed call [FAST_]DISPATCH() ! */</span>
+ 
+        <span class="k">case</span> <span class="n">TARGET</span><span class="p">(</span><span class="n">NOP</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span>
+            <span class="n">FAST_DISPATCH</span><span class="p">();</span>
+        <span class="p">}</span>
+ 
+        <span class="k">case</span> <span class="n">TARGET</span><span class="p">(</span><span class="n">LOAD_FAST</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span>
+            <span class="n">PyObject</span> <span class="o">*</span><span class="n">value</span> <span class="o">=</span> <span class="n">GETLOCAL</span><span class="p">(</span><span class="n">oparg</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">format_exc_check_arg</span><span class="p">(</span><span class="n">PyExc_UnboundLocalError</span><span class="p">,</span>
+                                     <span class="n">UNBOUNDLOCAL_ERROR_MSG</span><span class="p">,</span>
+                                     <span class="n">PyTuple_GetItem</span><span class="p">(</span><span class="n">co</span><span class="o">-&gt;</span><span class="n">co_varnames</span><span class="p">,</span> <span class="n">oparg</span><span class="p">));</span>
+                <span class="k">goto</span> <span class="n">error</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">Py_INCREF</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+            <span class="n">PUSH</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+            <span class="n">FAST_DISPATCH</span><span class="p">();</span>
+        <span class="p">}</span>
+ 
+        <span class="k">case</span> <span class="n">TARGET</span><span class="p">(</span><span class="n">LOAD_CONST</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span>
+            <span class="n">PREDICTED</span><span class="p">(</span><span class="n">LOAD_CONST</span><span class="p">);</span>
+            <span class="n">PyObject</span> <span class="o">*</span><span class="n">value</span> <span class="o">=</span> <span class="n">GETITEM</span><span class="p">(</span><span class="n">consts</span><span class="p">,</span> <span class="n">oparg</span><span class="p">);</span>
+            <span class="n">Py_INCREF</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+            <span class="n">PUSH</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+            <span class="n">FAST_DISPATCH</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>我们来简单看下 LOAD_CONST 这个指令, 在上面的 switch case 里面。</p>
+<p>可以看到，这个指令通过 <code>GETITEM</code> 从 <code>oparg</code>中获取到了一个 python 对象的指针，这个指针的类型是  <code>PyObject *</code> </p>
+<p><code>Py_INCREF</code> 作用是把这个 <code>PyObject * </code>对象的引用计数器加一, 关于引用计数器可以参考</p>
+<p>PUSH 的作用是把这个刚刚创建的  <code>PyObject *</code>  push 到 当前的 frame 的 stack 上面，以便下一个指令从这个 stack 上面获取</p>
+<h5 id="gil全局解释锁">GIL(全局解释锁)</h5>
+<p>什么是全局解释锁？首先python多线程在运行时，会有一把锁，每个线程都会想要获得这把锁来运行。但CPython并不会允许一个线程独占解释器，它会轮流执行各个线程，这就是我们平时说的伪并行。</p>
+<img src='/images/python_GIL_thread_run.png'>
+<p>上面这张图，就是 GIL 在 Python 程序的工作示例。其中，Thread 1、2、3 轮流执行，每一个线程在开始执行时，都会锁住 GIL，以阻止别的线程执行；同样的，每一个线程执行完一段后，会释放 GIL，以允许别的线程开始利用资源。</p>
+<p>读者可能会问，为什么 Python 线程会去主动释放 GIL 呢？毕竟，如果仅仅要求 Python 线程在开始执行时锁住 GIL，且永远不去释放 GIL，那别的线程就都没有运行的机会。其实，CPython 中还有另一个机制，叫做间隔式检查（check_interval），意思是 CPython 解释器会去轮询检查线程 GIL 的锁住情况，每隔一段时间，Python 解释器就会强制当前线程去释放 GIL，这样别的线程才能有执行的机会。</p>
+<p>注意，不同版本的 Python，其间隔式检查的实现方式并不一样。早期的 Python 是 100 个刻度（大致对应了 1000 个字节码）；而 Python 3 以后，间隔时间大致为 15 毫秒。当然，我们不必细究具体多久会强制释放 GIL，读者只需要明白，CPython 解释器会在一个“合理”的时间范围内释放 GIL 就可以了。</p>
+<p>整体来说，每一个 Python 线程都是类似这样循环的封装，来看下面这段代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">--</span><span class="n">ticker</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ticker</span> <span class="o">=</span> <span class="n">check_interval</span><span class="p">;</span>   
+        <span class="cm">/* Give another thread a chance */</span>
+        <span class="n">PyThread_release_lock</span><span class="p">(</span><span class="n">interpreter_lock</span><span class="p">);</span>
+        <span class="cm">/* Other threads may run now */</span>   
+        <span class="n">PyThread_acquire_lock</span><span class="p">(</span><span class="n">interpreter_lock</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">bytecode</span> <span class="o">=</span> <span class="o">*</span><span class="n">next_instr</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">bytecode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* execute the next instruction ... */</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>从这段代码中可以看出，每个 Python 线程都会先检查 ticker 计数。只有在 ticker 大于 0 的情况下，线程才会去执行自己的代码。</p>
+<h5 id="什么是原子性操作">什么是原子性操作</h5>
+<p>原子操作(atomic operation)指不会被线程调度机制打断的操作，这种操作一旦开始，就一直运行到结束，中间不会切换到其他线程。</p>
+<p>我们来看看python在这方面怎么做的。
+首先看看a+=1编译之后的代码
+<img src="/images/python_a.png">
+其中
+LOAD_NAME 将 a 当前的值加载进自己的运行栈；</p>
+<p>LOAD_CONST 将常量 1 加载到运行栈；</p>
+<p>INPLACE_ADD 对栈上两个操作数进行加法运算；</p>
+<p>STORE_NAME 将计算结果保存；</p>
+<p>下面看看<code>test.append('1')</code>
+<img src="/images/python_list_append.png">
+对于a+=1来说，这个操作并不是原子性的，例如，某个线程test_1拿到了a的数据，进行自增之后，加到了2，此时正好时间片走完，这些正好在INPLACE_ADD操作之后切换线程到了test_2，test_2也是读取数据自增到二，如果两个线程都只运行一次自增，那么a的结果一定会是2。这就是并发操作产生的竞争态。</p>
+<p>但是<code>test.append('1')</code>是原子性操作，为什么呢，因为在列表中，写入并不会存在竞争，不会存在脏数据的可能。</p>
+<h4 id="摘自">摘自：</h4>
+<p><a href="https://wangzun.dev/article/2/" target="_blank" rel="noopener noreffer">python有了GIL为什么还需要加锁？</a><br>
+<a href="https://blog.csdn.net/qq_31720329/article/details/86751412" target="_blank" rel="noopener noreffer">python 源码分析 基本篇</a><br>
+<a href="http://c.biancheng.net/view/5537.html" target="_blank" rel="noopener noreffer">Python GIL全局解释器锁详解（深度剖析）</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-04-12</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/pythonbase/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://www.mengcfunk.com/pythonbase/" data-title="python基础学习" data-ralateuid="u/6177028917"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://www.mengcfunk.com/pythonbase/" data-title="python基础学习" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://www.mengcfunk.com/pythonbase/" data-title="python基础学习" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://www.mengcfunk.com/pythonbase/" data-title="python基础学习"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python%E5%9F%BA%E7%A1%80/">python基础</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="prev" rel="prev" title="计算机网络"><i class="fas fa-angle-left fa-fw"></i>计算机网络</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.81.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">mengxiangwei</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">湘ICP备20004024号</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"gitalk":{"admin":["theweakgod"],"clientID":"c928f7c3b497cdacd146","clientSecret":"8bf97764f8a991353f89d915b83c4c35b32b145c","id":"2021-04-12T12:56:36+08:00","owner":"theweakgod","repo":"Page","title":"python基础学习"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

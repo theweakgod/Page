@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>python基础 - 分类 - mengcfunk&#39;s website</title>
+        <link>http://www.mengcfunk.com/categories/python%E5%9F%BA%E7%A1%80/</link>
+        <description>python基础 - 分类 - mengcfunk&#39;s website</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>1031205858@qq.com (mengxiangwei)</managingEditor>
+            <webMaster>1031205858@qq.com (mengxiangwei)</webMaster><lastBuildDate>Mon, 12 Apr 2021 12:56:36 &#43;0800</lastBuildDate><atom:link href="http://www.mengcfunk.com/categories/python%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
+    <title>python基础学习</title>
+    <link>http://www.mengcfunk.com/pythonbase/</link>
+    <pubDate>Mon, 12 Apr 2021 12:56:36 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://www.mengcfunk.com/pythonbase/</guid>
+    <description><![CDATA[懒人回归，开始写一下所学，怕忘记，好记性不如烂笔头。
+python被称为解释性语言，那么他是如何实现这种解释的呢？python解释之后是怎么运行的呢？他是怎么实现一些基本操作的？
+python的运行 python是怎么运行的呢
+执行一个 .py 文件会经历如下过程
+如图所示，python是有编译的，所有的python源文件都会在内存中被编译器翻译成由opcode组成字节码指令集, 而 import目录下会被保存成.pyc后缀名的文件，并缓存在执行目录，下次启动程序如果源代码没有修改过，则直接加载这个pyc文件，opcode可以说是一条字节码指令，这种字节码指令都是一个整体，无法分割。
+在python虚拟机中，解释器主要在一个很大的循环中，不停地读入 opcode, 并根据opcode执行对应的指令，当执行完所有指令虚拟机退出，程序也就结束了。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37  main_loop: for (;;) { ... switch (opcode) { /* BEWARE! It is essential that any operation that fails must goto error and that all operation that succeed call [FAST_]DISPATCH() !]]></description>
+</item></channel>
+</rss>
