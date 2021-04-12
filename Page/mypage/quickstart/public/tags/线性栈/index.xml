@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>线性栈 - 标签 - mengcfunk&#39;s website</title>
+        <link>http://www.mengcfunk.com/tags/%E7%BA%BF%E6%80%A7%E6%A0%88/</link>
+        <description>线性栈 - 标签 - mengcfunk&#39;s website</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>1031205858@qq.com (mengxiangwei)</managingEditor>
+            <webMaster>1031205858@qq.com (mengxiangwei)</webMaster><lastBuildDate>Thu, 05 Mar 2020 13:48:55 &#43;0800</lastBuildDate><atom:link href="http://www.mengcfunk.com/tags/%E7%BA%BF%E6%80%A7%E6%A0%88/" rel="self" type="application/rss+xml" /><item>
+    <title>线性栈</title>
+    <link>http://www.mengcfunk.com/linearstack/</link>
+    <pubDate>Thu, 05 Mar 2020 13:48:55 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://www.mengcfunk.com/linearstack/</guid>
+    <description><![CDATA[通过链表实现栈结构
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66  #include&lt;stdio.h&gt;#include&lt;malloc.h&gt;typedef int SElemType; typedef struct SqStack{ SElemType *base; SElemType *top; int stacksize; }SStack; void InitStack(SStack *p){ p-&gt;base=p-&gt;top=(SStack *)malloc(sizeof(SStack)); if(p-&gt;base==NULL){ return; } else{ p-&gt;base=NULL; p-&gt;stacksize=0; } } void DestoryStack(SStack *p){ free(p-&gt;base); free(p-&gt;top); } void CLearStack(SStack *p){ while(p-&gt;top!]]></description>
+</item></channel>
+</rss>

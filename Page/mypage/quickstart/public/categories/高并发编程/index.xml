@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>高并发编程 - 分类 - mengcfunk&#39;s website</title>
+        <link>http://www.mengcfunk.com/categories/%E9%AB%98%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</link>
+        <description>高并发编程 - 分类 - mengcfunk&#39;s website</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>1031205858@qq.com (mengxiangwei)</managingEditor>
+            <webMaster>1031205858@qq.com (mengxiangwei)</webMaster><lastBuildDate>Thu, 07 Jan 2021 13:08:11 &#43;0800</lastBuildDate><atom:link href="http://www.mengcfunk.com/categories/%E9%AB%98%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" rel="self" type="application/rss+xml" /><item>
+    <title>高并发编程理解</title>
+    <link>http://www.mengcfunk.com/licenseplate/</link>
+    <pubDate>Thu, 07 Jan 2021 13:08:11 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://www.mengcfunk.com/licenseplate/</guid>
+    <description><![CDATA[AtomicInteger: Java中的关键字,不用加锁也可以实现递增. 底层通过CAS(compare and swap)方法实现. CAS方法:  线程读取AtomicInteger的值,加1之后再比较新的值,如果新的值未改变,则更新新值,如果改变,则重复上述步骤.
+ 解决线程读取过程中的ABA问题.0-&gt;2-&gt;0,线程是不可见这种改变的.但这种改变有很有意义, 解决方法:增加版本号,并且读取当前值时也读取版本号.
+synchronized:是Java中的关键字,是一种同步锁.它修饰的对象有以下集中:
+ 修饰一个代码块 修饰一个方法 修改一个静态的方法 修改一个类  关于锁的信息是记录在对象的markword里面,markword占8个字节,锁的升级过程的信息都会存在markword中.
+新建的对象为无锁态.当有线程调用时,会将锁变成偏向锁,当有线程争用这个锁时,就会升级为轻量级锁,轻量级锁(自旋锁)会一直自旋(消耗内存),也是同样的使用CAS操作,但是当这个自旋过程超过10次时,或者自旋线程超过CPU核数的一半,就会从用户态陷入内核态,交由操作系统,让他去控制wait,这样不消耗内存,让操作系统去调用它.
+一个有趣的乱序证明:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35  public class funnyDisturb { private static int x=0,a=0; private static int y=0,b=0; public static void main(String[] args) throws InterruptedException { int i=0; for(;;){ i++; x=0;y=0; a=0;b=0; Thread one = new Thread(new Runnable() { @Override public void run() { a=1; x=b; } }); Thread two = new Thread(new Runnable() { @Override public void run() { b=1; y=a; } }); one.]]></description>
+</item></channel>
+</rss>

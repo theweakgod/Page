@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>计算机组成原理 - mengcfunk&#39;s website</title><meta name="Description" content="This is My New Hugo Site"><meta property="og:title" content="计算机组成原理" />
+<meta property="og:description" content="计算机组成原理 2020/10/12 冯•诺依曼计算及特点
+ 计算机由武大部分组成. 指令和数据以同等地位存于存储器,可按地址寻访 指令和数据用二进制表示 指令由操作码和地址码组成 存储程序 以运算器为中心  现代计算机结构以存储器为核心.
+ 存储单元:每个存储单元存放一串二进制代码. 存储字:存储单元中二进制代码的组合. 存储字长:存储单元中二进制代码的位数. 存储元:即存储二进制的电子元件,每个存储元可存1bit.  运算器 运算器:用于实现算术运算,逻辑运算. ACC(Accumulation):累加器,用于存放操作数,或运算结果. MQ(Multiple-Quotient Register):乘商寄存器,在乘、除运算时,用于存放操作数或运算结果. x:通用的操作数寄存器,用于存放操作数 ALU(Arithmetic and Logic Unit):算数逻辑单元,通过内部复杂的电路实现算数运算,逻辑运算.   减法操作过程: 乘法操作过程:
+除法操作过程:
+ 控制器 CU(Control Unit):控制单元,分析指令,给出控制信号. IR(Instruction Register):指令寄存器,存放当前执行的指令 PC(Program Counter):程序计数器.存放下一条指令地址,有自动加1功能.    取数指令过程   片内总线:芯片内部的总线 系统总线:计算机各部门之间的信息传输线 $$ \begin{cases} 数据总线 \qquad 双向.与机器字长,存储字长有关\\ 地址总线 \qquad 单向,与存储地址,I/O地址有关 \\ 控制总线 \qquad 有出有入 \\ \end{cases} $$ 总线的性能指标: 总线宽度: 数据线的根数. 标准传输率: 每秒传输的最大字节数(MBps). 时钟同步/异步: 同步、不同步 总线复用: 地址线与数据线复用 信号线数: 地址线,数据线和控制线的总和." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.mengcfunk.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" /><meta property="og:image" content="http://www.mengcfunk.com/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-03-05T13:48:55&#43;08:00" />
+<meta property="article:modified_time" content="2020-11-20T18:31:26&#43;08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://www.mengcfunk.com/logo.png"/>
+
+<meta name="twitter:title" content="计算机组成原理"/>
+<meta name="twitter:description" content="计算机组成原理 2020/10/12 冯•诺依曼计算及特点
+ 计算机由武大部分组成. 指令和数据以同等地位存于存储器,可按地址寻访 指令和数据用二进制表示 指令由操作码和地址码组成 存储程序 以运算器为中心  现代计算机结构以存储器为核心.
+ 存储单元:每个存储单元存放一串二进制代码. 存储字:存储单元中二进制代码的组合. 存储字长:存储单元中二进制代码的位数. 存储元:即存储二进制的电子元件,每个存储元可存1bit.  运算器 运算器:用于实现算术运算,逻辑运算. ACC(Accumulation):累加器,用于存放操作数,或运算结果. MQ(Multiple-Quotient Register):乘商寄存器,在乘、除运算时,用于存放操作数或运算结果. x:通用的操作数寄存器,用于存放操作数 ALU(Arithmetic and Logic Unit):算数逻辑单元,通过内部复杂的电路实现算数运算,逻辑运算.   减法操作过程: 乘法操作过程:
+除法操作过程:
+ 控制器 CU(Control Unit):控制单元,分析指令,给出控制信号. IR(Instruction Register):指令寄存器,存放当前执行的指令 PC(Program Counter):程序计数器.存放下一条指令地址,有自动加1功能.    取数指令过程   片内总线:芯片内部的总线 系统总线:计算机各部门之间的信息传输线 $$ \begin{cases} 数据总线 \qquad 双向.与机器字长,存储字长有关\\ 地址总线 \qquad 单向,与存储地址,I/O地址有关 \\ 控制总线 \qquad 有出有入 \\ \end{cases} $$ 总线的性能指标: 总线宽度: 数据线的根数. 标准传输率: 每秒传输的最大字节数(MBps). 时钟同步/异步: 同步、不同步 总线复用: 地址线与数据线复用 信号线数: 地址线,数据线和控制线的总和."/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://www.mengcfunk.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" /><link rel="prev" href="http://www.mengcfunk.com/bank/" /><link rel="next" href="http://www.mengcfunk.com/linearstack/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "计算机组成原理",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/www.mengcfunk.com\/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86\/"
+        },"genre": "posts","keywords": "计算机组成原理","wordcount":  209 ,
+        "url": "http:\/\/www.mengcfunk.com\/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86\/","datePublished": "2020-03-05T13:48:55+08:00","dateModified": "2020-11-20T18:31:26+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "mxw"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="mengcfunk&#39;s website">mengcfunk&#39;s website</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/login.html"> login </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="mengcfunk&#39;s website">mengcfunk&#39;s website</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/login.html" title="">login</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">计算机组成原理</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://www.mengcfunk.com" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>mxw</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw"></i>学习记录</a>&nbsp;<a href="/categories/%E4%B9%A6%E9%9D%A2%E7%9F%A5%E8%AF%86/"><i class="far fa-folder fa-fw"></i>书面知识</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-05">2020-03-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 209 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><h1 id="计算机组成原理">计算机组成原理</h1>
+<p>2020/10/12
+冯•诺依曼计算及特点</p>
+<ul>
+<li>计算机由武大部分组成.</li>
+<li>指令和数据以同等地位存于存储器,可按地址寻访</li>
+<li>指令和数据用二进制表示</li>
+<li>指令由操作码和地址码组成</li>
+<li>存储程序</li>
+<li><font color="red" size='6px'>以运算器为中心</font></li>
+</ul>
+<p>现代计算机结构以存储器为核心.</p>
+<ul>
+<li>存储单元:每个存储单元存放一串二进制代码.</li>
+<li>存储字:存储单元中二进制代码的组合.</li>
+<li>存储字长:存储单元中二进制代码的位数.</li>
+<li>存储元:即存储二进制的电子元件,每个存储元可存1bit.</li>
+</ul>
+<p>运算器<img src='/images/加法运算器过程.png' align='right' height="200px"></p>
+<ul>
+<li>运算器:用于实现算术运算,逻辑运算.</li>
+<li>ACC(Accumulation):累加器,用于存放操作数,或运算结果.</li>
+<li>MQ(Multiple-Quotient Register):乘商寄存器,在乘、除运算时,用于存放操作数或运算结果.</li>
+<li>x:通用的操作数寄存器,用于存放操作数</li>
+<li>ALU(Arithmetic and Logic Unit):算数逻辑单元,通过内部复杂的电路实现算数运算,逻辑运算.</li>
+</ul>
+<blockquote>
+<p>减法操作过程:
+<img src='/images/减法运算器过程.png'><br>
+乘法操作过程:<br>
+<img src='/images/乘法运算器过程.png'><br>
+除法操作过程:<br>
+<img src='/images/除法运算器过程.png'><br></p>
+</blockquote>
+<p>控制器<img src='/images/控制器组成.png' align='right' height="200px"></p>
+<ul>
+<li>CU(Control Unit):控制单元,分析指令,给出控制信号.</li>
+<li>IR(Instruction Register):指令寄存器,存放当前执行的指令</li>
+<li>PC(Program Counter):程序计数器.存放下一条指令地址,有自动加1功能.
+<br/><br/><br/></li>
+</ul>
+<blockquote>
+<p>取数指令过程
+<img src='/images/取数指令过程.png'>
+<img src='/images/存数指令过程.png'></p>
+</blockquote>
+<ul>
+<li>片内总线:芯片内部的总线</li>
+<li>系统总线:计算机各部门之间的信息传输线
+$$
+\begin{cases} 数据总线 \qquad 双向.与机器字长,存储字长有关\\ 地址总线 \qquad 单向,与存储地址,I/O地址有关  \\ 控制总线 \qquad 有出有入 \\ \end{cases}
+$$
+总线的性能指标:</li>
+<li>总线宽度: 数据线的根数.</li>
+<li>标准传输率: 每秒传输的最大字节数(MBps).</li>
+<li>时钟同步/异步: 同步、不同步</li>
+<li>总线复用: 地址线与数据线复用</li>
+<li>信号线数: 地址线,数据线和控制线的总和.</li>
+<li>总线控制方式: 突发,自动,仲裁,逻辑,计数.</li>
+<li>其他指标: 负载能力.</li>
+</ul>
+<p>总线传输周期</p>
+<p>$$ \begin{cases} 申请分配阶段 \qquad 主模块申请,总线仲裁决定 \\ 寻址阶段 \qquad\qquad 主模块向从模块给出地址和命令  \\ 传数阶段 \qquad\qquad 主模块和从模块交换数据 \\结束阶段 \qquad\qquad 主模块撤消有关信息 \\ \end{cases} $$</p>
+<p>总线通信的四种方式
+$$ \begin{cases} 同步通信 \qquad 由同意时标控制数据传送\\ 异步通信 \qquad 采用应答方式,没有公共时间标准  \\
+半同步通信 \qquad 同步,异步结合. \\
+分离式通信 \qquad 充分挖掘系统总线每个瞬间的潜力 \\
+\end{cases} $$
+<img src='/images/同步通信过程.png' height='500px'>
+<img src='/images/同步式数据输出.png' height='500px'>
+<img src='/images/异步通信.png'>
+$$
+CPU主频(时钟频率) = \frac{1}{CPU时钟周期} \\
+CPI(Clock cycle Per Instruction) = 执行一条指令所需要的时钟周期数 \\
+IPS(Instructions Per Second)每秒执行多少条指令\qquad\qquad\qquad \\
+IPS = \frac{主频}{平均CPI}
+FLops(Floating Point Operations Per second)每秒执行多少浮点运算.\\
+$$
+数据通路带宽:数据总线一次所能并行传送信息的位数.
+吞吐量:指系统在单位时间内处理请求的数量.
+响应时间:指从用户向计算机发送一个请求,到系统对该请求的响应所需的等待时间.</p>
+<p>负数补码的算术移位：
+右移：高位补1，低位舍弃
+左移：低位补0，高位舍弃</p>
+<table border="1">
+<tr>
+<th colspan="3" width="1000px">
+正负数移码的填补代码
+</th>
+</tr>
+<tr>
+    <td>
+    </td>
+    <td>
+        码制
+    </td>
+    <td>
+        添补代码
+    </td>
+</tr>
+<tr>
+    <td>
+        正数
+    </td>
+    <td>
+         原码、反码、补码
+    </td>
+    <td>
+        0
+    </td>
+</tr>
+<tr>
+    <td rowspan ="4">
+        负数
+    </td>
+    <td>
+        原码
+    </td>
+    <td>
+        0
+    </td>
+</tr>
+<tr>
+    <td>
+        反码
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td rowspan="2">
+        补码
+    </td>
+    <td>
+        左移添0
+    </td>
+</tr>
+<tr>
+    <td>
+        右移添1
+    </td>
+</tr>
+</table>
+<p>正数+正数,如果得到负数,那么就发生了上溢.负数+负数,若果是正数,那么就发生了下溢.</p>
+<p>原码乘法为:(逻辑右移)
+当前位=1,则ACC加上被乘数.
+当前位为0,则ACC加上0.</p>
+<p>补码乘法运算:(算术右移:符号位不动,数值位右移,正数右移补0,负数右移补1)
+辅助位-MQ中最低位=1时,(ACC)+[x]补.
+辅助位-MQ中最低位=0时,(ACC)+0.
+辅助位-MQ中最低位=-1时,(ACC)+[-x]补.</p>
+<p>原码除法运算:(逻辑左移)</p>
+<blockquote>
+<ul>
+<li>恢复余数法:
+计算机先上1,如果余数是负数,则把上的1改为0,如果余数是正的则不改动.</li>
+<li>加减交替法:
+计算机先减一次<i class="far fa-check-square fa-fw"></i> 补,如果余数是正的,则上1,如果是负的则上0.</li>
+</ul>
+</blockquote>
+<p>补码除法:加减交替法
+余数和除数同号,商1,余数左移一位减去除数.
+余数和除数异号,商0,余数左移一位加上除数.重复n次.</p>
+<p>浮点数尾数的规格化.
+规定尾数的最高数值位必须是一个有效值.
+左规:当浮点数运算的结果为非规格化时要进行规格化处理,将尾数算数左移一位,阶码减1.
+右规:当浮点数运算的结果尾数出现溢出(双符号位为01或10)时,将尾数算数右移一位.阶码加1.</p>
+<table >
+<tr>
+    <th width="1000px" colspan="7">
+        浮点数的划分
+    </th>
+</tr>
+<tr>
+    <td rowspan="2">
+        类型
+    </td>
+    <td rowspan="2">
+        数符
+    </td>
+    <td rowspan="2">
+        阶码
+    </td>
+    <td rowspan="2">
+        尾数数值
+    </td>
+    <td rowspan="2">
+        总位数
+    </td>
+    <td colspan="2" align="center">
+        偏置值
+    </td>
+</tr>
+<tr>
+    <td>
+        十六进制
+    </td>
+    <td>
+        十进制
+    </td>
+</tr>
+<tr>
+    <td>
+        短浮点数
+    </td>
+    <td>
+        1
+    </td>
+    <td>
+        8
+    </td>
+    <td>
+        23
+    </td>
+    <td>
+        32
+    </td>
+    <td>
+        7FH
+    </td>
+    <td>
+        127
+    </td>
+</tr>
+<tr>
+    <td>
+        浮点数
+    </td>
+    <td>
+        1
+    </td>
+    <td>
+        11
+    </td>
+    <td>
+        52
+    </td>
+    <td>
+        64
+    </td>
+    <td>
+        3FFH
+    </td>
+    <td>
+        1023
+    </td>
+</tr>
+<tr>
+    <td>
+        临时浮点数
+    </td>
+    <td>
+        1
+    </td>
+    <td>
+        15
+    </td>
+    <td>
+        64
+    </td>
+    <td>
+        80
+    </td>
+    <td>
+        3FFFH
+    </td>
+    <td>
+        16383
+    </td>
+</tr>
+</table>
+<p>阶码真值=移码-偏移量.
+当阶码E全为0,尾数不全为0时,表示非规格小数$\pm$(0.M)$\times2^{-126}$
+当阶码E全为0,尾数M全为0.表示真值$\pm$0.
+当阶码E全为1,尾数M全为0时,表示无穷大$\pm\infty$.
+当阶码E全为1,尾数M全为0时,表示非数值&quot;NaN&quot;(Not ａ Number).</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-11-20</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://www.mengcfunk.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" data-title="计算机组成原理" data-ralateuid="u/6177028917"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://www.mengcfunk.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" data-title="计算机组成原理" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://www.mengcfunk.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" data-title="计算机组成原理" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://www.mengcfunk.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" data-title="计算机组成原理"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/bank/" class="prev" rel="prev" title="银行排队实现"><i class="fas fa-angle-left fa-fw"></i>银行排队实现</a>
+            <a href="/linearstack/" class="next" rel="next" title="线性栈">线性栈<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.81.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">mengxiangwei</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">湘ICP备20004024号</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"gitalk":{"admin":["theweakgod"],"clientID":"c928f7c3b497cdacd146","clientSecret":"8bf97764f8a991353f89d915b83c4c35b32b145c","id":"2020-03-05T13:48:55+08:00","owner":"theweakgod","repo":"Page","title":"计算机组成原理"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

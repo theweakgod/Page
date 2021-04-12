@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      <el-upload
+      class="upload-demo"
+      action="https://www.mengcfunk.com:8080/mengcfunkWebSite/uploadFile"
+      :headers="headers"
+      :on-preview="handlePreview"
+      :on-remove="handleRemove"
+      :before-remove="beforeRemove"
+      multiple
+      :limit="100000"
+      :on-exceed="handleExceed"
+      :file-list="fileList">
+      <el-button size="small" type="primary">点击上传</el-button>
+      <div slot="tip" class="el-upload__tip">文件上传不能大于100M</div>
+    </el-upload>
+    </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="../login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script>
+  new Vue({
+    // 挂载啊 sd，vue不用 element怎么用
+    el:'#app',
+    data() {
+      return {
+        fileList: []
+      };
+    },
+    computed:{
+      headers(){
+        return{
+          Authorization: sessionStorage.getItem("token"),
+        }
+      }
+    },
+    created:function(){
+          var _self=this;
+      $.ajax({
+          type:"GET",
+          url:"https://www.mengcfunk.com:8080/mengcfunkWebSite/getAllFileName",
+          // data:{"id":val},     // data参数是可选的，有多种写法，也可以直接在url参数拼接参数上去，例如这样：url:"getUser?id="+val,
+          data: {
+          },
+          headers: {
+            'Authorization': sessionStorage.getItem("token"),//sessionStorage.getItem("token"),
+          },
+          async:true,   // 异步，默认开启，也就是$.ajax后面的代码是不是跟$.ajx里面的代码一起执行
+          cache:true,  // 表示浏览器是否缓存被请求页面,默认是 true
+          dataType:"json",   // 返回浏览器的数据类型，指定是json格式，前端这里才可以解析json数据
+          success:function(data){
+            temp=[]
+            for(var i=0;i<data.length;i++){
+              console.log(data[i]['filesName'])
+              temp.push({name:data[i]['filesName']});
+            }
+            _self.fileList = temp;
+          },
+          error:function(){
+              console.log("名字get失败,请检查网络")
+          }
+      });
+    },
+    methods: {
+      handleRemove(file, fileList) {
+        function remove(file1){
+            $.ajax({
+              type:"POST",
+              url:"https://www.mengcfunk.com:8080/mengcfunkWebSite/deleteFile",
+              // data:{"id":val},     // data参数是可选的，有多种写法，也可以直接在url参数拼接参数上去，例如这样：url:"getUser?id="+val,
+              data: {
+                fileName: file1.name
+              },
+              headers: {
+                'Authorization': sessionStorage.getItem("token"),//sessionStorage.getItem("token"),
+              },
+              async:true,   // 异步，默认开启，也就是$.ajax后面的代码是不是跟$.ajx里面的代码一起执行
+              cache:true,  // 表示浏览器是否缓存被请求页面,默认是 true
+              dataType:"json",   // 返回浏览器的数据类型，指定是json格式，前端这里才可以解析json数据
+              success:function(data){
+                alert(data.code)
+              },
+              error:function(){
+                alert(data.code)
+              }
+            });
+          
+        }
+        remove(file)
+      },
+      handlePreview(file,fileList) {
+        var a = document.createElement('a')
+        var event = new MouseEvent('click')
+        a.download = '下载图片名称'
+        function getUrl(file){
+          $.ajax({
+              type:"POST",
+              url:"https://www.mengcfunk.com:8080/mengcfunkWebSite/downloadFile",
+              // data:{"id":val},     // data参数是可选的，有多种写法，也可以直接在url参数拼接参数上去，例如这样：url:"getUser?id="+val,
+              data: {
+                fileName: file
+              },
+              headers: {
+                'Authorization': "a8471bb0-f28e-4a94-9311-06508d77c9aa",//sessionStorage.getItem("token"),
+              },
+              async:true,   // 异步，默认开启，也就是$.ajax后面的代码是不是跟$.ajx里面的代码一起执行
+              cache:true,  // 表示浏览器是否缓存被请求页面,默认是 true
+              dataType:"json",   // 返回浏览器的数据类型，指定是json格式，前端这里才可以解析json数据
+              success:function(data){
+                a.href = data.code
+                a.dispatchEvent(event)
+              },
+              error:function(){
+                alert(data.code)
+              }
+          });
+        }
+        getUrl(file.name)
+      },
+      handleExceed(files, fileList) {
+        this.$message.warning(`当前限制选择 1000 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+      },
+      handleChange(file, fileList) {
+        this.fileList = fileList.slice(-3);
+      },
+      beforeRemove(file, fileList) {
+        return this.$confirm(`确定移除 ${ file.name }？`);
+      }
+    }
+  })
+
+</script>
+</html>

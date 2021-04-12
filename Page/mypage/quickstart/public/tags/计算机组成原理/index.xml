@@ -1,0 +1,19 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>计算机组成原理 - 标签 - mengcfunk&#39;s website</title>
+        <link>http://www.mengcfunk.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</link>
+        <description>计算机组成原理 - 标签 - mengcfunk&#39;s website</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>1031205858@qq.com (mengxiangwei)</managingEditor>
+            <webMaster>1031205858@qq.com (mengxiangwei)</webMaster><lastBuildDate>Thu, 05 Mar 2020 13:48:55 &#43;0800</lastBuildDate><atom:link href="http://www.mengcfunk.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="self" type="application/rss+xml" /><item>
+    <title>计算机组成原理</title>
+    <link>http://www.mengcfunk.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</link>
+    <pubDate>Thu, 05 Mar 2020 13:48:55 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://www.mengcfunk.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</guid>
+    <description><![CDATA[计算机组成原理 2020/10/12 冯•诺依曼计算及特点
+ 计算机由武大部分组成. 指令和数据以同等地位存于存储器,可按地址寻访 指令和数据用二进制表示 指令由操作码和地址码组成 存储程序 以运算器为中心  现代计算机结构以存储器为核心.
+ 存储单元:每个存储单元存放一串二进制代码. 存储字:存储单元中二进制代码的组合. 存储字长:存储单元中二进制代码的位数. 存储元:即存储二进制的电子元件,每个存储元可存1bit.  运算器 运算器:用于实现算术运算,逻辑运算. ACC(Accumulation):累加器,用于存放操作数,或运算结果. MQ(Multiple-Quotient Register):乘商寄存器,在乘、除运算时,用于存放操作数或运算结果. x:通用的操作数寄存器,用于存放操作数 ALU(Arithmetic and Logic Unit):算数逻辑单元,通过内部复杂的电路实现算数运算,逻辑运算.   减法操作过程: 乘法操作过程:
+除法操作过程:
+ 控制器 CU(Control Unit):控制单元,分析指令,给出控制信号. IR(Instruction Register):指令寄存器,存放当前执行的指令 PC(Program Counter):程序计数器.存放下一条指令地址,有自动加1功能.    取数指令过程   片内总线:芯片内部的总线 系统总线:计算机各部门之间的信息传输线 $$ \begin{cases} 数据总线 \qquad 双向.与机器字长,存储字长有关\\ 地址总线 \qquad 单向,与存储地址,I/O地址有关 \\ 控制总线 \qquad 有出有入 \\ \end{cases} $$ 总线的性能指标: 总线宽度: 数据线的根数. 标准传输率: 每秒传输的最大字节数(MBps). 时钟同步/异步: 同步、不同步 总线复用: 地址线与数据线复用 信号线数: 地址线,数据线和控制线的总和.]]></description>
+</item></channel>
+</rss>

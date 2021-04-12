@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>启发式搜索 - 标签 - mengcfunk&#39;s website</title>
+        <link>http://www.mengcfunk.com/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/</link>
+        <description>启发式搜索 - 标签 - mengcfunk&#39;s website</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>1031205858@qq.com (mengxiangwei)</managingEditor>
+            <webMaster>1031205858@qq.com (mengxiangwei)</webMaster><lastBuildDate>Wed, 04 Mar 2020 15:58:26 &#43;0800</lastBuildDate><atom:link href="http://www.mengcfunk.com/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/" rel="self" type="application/rss+xml" /><item>
+    <title>A*算法解决8数码问题</title>
+    <link>http://www.mengcfunk.com/eightcode/</link>
+    <pubDate>Wed, 04 Mar 2020 15:58:26 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://www.mengcfunk.com/eightcode/</guid>
+    <description><![CDATA[在3×3的棋盘上，摆有八个棋子，每个棋子上标有1至8的某一数字。棋盘中留有一个空格，空格用0来表示。空格周围的棋子可以移到空格中。要求解的问题是：给出一种初始布局（初始状态）和目标布局，找到一种最少步骤的移动方法，实现从初始布局到目标布局的转变。
+  8数码要解决的问题   基本的棋子移动,不应当看做是空格(也就是图中的0)向四个方向移动,而不是看成其他4个棋子向空格移动,这样会增加难度.
+启发式搜索的关键在于对每步的动作进行评估和在close表中出现过,若出现过则回朔到上一步,对每次的步骤进行评估,按照评估的价值对open表进行排序(这里采用插入排序). 具体步骤如下:
+ （ 1 ）把初始节点 S0 放入 Open 表中， f(S0)=g(S0)+h(S0);
+（ 2 ）如果 Open 表为空，则问题无解，失败退出；
+• （ 3 ）把 Open 表的第一个节点取出放入 Closed 表，并记该节点为 n ；
+• （ 4 ）考察节点 n 是否为目标节点。若是，则找到了问题的解，成功退出；
+• （ 5 ）若节点 n 不可扩展，则转到第 (2) 步；
+• （ 6 ）扩展节点 n ，生成子节点 ni ( i =1,2, …… ) ，计算每一个子节点的估价值 f( ni ) ( i =1,2, …… ) ，并为每一个子节点设置指向父节点的指针，然后将这些子节点放入 Open 表中；]]></description>
+</item></channel>
+</rss>

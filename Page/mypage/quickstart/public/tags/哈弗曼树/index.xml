@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>哈弗曼树 - 标签 - mengcfunk&#39;s website</title>
+        <link>http://www.mengcfunk.com/tags/%E5%93%88%E5%BC%97%E6%9B%BC%E6%A0%91/</link>
+        <description>哈弗曼树 - 标签 - mengcfunk&#39;s website</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>1031205858@qq.com (mengxiangwei)</managingEditor>
+            <webMaster>1031205858@qq.com (mengxiangwei)</webMaster><lastBuildDate>Thu, 05 Mar 2020 13:48:55 &#43;0800</lastBuildDate><atom:link href="http://www.mengcfunk.com/tags/%E5%93%88%E5%BC%97%E6%9B%BC%E6%A0%91/" rel="self" type="application/rss+xml" /><item>
+    <title>哈弗曼树</title>
+    <link>http://www.mengcfunk.com/huffmantree/</link>
+    <pubDate>Thu, 05 Mar 2020 13:48:55 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://www.mengcfunk.com/huffmantree/</guid>
+    <description><![CDATA[哈弗曼树:给定N个权值作为N个叶子结点，构造一棵二叉树，若该树的带权路径长度达到最小，称这样的二叉树为最优二叉树，也称为哈夫曼树(Huffman Tree)。哈夫曼树是带权路径长度最短的树，权值较大的结点离根较近。
+在计算机数据处理中，哈夫曼编码使用变长编码表对源符号（如文件中的一个字母）进行编码，其中变长编码表是通过一种评估来源符号出现机率的方法得到的，出现机率高的字母使用较短的编码，反之出现机率低的则使用较长的编码，这便使编码之后的字符串的平均长度、期望值降低，从而达到无损压缩数据的目的。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182  #include&lt;stdio.]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>算法导论 - 分类 - mengcfunk&#39;s website</title>
+        <link>http://www.mengcfunk.com/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/</link>
+        <description>算法导论 - 分类 - mengcfunk&#39;s website</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>1031205858@qq.com (mengxiangwei)</managingEditor>
+            <webMaster>1031205858@qq.com (mengxiangwei)</webMaster><lastBuildDate>Thu, 17 Dec 2020 19:24:55 &#43;0800</lastBuildDate><atom:link href="http://www.mengcfunk.com/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" rel="self" type="application/rss+xml" /><item>
+    <title>动态规划</title>
+    <link>http://www.mengcfunk.com/dynamicprogram/</link>
+    <pubDate>Thu, 17 Dec 2020 19:24:55 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://www.mengcfunk.com/dynamicprogram/</guid>
+    <description><![CDATA[动态规划 简介 动态规划(dynamic programming)与分治方法相似,都是通过组合子问题的解来求解原问题.但动态规划用来求解子问题重叠的情况.动态规划方法通常用来求解最优化问题(optimization problem).
+钢条切割 给定一段长度为n英寸的钢条和一个价格表Pi,求切割钢条方案,使得销售收益Rn最大.注意,如果长条为n英寸的钢条的价格Pn足够大,最优解可能就是完全不需要切割.
+   长度i   1 2 3 4 5 6 7 8 9 10     价格Pi   1 5 8 9 10 17 17 20 24 30    动态规划,自顶向下,加入备忘机制,伪代码:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  let r[0...n] be a new array for i = 0 to n r[i]=-$\Infty$ return MEMOIZED-CUT-ROD-AUX(p,n,r) MEMOIZED-CUT-ROD-AUX(p,n,r){ if(r[n]&gt;=0) return r[n] if(n==0) q=0 else(q==-$\Infty$) for i=1 to n q=max(q,p[i]+MEMOIZED-CUT-ROD-AUX(p,n-i,r)) r[n]=q return q }   简单计算一下,该函数传递进去,先计算for i=1 to n,那么调用的就是参数为n-1的函数,反复调用至第1层,则r[1&hellip;n-1]都大于0了.]]></description>
+</item></channel>
+</rss>
